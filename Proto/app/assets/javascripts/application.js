@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-var teste = jQuery('.Titleform');
+var teste = document.getElementById('MainContainerLogin');
 if(teste){
 	alert("iriri");
 }
