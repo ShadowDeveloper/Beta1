@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+		<body>
+
+		<section id="MainContainerLogin">
+			<h1 class="logo"></h1>
+			<span class="Welcome">Bem Vindo !</span>
+			<%= form_tag("main/home_page", :class => "FormLogin") do%>
+		
+				<p class="Titleform">Login</p>
+				
+				<p class="fieldsForm">
+					<label for="userName" id="idUserName"></label>
+					<input type="text" required autofocus placeholder="USUÁRIO"><br>
+				</p>
+
+				<p class="fieldsForm">
+					<label for="userPassword" id="idUserPassword"></label>
+					<input type="password" required placeholder="SENHA">
+				</p>		
+				
+				<%= submit_tag "Entrar"%>
+			<%end%>	
+		</section>
+			
+		</body>
+</html>
