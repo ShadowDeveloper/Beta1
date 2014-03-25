@@ -36,10 +36,17 @@
 </html>
 
 <script>
+
 var urlAtual = window.location.href;
-var url = urlAtual.indexOf("password");
-if(url != -1){
+var urlPass = urlAtual.indexOf("password");
+var urlUser = urlAtual.indexOf("erruser");
+
+if(urlPass != -1){
+	jQuery('#errorPassword').html('<p>A senha digitada está incorreta. Tente novamente!</p>');
 	jQuery('#errorPassword').slideDown('4000');
 }
-
+if(urlUser != -1){
+	jQuery('#errorPassword').html('<p>O usuário digitado não existe. Tente novamente!</p>');
+	jQuery('#errorPassword').slideDown('4000');
+}
 </script>

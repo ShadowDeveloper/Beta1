@@ -106,6 +106,7 @@
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+    margin-bottom: 31px;
 }
 
 .submitLogin{width: 140px; height: 34px; float: right; margin: 10px 14px 0 0; background: url('/assets/submitLogin.png'); border: 0px; cursor:pointer; border-radius: 3px;}
