@@ -8,7 +8,8 @@
 		<section id="MainContainerLogin">
 			<h1 class="logo"></h1>
 			<span class="Welcome">Bem Vindo !</span>
-			<form name="" method="POST" class="FormLogin">
+			<%= form_tag("main/home_page", :class => "FormLogin") do%>
+			<!-- <form name="" method="POST" class="FormLogin"> -->
 				<p class="Titleform">Login</p>
 				
 				<p class="fieldsForm">
@@ -20,7 +21,9 @@
 					<label for="userPassword" id="idUserPassword"></label>
 					<input type="password" required placeholder="SENHA">
 				</p>		
-				<input type="submit">
+				<!-- <input type="submit"> -->
+				<%= submit_tag "Entrar"%>
+				<%end%>
 			</form>	
 		</section>
 			
