@@ -1,0 +1,16 @@
+<center>
+	<a href="/user/<%= session[:user_id]%>">Home</a> <a href="/client"><b>Cadastrar Cliente</b></a> <a href="/">Buscar Cliente</a> <a href="/user/logout">Sair</a><br/>
+</center>
+
+Logado como: <%= session[:user_login] %>
+
+<br>
+<br>
+<br>
+<br>
+<center>
+	<%= form_tag('/client', :method => "post")%>
+		Nome Completo<br>
+		<%= text_field_tag :name,nil, name: "name"%><br>
+	<%= submit_tag "Gravar"%>
+</center>

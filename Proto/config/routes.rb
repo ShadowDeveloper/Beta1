@@ -1,5 +1,12 @@
 Proto::Application.routes.draw do
   resources :main
+
+  resources :user do
+    post 'login', on: :collection
+    get 'logout', on: :collection
+  end
+
+  resources :client
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
