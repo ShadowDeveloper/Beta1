@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<title></title>
+			<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+			<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	</head>
 		<body>
 
@@ -21,7 +23,11 @@
 					<label for="userPassword" id="idUserPassword"></label>
 					<input type="password" name="password" required placeholder="SENHA">
 				</p>		
-				
+				<div id="errorPassword">
+					<p>
+						A senha digitada está incorreta. Tente novamente!
+					</p>
+				</div>
 				<%= submit_tag "", :class => "submitLogin"%>
 			<%end%>	
 		</section>
@@ -30,5 +36,10 @@
 </html>
 
 <script>
+var urlAtual = window.location.href;
+var url = urlAtual.indexOf("password");
+if(url != -1){
+	jQuery('#errorPassword').slideDown('4000');
+}
 
 </script>
