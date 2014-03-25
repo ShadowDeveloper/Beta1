@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+var teste = jQuery('.Titleform');
+if(teste){
+	alert("iriri");
+}
