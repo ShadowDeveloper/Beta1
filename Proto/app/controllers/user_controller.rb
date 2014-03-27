@@ -1,6 +1,13 @@
 class UserController < ApplicationController
 	def create
-		
+		User.create(
+			:name => params[:name],
+			:login => params[:login],
+			:password => params[:password],
+			:adm => params[:adm] ||= 0,
+			:cpf => params[:cpf]
+		)
+		redirect_to :back
 	end
 
 	def index

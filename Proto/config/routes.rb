@@ -2,6 +2,7 @@ Proto::Application.routes.draw do
   resources :main
 
   resources :user do
+    post 'create', on: :collection
     post 'login', on: :collection
     get 'logout', on: :collection
     get 'new_user', on: :collection
