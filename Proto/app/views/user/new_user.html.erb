@@ -43,27 +43,33 @@
 
 <div id="container">
 
-<center>
-	<%= form_tag("/user", :method => "post") do %>
-		LOGIN<br />
-		<%= text_field_tag :login, nil, :placeholder => "Login"%><br /><br />
 
-		Nome Completo<br />
-		<%= text_field_tag :name, nil, :placeholder => "Nome"%><br /><br />
-
-		CPF<br />
-		<%= text_field_tag :cpf, nil, :placeholder => "CPF"%><br /><br />
-
-		SENHA<br />
-		<%= text_field_tag :password, nil, :placeholder => "Senha"%><br /><br />
-
+	<%= form_tag("/user", :method => "post", :class => "formNewUser") do %>
 		
-		<%= check_box_tag :adm %> ADM<br /><br /><br /><br />
+    <p>
+      <label>Login:</label>
+		  <%= text_field_tag :login, nil, :placeholder => "Login"%>
+    </p>
+
+    <p>
+  		<label>Nome Completo</label>
+  		<%= text_field_tag :name, nil, :placeholder => "Nome"%>
+    </p>
+
+    <p>      
+		  <label>CPF</label>
+		  <%= text_field_tag :cpf, nil, :placeholder => "CPF"%>
+    </p>
+    <p>
+		  <label>SENHA</label>
+		  <%= text_field_tag :password, nil, :placeholder => "Senha"%>
+      </p>
+		
+		<%= check_box_tag :adm %> <label>ADM</label>
 
 		<%= submit_tag "Gravar"%>
 
 	<% end %>
-</center>
 
 </div>
 
