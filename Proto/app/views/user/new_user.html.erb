@@ -2,3 +2,30 @@
 	<a href="/user/<%= session[:user_id]%>">Home</a> <b><a href="/user/new_user">Cadastrar Usuario</a></b> <a href="/client">Cadastrar Cliente</a> <a href="/">Buscar Cliente</a> <a href="/user/logout">Sair</a><br/>
 </center>
 Logado como: <%= session[:user_login] %>
+
+<br>
+<br>
+<br>
+<br>
+
+<center>
+	<%= form_tag("/user/create", :method => "post") do %>
+		LOGIN<br />
+		<%= text_field_tag :login, nil, :placeholder => "Login"%><br /><br />
+
+		Nome Completo<br />
+		<%= text_field_tag :name, nil, :placeholder => "Nome"%><br /><br />
+
+		CPF<br />
+		<%= text_field_tag :cpf, nil, :placeholder => "CPF"%><br /><br />
+
+		SENHA<br />
+		<%= text_field_tag :password, nil, :placeholder => "Senha"%><br /><br />
+
+		
+		<%= check_box_tag :adm %> ADM<br /><br /><br /><br />
+
+		<%= submit_tag "Gravar"%>
+
+	<% end %>
+</center>
