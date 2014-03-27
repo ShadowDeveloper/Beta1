@@ -9,7 +9,7 @@ Logado como: <%= session[:user_login] %>
 <br>
 
 <center>
-	<%= form_tag("/user/create", :method => "post") do %>
+	<%= form_tag("/user", :method => "post") do %>
 		LOGIN<br />
 		<%= text_field_tag :login, nil, :placeholder => "Login"%><br /><br />
 
