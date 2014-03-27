@@ -1,0 +1,11 @@
+<br/>
+<br/>
+<br/>
+<br/>
+
+<center>
+	 | CPF | NOME  |<br />
+	<% @clients.each  do |client| %>
+		<a href="/client/<%=client.id%>"><%= client.cpf %> <%= client.name%><br />
+	<% end %>
+</center>
