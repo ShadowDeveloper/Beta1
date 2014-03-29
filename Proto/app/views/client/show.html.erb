@@ -11,7 +11,7 @@
 
 <center>
 	<b>Novo Imóvel</b>
-	<%= form_tag ("residence"), method: :post do %>
+	<%= form_tag ("/residence"), method: :post do %>
 		<%= text_field_tag :address, nil, placeholder: "Endereço"%><br />
 		<%= submit_tag "Gravar"%>
 	<%end%>
