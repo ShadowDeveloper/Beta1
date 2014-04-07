@@ -22,6 +22,12 @@ class ClientController < ApplicationController
 	end
 
 	def list
+		search_by = "" 
+
+		if params[:search_by]
+			search_by = params[:search_by]
+		end
+
 		@clients = Client.find :all
 	end
 end

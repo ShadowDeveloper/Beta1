@@ -43,8 +43,8 @@
 
 <div id="container">
   Buscar Por: 
-  <%= form_tag("/client/search") do %>
-    <select>
+  <%= form_tag("/client/list", method: "get") do %>
+    <select name="search_by">
      <option value="cpf">CPF</option>
      <option value="cnpj">CNPJ</option>
      <option value="nome">Nome</option>
