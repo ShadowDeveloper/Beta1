@@ -116,7 +116,7 @@
 .navbar-brand{background-image: url('/assets/logoInterno.png'); background-color: #fff; background-size: 300px; background-repeat: no-repeat; width: 320px; background-position: 8px 0; height: 50px; border-radius: 3px;}
 .navbar-brand:hover{background-color:#fff !important; }
 
-#container{position: relative; background: transparent; margin-left: 24.55%; padding:90px 20px 30px 20px;  width: 83%; height: 100%;}
+#container{position: relative; background: transparent; margin-left: 17%; padding:90px 20px 30px 20px;  width: 83%; height: 100%;}
 
 .userName{text-transform:capitalize; color: #fff;}
 #RightBar{position:fixed; display:block;z-index:100; top:71px; width: 335px; height: 100%; background: #f5f5f5;}
