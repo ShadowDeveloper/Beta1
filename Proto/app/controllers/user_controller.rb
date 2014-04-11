@@ -1,13 +1,19 @@
 class UserController < ApplicationController
 	def create
-		User.create(
+		new_user = User.new(
 			:name => params[:name],
 			:login => params[:login],
 			:password => params[:password],
 			:adm => params[:adm] ||= 0,
 			:cpf => params[:cpf]
 		)
-		redirect_to :back
+
+		if new_user.save
+			redirect_to "/user/new_user?status=registred"
+		else
+			@error = "cpf_exists" if new_user.errors.messages[:cpf][0]
+			redirect_to "/user/new_user?status=#{@error}"
+		end
 	end
 
 	def index
