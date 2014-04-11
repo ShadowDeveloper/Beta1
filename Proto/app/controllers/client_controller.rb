@@ -25,11 +25,10 @@ class ClientController < ApplicationController
 
 		if params[:search]
 			#TO DO
-			#Mudar buscar por nome por um like
 			#Criar busca por CJPJ e RG
 			#[end]
 			search_by = "cpf = #{params[:search]}" if params[:search_by] == "cpf"
-			search_by = "name = '#{params[:search]}'" if params[:search_by] == "nome"
+			search_by = "name like '%#{params[:search]}%'" if params[:search_by] == "nome"
 			@clients = Client.where("#{search_by}")
 		else
 			@clients = Client.all
