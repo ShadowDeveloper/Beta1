@@ -48,26 +48,26 @@
 		
     <p>
       <label>Login:</label>
-		  <%= text_field_tag :login, nil, :placeholder => "Login"%>
+		  <%= text_field_tag :login, nil, :placeholder => "Login", :class=> "form-control", :required => "required" %>
     </p>
 
     <p>
   		<label>Nome Completo</label>
-  		<%= text_field_tag :name, nil, :placeholder => "Nome"%>
+  		<%= text_field_tag :name, nil, :placeholder => "Nome", :class=> "form-control", :required => "required"%>
     </p>
 
     <p>      
 		  <label>CPF</label>
-		  <%= text_field_tag :cpf, nil, :placeholder => "CPF"%>
+		  <%= text_field_tag :cpf, nil, :placeholder => "CPF", :class=> "form-control", :required => "required"%>
     </p>
     <p>
-		  <label>SENHA</label>
-		  <%= text_field_tag :password, nil, :placeholder => "Senha"%>
+		  <label>Senha</label>
+		  <%= password_field_tag :password, nil, :placeholder => "Senha", :class=> "form-control", :required => "required"%>
       </p>
 		
-		<%= check_box_tag :adm %> <label>ADM</label>
+		<label style="float:left; margin-right:5px;">ADM</label> <%= check_box_tag :adm %>
 
-		<%= submit_tag "Gravar"%>
+		<%= submit_tag "Gravar", :class=>"btn btn-lg btn-primary btn-block"%>
 
 	<% end %>
 
