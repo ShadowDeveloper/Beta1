@@ -45,10 +45,9 @@
   Buscar Por: 
   <%= form_tag("/client/list", method: "get") do %>
     <select name="search_by">
+     <option value="last">Ultimos</option>
      <option value="cpf">CPF</option>
-     <option value="cnpj">CNPJ</option>
      <option value="nome">Nome</option>
-     <option value="rg">RG</option>
     </select>
     <input type="text" name="search" />
     <%= submit_tag "Buscar"%>

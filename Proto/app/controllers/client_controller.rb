@@ -22,16 +22,13 @@ class ClientController < ApplicationController
 	end
 
 	def list
-
 		if params[:search]
-			#TO DO
-			#Criar busca por CJPJ e RG
-			#[end]
+			search_by = "" if params[:search_by] == "last"
 			search_by = "cpf = #{params[:search]}" if params[:search_by] == "cpf"
 			search_by = "name like '%#{params[:search]}%'" if params[:search_by] == "nome"
-			@clients = Client.where("#{search_by}")
+			@clients  = Client.where("#{search_by}")
 		else
-			@clients = Client.all
+			@clients  = Client.all
 		end
 	end
 end
