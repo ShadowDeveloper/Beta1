@@ -66,7 +66,7 @@
 	margin-top: 20px;
 }
 
-.FormLogin input[type='text'], input[type='password']{
+.FormLogin input[type='text'], .FormLogin input[type='password']{
 	float: left;
 	border:0px;
 	margin: 0;
@@ -116,7 +116,7 @@
 .navbar-brand{background-image: url('/assets/logoInterno.png'); background-color: #fff; background-size: 300px; background-repeat: no-repeat; width: 320px; background-position: 8px 0; height: 50px; border-radius: 3px;}
 .navbar-brand:hover{background-color:#fff !important; }
 
-#container{position: relative; background: transparent; margin-left: 17%; padding:90px 20px 30px 20px;  width: 83%; height: 100%;}
+#container{position: relative; background: transparent; padding:90px 20px 30px 20px;  width: 100%; height: 100%;}
 
 .userName{text-transform:capitalize; color: #fff;}
 #RightBar{position:fixed; display:block;z-index:100; top:71px; width: 335px; height: 100%; background: #f5f5f5;}
@@ -131,6 +131,9 @@
 
 .formNewUser{margin: 0px auto; width: 400px; height: 300px;}
 .formNewUser input[type="text"]{float: right;}
+input[type="checkbox"]{float: left;}
+.formNewUser p{margin: 10px 0 10px 0; display: table; width: 100%; height: auto;}
+.formNewUser label{color: #949494; font-weight: bold; display: block; margin-bottom: 3px; font-size: 15px;}
 
 /*Inicio do css da Dashboard ################*/
 
@@ -1782,11 +1785,7 @@ legend {
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
-label {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+
 input[type="search"] {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
