@@ -38,15 +38,10 @@
 <script>
 
 var urlAtual = window.location.href;
-var urlPass = urlAtual.indexOf("password");
-var urlUser = urlAtual.indexOf("erruser");
+var urlWrong = urlAtual.indexOf("someWrong");
 
-if(urlPass != -1){
-	jQuery('#errorPassword').html('<p>A senha digitada está incorreta. Tente novamente!</p>');
-	jQuery('#errorPassword').slideDown('4000');
-}
-if(urlUser != -1){
-	jQuery('#errorPassword').html('<p>O usuário digitado não existe. Tente novamente!</p>');
+if(urlWrong != -1){
+	jQuery('#errorPassword').html('<p>Usuário ou senha incorreto. Tente novamente!</p>');
 	jQuery('#errorPassword').slideDown('4000');
 }
 </script>

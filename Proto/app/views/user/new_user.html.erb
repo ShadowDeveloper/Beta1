@@ -47,21 +47,21 @@
 	<%= form_tag("/user", :method => "post", :class => "formNewUser") do %>
 		
     <p>
-      <label>Login:</label>
+      <!--<label>Login:</label>-->
 		  <%= text_field_tag :login, nil, :placeholder => "Login", :class=> "form-control", :required => "required" %>
     </p>
 
     <p>
-  		<label>Nome Completo</label>
+  		<!--<label>Nome Completo</label>-->
   		<%= text_field_tag :name, nil, :placeholder => "Nome", :class=> "form-control", :required => "required"%>
     </p>
 
     <p>      
-		  <label>CPF</label>
+		  <!--<label>CPF</label>-->
 		  <%= text_field_tag :cpf, nil, :placeholder => "CPF", :class=> "form-control", :required => "required"%>
     </p>
     <p>
-		  <label>Senha</label>
+		  <!--<label>Senha</label>-->
 		  <%= password_field_tag :password, nil, :placeholder => "Senha", :class=> "form-control", :required => "required"%>
       </p>
 		

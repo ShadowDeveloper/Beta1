@@ -42,29 +42,43 @@
 </article>
 
 <div id="container">
-<center>
-	<%= form_tag('/client', :method => "post")%>
-		CPF<br />
-		<%= text_field_tag :cpf, nil, :placeholder => "CPF", :required => "required" %><br /><br />
-		
-		NOME COMPLETO<br />
-		<%= text_field_tag :name, nil, :placeholder => "Nome", :required => "required"%><br /><br />
 
-		DATA DE NASCIMENTO<br />
-		<%= text_field_tag :dob, nil, :placeholder => "DD/MM/AAAA", :required => "required"%><br /><br />
+	<%= form_tag('/client', :method => "post", :class => "formNewUser")%>
+  <p>
+		<!--<label>CPF:</label>-->
+		<%= text_field_tag :cpf, nil, :placeholder => "CPF", :class=> "form-control", :required => "required" %>
+	</p>
 
-		RG<br />
-		<%= text_field_tag :rg, nil, :placeholder => "RG", :required => "required"%><br /><br />
+  <p>
+		<!--<label>Nome completo:</label>-->
+		<%= text_field_tag :name, nil, :placeholder => "Nome", :class=> "form-control", :required => "required"%>
+  </p>
 
-		TELEFONE<br />
-		<%= text_field_tag :phone, nil, :placeholder => "00-00000000", :required => "required"%><br /><br />
+  <p>
+		<!--<label>Data de nascimento:</label>-->
+		<%= text_field_tag :dob, nil, :placeholder => "Data de nascimento", :class=> "form-control", :required => "required"%>
+  </p>  
+  
+  <p>
+		<!--<label>RG:</label>-->
+		<%= text_field_tag :rg, nil, :placeholder => "RG", :class=> "form-control", :required => "required"%><br />
+   </p> 
+  
+  <p>
+		<!--<label>Telefone:</label>-->
+		<%= text_field_tag :phone, nil, :placeholder => "Telefone", :class=> "form-control", :required => "required"%>
+  </p>
+  
+  <p>
+		<!--<label>CEP:</label>-->
+		<%= text_field_tag :cep, nil, :placeholder => "CEP", :class=> "form-control", :required => "required"%>
+  </p>
 
-		CEP<br />
-		<%= text_field_tag :cep, nil, :placeholder => "0000-999", :required => "required"%><br /><br />
-
-		Nº<br />
-		<%= text_field_tag :number, nil, :placeholder => "0000", :required => "required"%><br /><br />
-
-	<%= submit_tag "Gravar"%>
-</center>
+  <p>
+		<!--<label>Nº:</label>-->
+		<%= text_field_tag :number, nil, :placeholder => "N° da casa ou apto.", :class=> "form-control", :required => "required"%>
+  </p>
+  <p>
+	 <%= submit_tag "Gravar", :class=>"btn btn-lg btn-primary btn-block"%>
+  </p>
 </div>

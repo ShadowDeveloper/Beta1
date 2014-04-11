@@ -130,10 +130,10 @@
 .NavRightBar ul li:hover{background: #eeeeee; color:#428bca; text-decoration: none; }
 
 .formNewUser{margin: 0px auto; width: 400px; height: 300px;}
-.formNewUser input[type="text"]{float: right;}
+.formNewUser input[type="text"], .formNewUser input[type="password"]{float: right; height: 45px;}
 input[type="checkbox"]{float: left;}
 .formNewUser p{margin: 10px 0 10px 0; display: table; width: 100%; height: auto;}
-.formNewUser label{color: #949494; font-weight: bold; display: block; margin-bottom: 3px; font-size: 15px;}
+.formNewUser label{color: #949494; font-weight: normal; display: block; margin-bottom: 3px; font-size: 17px;}
 
 /*Inicio do css da Dashboard ################*/
 
