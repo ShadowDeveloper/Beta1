@@ -12,13 +12,14 @@ class ClientController < ApplicationController
 		)
 		 
 		if new_client.save
-			status = "Cliente salvo com sucesso!"
+			status = "window.location.href='/client/"+new_client.id.to_s+"'"
 		end
 
 		if new_client.errors.any?	
 			status = new_client.errors.full_messages[0]
+			status = "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"
 		end
-		render js: "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"
+		render js: status
 	end
 	def index
 		
