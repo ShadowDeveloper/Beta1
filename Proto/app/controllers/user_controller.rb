@@ -16,8 +16,7 @@ class UserController < ApplicationController
 			status =  new_user.errors.full_messages[0]
 		end
 
-		#render js: "alert('"+status+"');"
-		render js: "$('#status')[0].innerHTML='<center>Ola<center>'"
+		render js: "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"
 	end
 
 	def index
