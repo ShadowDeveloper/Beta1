@@ -1,4 +1,7 @@
 class UserController < ApplicationController
+
+	before_filter :verify_active_session,  :except => [:create, :login]
+
 	def create
 		new_user = User.new(
 			:name => params[:name],

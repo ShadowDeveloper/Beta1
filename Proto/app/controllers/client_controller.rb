@@ -1,5 +1,7 @@
 class ClientController < ApplicationController
 
+	before_filter :verify_active_session
+	
 	def create
 		new_client = Client.new(
 			:cpf => params[:cpf],
