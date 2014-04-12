@@ -43,7 +43,7 @@
 
 <div id="container">
 
-	<%= form_tag('/client', :method => "post", :class => "formNewUser")%>
+	<%= form_tag('/client', :method => "post", :class => "formNewUser", remote: true)%>
   <p>
 		<!--<label>CPF:</label>-->
 		<%= text_field_tag :cpf, nil, :placeholder => "CPF", :class=> "form-control", :required => "required" %>

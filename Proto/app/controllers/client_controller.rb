@@ -1,4 +1,5 @@
 class ClientController < ApplicationController
+
 	def create
 		new_client = Client.new(
 			:cpf => params[:cpf],
@@ -9,13 +10,16 @@ class ClientController < ApplicationController
 			:cep => params[:cep],
 			:number => params[:number]
 		)
-
+		 
 		if new_client.save
-			redirect_to "/client/#{new_client.id}"
-		else
-			@error = "cpf_exists" if new_client.errors.messages[:cpf][0]
-			redirect_to "/client?error=#{@error}"
+			status = "Cliente salvo com sucesso!"
 		end
+
+		if new_client.errors.any?	
+			status = new_client.errors.full_messages[0]
+		end
+		render js: "alert('"+status+"');"
+
 	end
 	def index
 		
