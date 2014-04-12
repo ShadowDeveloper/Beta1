@@ -9,11 +9,14 @@ class UserController < ApplicationController
 		)
 
 		if new_user.save
-			redirect_to "/user/new_user?status=registred"
-		else
-			@error = "cpf_exists" if new_user.errors.messages[:cpf][0]
-			redirect_to "/user/new_user?status=#{@error}"
+			status = "Registro criado com sucesso!"
 		end
+
+		if new_user.errors.any?
+			status =  new_user.errors.full_messages[0]
+		end
+
+		render js: "alert('"+status+"');"
 	end
 
 	def index
