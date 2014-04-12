@@ -18,8 +18,7 @@ class ClientController < ApplicationController
 		if new_client.errors.any?	
 			status = new_client.errors.full_messages[0]
 		end
-		render js: "alert('"+status+"');"
-
+		render js: "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"
 	end
 	def index
 		
