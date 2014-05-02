@@ -135,6 +135,12 @@ input[type="checkbox"]{float: left;}
 .formNewUser p{margin: 10px 0 10px 0; display: table; width: 100%; height: auto;}
 .formNewUser label{color: #949494; font-weight: normal; display: block; margin-bottom: 3px; font-size: 17px;}
 
+.submitSmall{
+  width: 50%;
+  float: right;
+  margin: 15px 0;
+}
+
 /*Inicio do css da Dashboard ################*/
 
 /*!

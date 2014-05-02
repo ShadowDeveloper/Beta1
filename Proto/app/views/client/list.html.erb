@@ -42,15 +42,18 @@
 </article>
 
 <div id="container">
-  Buscar Por: 
-  <%= form_tag("/client/list", method: "get") do %>
+   
+  <%= form_tag("/client/list", method: "get",  :class => "formNewUser") do %>
+  <p>
+    <label>Buscar Por:</label>
     <select name="search_by">
      <option value="last">Ultimos</option>
      <option value="cpf">CPF</option>
      <option value="nome">Nome</option>
     </select>
-    <input type="text" name="search" />
-    <%= submit_tag "Buscar"%>
+  </p>  
+    <input type="text" name="search" class="form-control"/><br>
+    <%= submit_tag "Buscar",  :class=>"btn btn-lg btn-primary submitSmall"%>
   <%end%>
 
 
