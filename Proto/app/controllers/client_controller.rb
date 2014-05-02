@@ -19,7 +19,7 @@ class ClientController < ApplicationController
 
 		if new_client.errors.any?	
 			status = new_client.errors.full_messages[0]
-			status = "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"
+			status = "$('#status')[0].append='<center>"+status.upcase+"<center>'"
 		end
 		render js: status
 	end
