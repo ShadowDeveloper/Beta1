@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140325004712) do
 
-  create_table "user", force: true do |t|
-    t.integer "user_id",              null: false
-    t.string  "login",    limit: 100
-    t.string  "password", limit: 100
-  end
-
-  add_index "user", ["id"], name: "sqlite_autoindex_user_1", unique: true
-
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
