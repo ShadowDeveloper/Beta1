@@ -15,11 +15,7 @@ class ClientController < ApplicationController
 		 
 		if new_client.save
 			status = "window.location.href='/client/"+new_client.id.to_s+"'"
-		end
-		
-		new_client.valid?
-
-		if new_client.errors.any?	
+		else	
 			status = new_client.errors.full_messages[0]
 			aa = "asodkaspodkaposkd"
 			status = "$('#status')[0].append='<center>"+aa+"<center>'"
