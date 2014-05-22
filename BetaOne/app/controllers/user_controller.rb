@@ -11,14 +11,10 @@ class UserController < ApplicationController
 			:cpf => params[:cpf]
 		)
 
-		new_user.valid?
-		
-
-		if new_user.errors.any?
-			status =  new_user.errors.full_messages[0]
-		else
-			new_user.save
+		if new_user.save
 			status = "Registro criado com sucesso!"
+		else
+			status =  new_user.errors.full_messages[0]
 		end
 
 		render js: "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"
