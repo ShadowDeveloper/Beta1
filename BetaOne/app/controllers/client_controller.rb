@@ -4,12 +4,12 @@ class ClientController < ApplicationController
 	
 	def create
 		new_client = Client.new(
-			:cpf => params[:cpf],
-			:name => params[:name],
-			:dob => params[:dob],
-			:rg => params[:rg],
-			:phone => params[:phone],
-			:cep => params[:cep],
+			:cpf    => params[:cpf],
+			:name   => params[:name],
+			:dob    => params[:dob],
+			:rg     => params[:rg],
+			:phone  => params[:phone],
+			:cep    => params[:cep],
 			:number => params[:number]
 		)
 		 

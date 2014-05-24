@@ -1,7 +1,6 @@
 class SessionController < ApplicationController
 
 	def login
-
 		user = User.where(
 		 	login:    params[:user_name],
 			password: params[:password]
