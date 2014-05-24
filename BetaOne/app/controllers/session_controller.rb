@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
 
 	def login
-		
+
 		user = User.where(
 		 	login:    params[:user_name],
 			password: params[:password]
@@ -15,5 +15,11 @@ class SessionController < ApplicationController
 			response = "/main?someWrong=1"
 		end
 		redirect_to response
+	end
+
+	def logout
+		session.delete :user_id
+		session.delete :user_login
+		redirect_to "/main"
 	end
 end

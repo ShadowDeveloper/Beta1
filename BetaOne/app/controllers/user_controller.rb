@@ -24,14 +24,7 @@ class UserController < ApplicationController
 
 	end
 
-	def logout
-		session.delete :user_id
-		session.delete :user_login
-		redirect_to "/main"
-	end
-
 	def show
 		@user = User.find(session[:user_id])
-
 	end
 end
