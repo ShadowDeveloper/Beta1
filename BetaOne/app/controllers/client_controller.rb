@@ -3,16 +3,8 @@ class ClientController < ApplicationController
 	before_filter :verify_active_session
 	
 	def create
-		new_client = Client.new(
-			:cpf    => params[:cpf],
-			:name   => params[:name],
-			:dob    => params[:dob],
-			:rg     => params[:rg],
-			:phone  => params[:phone],
-			:cep    => params[:cep],
-			:number => params[:number]
-		)
-		 
+		new_client = Client.new(client_params)
+
 		if new_client.save
 			status = "window.location.href='/client/"+new_client.id.to_s+"'"
 		else	
@@ -21,6 +13,7 @@ class ClientController < ApplicationController
 			status = "$('#status')[0].append='<center>"+aa+"<center>'"
 		end
 		render js: status
+
 	end
 	def index
 		
@@ -40,5 +33,9 @@ class ClientController < ApplicationController
 		else
 			@clients  = Client.all
 		end
+	end
+
+	def client_params
+		params.permit(:cpf, :name, :dob, :rg, :phone, :cep, :number)
 	end
 end
