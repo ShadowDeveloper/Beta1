@@ -110,7 +110,7 @@
 }
 
 .submitLogin{width: 140px; height: 34px; float: right; margin: 10px 14px 0 0; background: url('/assets/submitLogin.png'); border: 0px; cursor:pointer; border-radius: 3px;}
-#errorPassword{color: red; display: none; height: 30px;}
+#errorPassword{color: red; height: 30px;}
 
 .HeaderClient{padding:10px 15px 10px 15px;}
 .navbar-brand{background-image: url('/assets/logoInterno.png'); background-color: #fff; background-size: 300px; background-repeat: no-repeat; width: 320px; background-position: 8px 0; height: 50px; border-radius: 3px;}

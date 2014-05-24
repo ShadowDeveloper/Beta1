@@ -9,11 +9,12 @@ class SessionController < ApplicationController
 		if  user != []
 			session[:user_id]    = user[0].id
 			session[:user_login] = user[0].login
-			response = "/user/#{user[0].id}"
+			redirect_to "/user/#{user[0].id}"
+			return
 		else
-			response = "/main?someWrong=1"
+			redirect_to response = "/main", :flash => { :error => "invalid_password" }
+			return
 		end
-		redirect_to response
 	end
 
 	def logout

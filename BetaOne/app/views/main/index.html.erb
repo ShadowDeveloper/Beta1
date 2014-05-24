@@ -22,26 +22,17 @@
 				<p class="fieldsForm">
 					<label for="userPassword" id="idUserPassword"></label>
 					<input type="password" name="password" required placeholder="SENHA">
-				</p>		
+				</p>
+				<% if flash[:error]%>		
 				<div id="errorPassword">
 					<p>
 						A senha digitada está incorreta. Tente novamente!
 					</p>
 				</div>
+				<% end %>
 				<%= submit_tag "", :class => "submitLogin"%>
 			<%end%>	
 		</section>
 			
 		</body>
 </html>
-
-<script>
-
-var urlAtual = window.location.href;
-var urlWrong = urlAtual.indexOf("someWrong");
-
-if(urlWrong != -1){
-	jQuery('#errorPassword').html('<p>Usuário ou senha incorreto. Tente novamente!</p>');
-	jQuery('#errorPassword').slideDown('4000');
-}
-</script>
