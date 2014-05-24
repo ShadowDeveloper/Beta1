@@ -4,12 +4,12 @@ class UserController < ApplicationController
 
 	def create
 		new_user = User.new(
-			:name => params[:name],
-			:login => params[:login],
-			:password => params[:password],
-			:adm => params[:adm] ||= 0,
-			:cpf => params[:cpf]
-		)
+					:name     => params[:name],
+					:login    => params[:login],
+					:password => params[:password],
+					:adm      => params[:adm] ||= 0,
+					:cpf      => params[:cpf]
+				)
 
 		if new_user.save
 			status = "Registro criado com sucesso!"
