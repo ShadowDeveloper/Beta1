@@ -9,8 +9,12 @@ class ClientControllerTest < ActionController::TestCase
   		assert true
   end
 
-  test "should get a user" do
+  test "should get a client" do
   	get(:show, id: 4)
   	assert_equal @response.code, "200"
+  end
+
+  test "should create a new client" do
+    
   end
 end
