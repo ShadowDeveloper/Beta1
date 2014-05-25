@@ -3,8 +3,8 @@ class ClientController < ApplicationController
 	before_filter :verify_active_session
 	
 	def create
-		
 		new_client = Client.new(client_params)
+		new_client.company.new(company_params)
 		#new_client.personal_references.new(personal_references_params)
 
 		if new_client.save
@@ -56,10 +56,12 @@ class ClientController < ApplicationController
 	end
 
 	def company_params
-		:income
+		params.permit(
+		:income,
 		:extra_income,
 		:income,
 		:ocupation,
 		:company_name
+		)
 	end
 end
