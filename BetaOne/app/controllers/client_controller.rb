@@ -3,7 +3,9 @@ class ClientController < ApplicationController
 	before_filter :verify_active_session
 	
 	def create
+		
 		new_client = Client.new(client_params)
+		#new_client.personal_references.new(personal_references_params)
 
 		if new_client.save
 			status = "window.location.href='/client/"+new_client.id.to_s+"'"
@@ -51,9 +53,13 @@ class ClientController < ApplicationController
 			:mobile_number2,
 			:client_type
 		)
-		#:extra_income,
-		#:income,
-		#:ocupation,
-		#:company_name,
+	end
+
+	def company_params
+		:income
+		:extra_income,
+		:income,
+		:ocupation,
+		:company_name
 	end
 end
