@@ -49,45 +49,78 @@
 </script>
 
 <div id="container">
+  <center>
+  <h1>Cadastro - Cliente Pessoa Física<h1>
 
-	<%= form_tag('/client', name: "client", :method => "post", :class => "formNewUser", remote: true)%>
-  <p>
-		<!--<label>CPF:</label>-->
-		<%= text_field_tag :cpf, nil, :placeholder => "CPF", :class=> "form-control cpf", :required => "required" %>
-	</p>
+  <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
 
-  <p>
-		<!--<label>Nome completo:</label>-->
-		<%= text_field_tag :name, nil, :placeholder => "Nome", :class=> "form-control", :required => "required"%>
-  </p>
+  <label>Nome:</label><br/>
+  <input type="text" name="name"><br/>
 
-  <p>
-		<!--<label>Data de nascimento:</label>-->
-		<%= text_field_tag :dob, nil, :placeholder => "Data de nascimento", :class=> "form-control data", :required => "required"%>
-  </p>  
-  
-  <p>
-		<!--<label>RG:</label>-->
-		<%= text_field_tag :rg, nil, :placeholder => "RG", :class=> "form-control", :required => "required"%><br />
-   </p> 
-  
-  <p>
-		<!--<label>Telefone:</label>-->
-		<%= text_field_tag :phone, nil, :placeholder => "Telefone", :class=> "form-control phone", :required => "required"%>
-  </p>
-  
-  <p>
-		<!--<label>CEP:</label>-->
-		<%= text_field_tag :cep, nil, :placeholder => "CEP", :class=> "form-control cep", :required => "required"%>
-  </p>
+  <label>Sobrenome:</label><br/>
+  <input type="text" name="last_name"><br/>
 
-  <p>
-		<!--<label>Nº:</label>-->
-		<%= text_field_tag :number, nil, :placeholder => "N° da casa ou apto.", :class=> "form-control", :required => "required"%>
+  <!--
+  <p><label>Nacionalidade:</label><input type="text"></p>
+  -->
+
+  <label>RG:</label><br/>
+  <input type ="text" name="rg"><br/>
+
+  <label>CPF:</label><br/>
+  <input type ="text" name="cpf"><br/><br/>
+
+
+
+  <label>Estado Civil:</label><br/>
+    <select name="relationship">
+      <option value="1">Solteiro(a)</option>
+      <option value="2">Casado(a)</option>
+      <option value="3">Divorciado(a)</option>
+      <option value="4">Viúvo(a)</option>
+    </select>
   </p>
-  <p>
-	 <%= submit_tag "Gravar", :class=>"btn btn-lg btn-primary submitSmall"%>
-  </p>
+  <br/>
+  <label>Endereço:</label><br/>
+  <input type="text" name="address"><br/>
+
+  <label>Telefone 1:</label><br/>
+  <input type="text" name="phone_number"><br/>
+
+  <label>Telefone 2:</label><br/>
+  <input type="text" name="phone_number2"><br/>
+
+  <label>E-mail 1:</label><br/>
+  <input type="text" name="email_address"><br/>
+
+  <label>E-mail 2:</label><br/>
+  <input type="text" name="email_address2"><br/><br/>
+
+  <p class="titles"><h4>---Informações Profissionais---<h4></p><br/>
+
+  <label>Profissão:</label><br/>
+  <input type="text" name="ocupation"><br/>
+
+  <label>Empresa em que trabalha:</label><br/>
+  <input type="text" name="company_name"><br/>
+
+  <label>Renda:</label><br/>
+  <input type="text" name="income"><br/>
+
+  <label>Renda(s) Extra(s):</label><br/>
+  <input type="text" name="extra_income"><br/><br />
+
+  <p class="titles"><h4>---Mais informações---<h4></p><br/>
+  <label>Tipo de Cliente</label><br/>
+  <select name="type">
+     <option value="1">Locador(a)</option>
+     <option value="2">Locatário</option>
+     <option value="3">Comprador</option>
+     <option value="4">Vendedor</option>
+     <option value="5">Fiador</option>
+  </select>
+
+  </center>
   <div id="status" name="status">
   </div>
 </div>
