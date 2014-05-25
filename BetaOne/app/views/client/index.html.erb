@@ -53,73 +53,78 @@
   <h1>Cadastro - Cliente Pessoa Física<h1>
 
   <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
+    <%= form_tag('/client', name: "client", :method => "post", remote: true)%>
+      <label>Nome:</label><br />
+      <input type="text" name="name"><br/>
+      <!--
+      <p><label>Nacionalidade:</label><input type="text"></p>
+      -->
+      <label>Data de Nascimento</label><br/>
+      <input type="text" name="dob"><br/>
 
-  <label>Nome:</label><br/>
-  <input type="text" name="name"><br/>
+      <label>RG:</label><br/>
+      <input type="text" name="rg"><br/>
 
-  <label>Sobrenome:</label><br/>
-  <input type="text" name="last_name"><br/>
-
-  <!--
-  <p><label>Nacionalidade:</label><input type="text"></p>
-  -->
-
-  <label>RG:</label><br/>
-  <input type ="text" name="rg"><br/>
-
-  <label>CPF:</label><br/>
-  <input type ="text" name="cpf"><br/><br/>
+      <label>CPF:</label><br/>
+      <input type="text" name="cpf"><br/><br/>
 
 
 
-  <label>Estado Civil:</label><br/>
-    <select name="relationship">
-      <option value="1">Solteiro(a)</option>
-      <option value="2">Casado(a)</option>
-      <option value="3">Divorciado(a)</option>
-      <option value="4">Viúvo(a)</option>
-    </select>
-  </p>
-  <br/>
-  <label>Endereço:</label><br/>
-  <input type="text" name="address"><br/>
+      <label>Estado Civil:</label><br/>
+        <select name="relationship">
+          <option value="1">Solteiro(a)</option>
+          <option value="2">Casado(a)</option>
+          <option value="3">Divorciado(a)</option>
+          <option value="4">Viúvo(a)</option>
+        </select>
+      </p>
+      <br/>
+      <label>Endereço:</label><br/>
+      <input type="text" name="address"><br/>
 
-  <label>Telefone 1:</label><br/>
-  <input type="text" name="phone_number"><br/>
+      <label>Telefone 1:</label><br/>
+      <input type="text" name="phone_number"><br/>
 
-  <label>Telefone 2:</label><br/>
-  <input type="text" name="phone_number2"><br/>
+      <label>Telefone 2:</label><br/>
+      <input type="text" name="phone_number2"><br/>
 
-  <label>E-mail 1:</label><br/>
-  <input type="text" name="email_address"><br/>
+       <label>Celular 1:</label><br/>
+      <input type="text" name="mobile_number"><br/>
 
-  <label>E-mail 2:</label><br/>
-  <input type="text" name="email_address2"><br/><br/>
+      <label>Celular 2:</label><br/>
+      <input type="text" name="mobile_number2"><br/>
 
-  <p class="titles"><h4>---Informações Profissionais---<h4></p><br/>
+      <label>E-mail 1:</label><br/>
+      <input type="text" name="email_address"><br/>
 
-  <label>Profissão:</label><br/>
-  <input type="text" name="ocupation"><br/>
+      <label>E-mail 2:</label><br/>
+      <input type="text" name="email_address2"><br/><br/>
 
-  <label>Empresa em que trabalha:</label><br/>
-  <input type="text" name="company_name"><br/>
+      <p class="titles"><h4>---Informações Profissionais---<h4></p><br/>
 
-  <label>Renda:</label><br/>
-  <input type="text" name="income"><br/>
+      <label>Profissão:</label><br/>
+      <input type="text" name="ocupation"><br/>
 
-  <label>Renda(s) Extra(s):</label><br/>
-  <input type="text" name="extra_income"><br/><br />
+      <label>Empresa em que trabalha:</label><br/>
+      <input type="text" name="company_name"><br/>
 
-  <p class="titles"><h4>---Mais informações---<h4></p><br/>
-  <label>Tipo de Cliente</label><br/>
-  <select name="type">
-     <option value="1">Locador(a)</option>
-     <option value="2">Locatário</option>
-     <option value="3">Comprador</option>
-     <option value="4">Vendedor</option>
-     <option value="5">Fiador</option>
-  </select>
+      <label>Renda:</label><br/>
+      <input type="text" name="income"><br/>
 
+      <label>Renda(s) Extra(s):</label><br/>
+      <input type="text" name="extra_income"><br/><br />
+
+      <p class="titles"><h4>---Mais informações---<h4></p><br/>
+      <label>Tipo de Cliente</label><br/>
+      <select name="client_type">
+         <option value="1">Locador(a)</option>
+         <option value="2">Locatário</option>
+         <option value="3">Comprador</option>
+         <option value="4">Vendedor</option>
+         <option value="5">Fiador</option>
+      </select>
+      <br/>
+    <%= submit_tag "Gravar" %>
   </center>
   <div id="status" name="status">
   </div>

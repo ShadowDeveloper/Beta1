@@ -9,8 +9,7 @@ class ClientController < ApplicationController
 			status = "window.location.href='/client/"+new_client.id.to_s+"'"
 		else	
 			status = new_client.errors.full_messages[0]
-			aa = "asodkaspodkaposkd"
-			status = "$('#status')[0].append='<center>"+aa+"<center>'"
+			status = "$('#status')[0].append='<center>"+status+"<center>'"
 		end
 		render js: status
 
@@ -37,6 +36,24 @@ class ClientController < ApplicationController
 
 	private
 	def client_params
-		params.permit(:cpf, :name, :dob, :rg, :phone, :cep, :number)
+		params.permit(
+			:name,
+			:rg,
+			:dob,
+			:cpf,
+			:relationship,
+			:address,
+			:phone_number,
+			:phone_number2,
+			:email_address,
+			:email_address2,
+			:mobile_number,
+			:mobile_number2,
+			:client_type
+		)
+		#:extra_income,
+		#:income,
+		#:ocupation,
+		#:company_name,
 	end
 end
