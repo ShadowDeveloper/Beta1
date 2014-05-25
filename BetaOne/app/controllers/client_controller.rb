@@ -35,6 +35,7 @@ class ClientController < ApplicationController
 		end
 	end
 
+	private
 	def client_params
 		params.permit(:cpf, :name, :dob, :rg, :phone, :cep, :number)
 	end
