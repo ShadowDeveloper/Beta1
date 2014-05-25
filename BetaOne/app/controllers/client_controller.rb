@@ -64,4 +64,13 @@ class ClientController < ApplicationController
 		:company_name
 		)
 	end
+
+	def client_references
+		parms.permit(
+			:name,
+			:phone_number,
+			:phone_number2,
+			:reference_type
+		)
+	end
 end

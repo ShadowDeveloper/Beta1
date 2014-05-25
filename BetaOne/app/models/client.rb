@@ -3,7 +3,7 @@ class Client < ActiveRecord::Base
 	 
 	validates :cpf, uniqueness: { message: " - CPF existente na base de dados." }
 
-	has_many :personal_references
+	has_many :client_references
 
-	has_many  :company
+	has_one  :company
 end
