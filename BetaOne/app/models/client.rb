@@ -5,7 +5,7 @@ class Client < ActiveRecord::Base
 
 	has_many :client_references
 
-	has_many :company
+	has_one :company
 
 	has_many :bank_account
 end
