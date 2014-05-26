@@ -3,9 +3,10 @@ class ClientController < ApplicationController
 	before_filter :verify_active_session
 	
 	def create
+		debugger
 		new_client = Client.new(client_params)
 		new_client.company.new(company_params)
-		#new_client.personal_references.new(personal_references_params)
+		new_client.client_references.new(client_references_params)
 
 		if new_client.save
 			status = "window.location.href='/client/"+new_client.id.to_s+"'"
@@ -65,12 +66,11 @@ class ClientController < ApplicationController
 		)
 	end
 
-	def client_references
-		parms.permit(
+	def client_references_params
+		params.permit(
 			:name,
 			:phone_number,
-			:phone_number2,
-			:reference_type
+			:phone_number2
 		)
 	end
 end
