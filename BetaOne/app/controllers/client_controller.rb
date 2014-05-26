@@ -15,8 +15,8 @@ class ClientController < ApplicationController
 			status = "$('#status')[0].append='<center>"+status+"<center>'"
 		end
 		render js: status
-
 	end
+
 	def index
 		
 	end
@@ -60,7 +60,6 @@ class ClientController < ApplicationController
 		params.permit(
 		:income,
 		:extra_income,
-		:income,
 		:ocupation,
 		:company_name
 		)
