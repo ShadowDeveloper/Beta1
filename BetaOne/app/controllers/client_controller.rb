@@ -3,7 +3,6 @@ class ClientController < ApplicationController
 	before_filter :verify_active_session
 	
 	def create
-		debugger
 		new_client = Client.new(client_params)
 		new_client.company.new(company_params)
 		new_client.client_references.new(client_references_params)
@@ -71,6 +70,12 @@ class ClientController < ApplicationController
 			:name,
 			:phone_number,
 			:phone_number2
+		)
+	end
+
+	def bank_account_params
+		params.permit(
+
 		)
 	end
 end
