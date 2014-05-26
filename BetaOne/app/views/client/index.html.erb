@@ -117,6 +117,7 @@
       <p class="titles"><h4>---Mais informações---<h4></p><br/>
       <label>Tipo de Cliente</label><br/>
       <select name="client_type">
+         <option value="1">Selecione</option>
          <option value="1">Locador(a)</option>
          <option value="2">Locatário</option>
          <option value="3">Comprador</option>
@@ -134,7 +135,24 @@
       <input type ="text"></p>
 
       <label>Telefone 2:</label><br />
-      <input type ="text"></p>     
+      <input type ="text"></p>
+
+
+      <p><h4 class="titles">---Referências Bancárias---<h4></p>
+
+      <label>Banco:</label><br />
+      <select name="bank_id">
+        <option value="0">Selecione</option>
+        <option value="2">Itau</option>
+        <option value="3">Bradesco</option>
+        <option value="4">Santander</option>
+      <select><br />
+
+      <label>Agência:</label><br />
+      <input type="text" name="agency"><br />
+
+      <label>C/C:</label><br />
+      <input type="text" name="account_number"><br /><br />
     <%= submit_tag "Gravar" %>
   </center>
   <div id="status" name="status">
