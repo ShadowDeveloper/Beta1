@@ -33,7 +33,7 @@ class ClientController < ApplicationController
 		elsif params[:search_by] == "nome"
 			@clients  = Client.where("name like ?", "%#{params[:search]}%")
 		else
-			@clients  = Client.all
+			@clients  = Client.all.limit(10);
 		end
 	end
 
@@ -58,10 +58,10 @@ class ClientController < ApplicationController
 
 	def company_params
 		params.permit(
-		:income,
-		:extra_income,
-		:ocupation,
-		:company_name
+			:income,
+			:extra_income,
+			:ocupation,
+			:company_name
 		)
 	end
 
