@@ -20,4 +20,16 @@ class UserControllerTest < ActionController::TestCase
    		post(:create, params)
    		assert_equal(response.body, "$('#status')[0].innerHTML='<center>REGISTRO CRIADO COM SUCESSO!<center>'")
    	end
+
+   	test "shoud create a new ADMIN user" do 
+   		params = {
+   			login: "rsouza",
+   			name:  "rogesson",
+   			cpf:   "129312873",
+   			admin: 1
+   		}
+
+   		post(:create, params)
+   		assert_equal(response.body, "$('#status')[0].innerHTML='<center>REGISTRO CRIADO COM SUCESSO!<center>'")
+   	end
 end
