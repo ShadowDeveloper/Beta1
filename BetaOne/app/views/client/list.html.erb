@@ -58,9 +58,16 @@
 
 
 	<center>
-		 | CPF | NOME  |<br />
-		<% @clients.each  do |client| %>
-			<a href="/client/<%=client.id%>"><%= client.cpf %> <%= client.name%><br />
-		<% end %>
-	</center>
+    <table style="width:300px">
+<tr>
+  <th>CPF</th>
+  <th>NOME</th> 
+</tr>
+  <% @clients.each  do |client| %>
+<tr>
+  <td><a href="/client/<%=client.id%>"><%= client.cpf %></a></td>
+  <td><%= client.name.upcase %></td>
+</tr>
+  <% end %>
+</table>
 <div>
