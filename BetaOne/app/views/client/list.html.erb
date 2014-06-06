@@ -62,11 +62,13 @@
 <tr>
   <th>CPF</th>
   <th>NOME</th> 
+  <th>TIPO</th>
 </tr>
   <% @clients.each  do |client| %>
 <tr>
   <td><a href="/client/<%=client.id%>"><%= client.cpf %></a></td>
   <td><%= client.name.upcase %></td>
+  <td>PF</td>
 </tr>
   <% end %>
 </table>
