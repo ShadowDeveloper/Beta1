@@ -2,6 +2,7 @@ class UserController < ApplicationController
 
 	before_filter :verify_active_session,  :except => [:create, :login]
 
+	#post /user
 	def create
 		new_user = User.new(
 			:name     => params[:name],
@@ -20,10 +21,12 @@ class UserController < ApplicationController
 		render js: "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"
 	end
 
+	#get /user/
 	def index
 
 	end
 
+	#get /user/:id
 	def show
 		@user = User.find(session[:user_id])
 	end

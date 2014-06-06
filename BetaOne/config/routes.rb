@@ -1,6 +1,8 @@
 Proto::Application.routes.draw do
   resources :main
+  
   resources :residence
+
   resources :user do
     post 'login', on: :collection
     get 'logout', on: :collection
