@@ -49,6 +49,7 @@ class ClientControllerTest < ActionController::TestCase
       account_number: "01921"
     }
     post(:create, params)
-    puts response.body
+    assert_equal(response.body, "window.location.href='/client/7'") 
+
   end
 end
