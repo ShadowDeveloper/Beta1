@@ -1,7 +1,7 @@
 Beta1
 =====
 
-Projeto da OPE da faculdade impacta.
+Projeto OPE da Faculdade Impacta.
 
 
 Rails 4.0.2
