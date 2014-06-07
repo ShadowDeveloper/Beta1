@@ -48,8 +48,10 @@ class ClientControllerTest < ActionController::TestCase
       agency:         "1219291",
       account_number: "01921"
     }
+
+    count_client = Client.count
     post(:create, params)
-    assert_equal(response.body, "window.location.href='/client/7'") 
+    assert_not_equal count_client, Client.count 
 
   end
 end
