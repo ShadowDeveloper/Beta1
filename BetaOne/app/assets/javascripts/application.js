@@ -25,9 +25,11 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 //end bootstrap
 
 //JQuery mask
+/*
 $(document).ready(function(){
   $('.data').mask('11/11/1111');
   $('.cep').mask('00000-000');
   $('.phone').mask('(00) 0000-0000');
   $('.cpf').mask('000.000.000-00');
 });
+*/
