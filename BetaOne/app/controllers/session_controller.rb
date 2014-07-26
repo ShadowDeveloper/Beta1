@@ -1,5 +1,7 @@
 class SessionController < ApplicationController
-
+	
+	skip_before_filter :verify_active_session, :except => [:logout]
+	
 	def login
 		user = User.where(
 		 	login:    params[:user_name],

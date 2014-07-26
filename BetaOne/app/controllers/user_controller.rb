@@ -1,7 +1,5 @@
 class UserController < ApplicationController
 
-	before_filter :verify_active_session,  :except => [:create, :login]
-
 	#post /user
 	def create
 		new_user = User.new(
