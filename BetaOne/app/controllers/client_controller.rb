@@ -6,7 +6,7 @@ class ClientController < ApplicationController
 		new_client = Client.new(client_params)
 		new_client.create_company(company_params)
 		new_client.client_references.new(client_references_params)
-		#new_client.bank_account.new(bank_account_params)
+		new_client.bank_account.new(bank_account_params)
 
 		if new_client.save
 			status = "window.location.href='/client/"+new_client.id.to_s+"'"
