@@ -4,9 +4,9 @@ class ClientController < ApplicationController
 	
 	def create
 		new_client = Client.new(client_params)
-		new_client.create_company(company_params)
-		new_client.client_references.new(client_references_params)
-		new_client.bank_account.new(bank_account_params)
+		#new_client.create_company(company_params)
+		#new_client.client_references.new(client_references_params)
+		#new_client.bank_account.new(bank_account_params)
 
 		if new_client.save
 			status = "window.location.href='/client/"+new_client.id.to_s+"'"
@@ -19,6 +19,10 @@ class ClientController < ApplicationController
 
 	def index
 		
+	end
+
+	def new
+		@client = Client.new
 	end
 
 	def show
@@ -39,7 +43,7 @@ class ClientController < ApplicationController
 
 	private
 	def client_params
-		params.permit(
+		params.require(:client).permit(
 			:name,
 			:rg,
 			:dob,
@@ -55,7 +59,7 @@ class ClientController < ApplicationController
 			:client_type
 		)
 	end
-
+=begin
 	def company_params
 		params.permit(
 			:income,
@@ -80,4 +84,5 @@ class ClientController < ApplicationController
 			:account_number
 		)
 	end
+=end
 end

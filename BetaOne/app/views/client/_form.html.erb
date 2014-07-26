@@ -1,0 +1,18 @@
+
+<%= form_for @client, url: "/client", name: "client" do |f| %>
+	<%= f.text_field :name %>
+	<%= f.text_field :rg %>
+	<%= f.text_field :dob %>
+	<%= f.text_field :cpf %>
+	<%= f.text_field :relationship %>
+	<%= f.text_field :address %>
+	<%= f.text_field :phone_number %>
+	<%= f.text_field :phone_number2 %>
+	<%= f.text_field :email_address %>
+	<%= f.text_field :email_address2 %>
+	<%= f.text_field :mobile_number %>
+	<%= f.text_field :mobile_number2 %>
+	<%= f.text_field :email_address2 %>
+	<%= f.text_field :client_type %>
+	<%= f.submit %>
+<%end%>

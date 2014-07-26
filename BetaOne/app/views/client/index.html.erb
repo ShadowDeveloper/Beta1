@@ -53,6 +53,10 @@
   <h1>Cadastro - Cliente Pessoa Física<h1>
 
   <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
+    ===================
+    <%= render "form" %>
+    ===================
+
     <%= form_tag('/client', name: "client", :method => "post", remote: true)%>
       <label>Nome:</label><br />
       <input type="text" name="name"><br/>
