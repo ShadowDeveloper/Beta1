@@ -46,7 +46,6 @@ class ClientController < ApplicationController
 
 	private
 	def client_params
-		debugger
 		params.require(:client).permit(
 			:name,
 			:rg,
