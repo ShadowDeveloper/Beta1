@@ -18,7 +18,8 @@ class ClientController < ApplicationController
 	end
 
 	def index
-		
+		#REMOVER
+		redirect_to "/client/new"
 	end
 
 	def new
