@@ -24,6 +24,10 @@ class UserController < ApplicationController
 
 	end
 
+	def new
+		@user = User.new
+	end
+
 	#get /user/:id
 	def show
 		@user = User.find(session[:user_id])
