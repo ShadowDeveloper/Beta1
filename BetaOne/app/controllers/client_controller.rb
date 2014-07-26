@@ -4,8 +4,8 @@ class ClientController < ApplicationController
 	
 	def create
 		new_client = Client.new(client_params)
-		#new_client.create_company(company_params)
-		#new_client.client_references.new(client_references_params)
+		new_client.create_company(company_params)
+		new_client.client_references.new(client_references_params)
 		#new_client.bank_account.new(bank_account_params)
 
 		if new_client.save
@@ -22,7 +22,10 @@ class ClientController < ApplicationController
 	end
 
 	def new
-		@client = Client.new
+		@client       = Client.new
+		@company   	  = Company.new
+		@reference 	  = ClientReference.new
+		@bank_account = BankAccount.new
 	end
 
 	def show
@@ -43,6 +46,7 @@ class ClientController < ApplicationController
 
 	private
 	def client_params
+		debugger
 		params.require(:client).permit(
 			:name,
 			:rg,
@@ -59,9 +63,9 @@ class ClientController < ApplicationController
 			:client_type
 		)
 	end
-=begin
+
 	def company_params
-		params.permit(
+		params.require(:company).permit(
 			:income,
 			:extra_income,
 			:ocupation,
@@ -70,7 +74,7 @@ class ClientController < ApplicationController
 	end
 
 	def client_references_params
-		params.permit(
+		params.require(:client_reference).permit(
 			:name,
 			:phone_number,
 			:phone_number2
@@ -78,11 +82,10 @@ class ClientController < ApplicationController
 	end
 
 	def bank_account_params
-		params.permit(
+		params.require(:bank_account).permit(
 			:bank_id,
 			:agency,
 			:account_number
 		)
 	end
-=end
 end
