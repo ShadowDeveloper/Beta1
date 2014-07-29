@@ -12,11 +12,19 @@
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/topBar' %>
     </header>
+    
     <main role="main">
        <%= render 'layouts/messages' %>
+
        <%= yield %>
+
     </main>
+    
+    <footer>
+       <%= render 'layouts/footer' %>
+    </footer> 
+
   </body>
 </html>
