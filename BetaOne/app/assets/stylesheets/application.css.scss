@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
-$WhiteColor: #fff;
+@import 'variables';
 
 .name{color:$WhiteColor;}
