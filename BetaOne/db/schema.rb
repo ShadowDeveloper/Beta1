@@ -53,16 +53,18 @@ ActiveRecord::Schema.define(version: 20140325004712) do
   end
 
   create_table "main", id: false, force: true do |t|
-    t.string "id"
+    t.string "id", limit: nil
   end
 
   create_table "residence", force: true do |t|
     t.string "address", limit: 20
   end
 
+  add_index "residence", ["id"], name: "sqlite_autoindex_residence_1", unique: true
+
   create_table "user", force: true do |t|
     t.string  "name",     limit: 50
-    t.string  "login"
+    t.string  "login",    limit: nil
     t.string  "password", limit: 100
     t.integer "adm",      limit: 1,   default: 0
     t.string  "cpf",      limit: 11
