@@ -6,12 +6,12 @@ class SessionController < ApplicationController
 		user = User.where(
 		 	login:    params[:user_name],
 			password: params[:password]
-		)
+		).first
 
-		if  user != []
-			session[:user_id]    = user[0].id
-			session[:user_login] = user[0].login
-			redirect_to "/user/#{user[0].id}"
+		if  user
+			session[:user_id]    = user.id
+			session[:user_login] = user.login
+			redirect_to "/user/#{user.id}"
 			return
 		else
 			redirect_to response = "/main", :flash => { :error => "invalid_password" }
