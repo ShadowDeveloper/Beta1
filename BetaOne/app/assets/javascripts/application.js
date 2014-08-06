@@ -16,7 +16,14 @@
 //= require foundation
 //= require_tree .
 
+//funcao que retorna a resposta de um ajax request
+function flash_message(type, message){
+	if (type == "error"){
+		color = "red";
+	} else {
+		color = "green";
+	}
 
-function flash_message(){
-	alert('flashed')
+	var message = "<div id='flash'>" + message + "</div>"
+	$("body").append(message);
 }
