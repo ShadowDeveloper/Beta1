@@ -13,7 +13,7 @@ class UserController < ApplicationController
 		if new_user.save
 			status = "Registro criado com sucesso!"
 		else
-			status =  new_user.errors.full_messages[0]
+			status =  new_user.errors.full_messages
 		end
 
 		render js: "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"

@@ -11,7 +11,7 @@ class SessionController < ApplicationController
 		if  user
 			session[:user_id]    = user.id
 			session[:user_login] = user.login
-			redirect_to "/user/#{user.id}"
+			redirect_to user
 			return
 		else
 			redirect_to response = "/main", :flash => { :error => "invalid_password" }
