@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require foundation
 //= require_tree .
-$(function() {
-  $(document).foundation();
-});
+
+
+function flash_message(){
+	alert('flashed')
+}
