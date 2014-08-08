@@ -7,5 +7,8 @@ class Form::ClientForm
 	validates :name,  presence: true
 	validates :rg,    presence: true
 	validates :dob,   presence: true
-	
+
+	def validate
+		valid? ? true : false
+	end
 end
