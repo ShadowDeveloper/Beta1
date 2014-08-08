@@ -1,6 +1,7 @@
 class ClientController < ApplicationController
 	
 	def create
+=begin
 		new_client = Client.new(client_params)
 		new_client.create_company(company_params)
 		new_client.client_references.new(client_references_params)
@@ -13,6 +14,7 @@ class ClientController < ApplicationController
 			status = "$('#status')[0].append='<center>"+status+"<center>'"
 		end
 		render js: status
+=end
 	end
 
 	def index
