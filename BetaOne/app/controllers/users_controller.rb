@@ -1,6 +1,6 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
-	#post /user
+	#post /users
 	def create
 		new_user = User.new(
 			:name     => params[:name],
@@ -19,7 +19,7 @@ class UserController < ApplicationController
 		render js: "$('#status')[0].innerHTML='<center>"+status.upcase+"<center>'"
 	end
 
-	#get /user/
+	#get /users/
 	def index
 
 	end
@@ -28,7 +28,7 @@ class UserController < ApplicationController
 		@user = User.new
 	end
 
-	#get /user/:id
+	#get /users/:id
 	def show
 		@user = User.find(session[:user_id])
 	end
