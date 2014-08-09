@@ -8,17 +8,12 @@ class ClientController < ApplicationController
 		new_client.bank_account.new(bank_account_params)
 
 		if new_client.save
-			status = "window.location.href='/client/"+new_client.id.to_s+"'"
+			status = "window.location.href='/client/" + new_client.id.to_s + "'"
 		else	
 			status = new_client.errors.full_messages[0]
-			status = "$('#status')[0].append='<center>"+status+"<center>'"
+			status = "$('#status')[0].append='<center>" +status+ "<center>'"
 		end
 		render js: status
-	end
-
-	def index
-		#REMOVER
-		redirect_to "/client/new"
 	end
 
 	def new
@@ -30,7 +25,6 @@ class ClientController < ApplicationController
 
 	def show
 		@client = Client.find params[:id]
-		
 	end
 
 	def list

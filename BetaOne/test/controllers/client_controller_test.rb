@@ -9,11 +9,6 @@ class ClientControllerTest < ActionController::TestCase
   		assert true
   end
 
-  test "should get a client" do
-  	get(:show, id: 4)
-  	assert_equal @response.code, "200"
-  end
-
   test "should create a new client" do
     params = {
       "utf8"=>"x",
@@ -54,6 +49,11 @@ class ClientControllerTest < ActionController::TestCase
     count_client = Client.count
     post(:create, params)
     assert_not_equal count_client, Client.count 
-
   end
+
+  test "should get a client" do
+    get(:show, id: Client.first.id)
+    assert_equal @response.code, "200"
+  end
+
 end
