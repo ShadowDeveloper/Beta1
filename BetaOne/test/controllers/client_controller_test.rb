@@ -16,37 +16,31 @@ class ClientControllerTest < ActionController::TestCase
 
   test "should create a new client" do
     params = {
-
-    #client_params
-
-      name:           "rogesson",
-      rg:             "12312312",
-      dob:            "12/11/1022",
-      cpf:            "1221121",
-      relationship:   1,
-      address:        "1212221",
-      phone_number:   "1212121",
-      phone_number2:  "1212121",
-      email_address:  "1212121",
-      email_address2: "1212121",
-      mobile_number:  "1212121",
-      mobile_number2: "1212121",
-      client_type:    1,
-    #company_params
-     
-      income:       1000.20,
-      extra_income: 123.32,
-      ocupation:    "caixa" ,
-      company_name: "MCdonalds",
-    #client_references_params
-
-      name:          "adriano",
-      phone_number:  "12212121",
-      phone_number2: "12019211",
-    #bank_account_params
-      bank_id:        1,
-      agency:         "1219291",
-      account_number: "01921"
+      "utf8"=>"x",
+      "authenticity_token"=>"lFyhlmZ8Sb2Lve9lyslEuaGVQQhEFbHWUua+pO+QYxA=",
+      "client"=>{"name"=>"aopksd",
+      "rg"=>"paoskd",
+      "dob"=>"poaskd",
+      "cpf"=>"opsda",
+      "relationship"=>"sapodk",
+      "address"=>"sapdok",
+      "phone_number"=>"aspodk",
+      "phone_number2"=>"aspodk",
+      "email_address"=>"aspdok",
+      "email_address2"=>"asdop",
+      "mobile_number"=>"aspdok",
+      "mobile_number2"=>"asdopk",
+      "client_type"=>"1"},
+      "company"=>{"income"=>"asokd",
+      "ocupation"=>"asdopk",
+      "company_name"=>"saodk"},
+      "client_reference"=>{"name"=>"asdopk",
+      "phone_number"=>"asdpok",
+      "phone_number2"=>"oaksd"},
+      "bank_account"=>{"bank_id"=>"asodk",
+      "agency"=>"aspodk",
+      "account_number"=>"aposkd"},
+      "commit"=>"Create Client"
     }
 
     count_client = Client.count

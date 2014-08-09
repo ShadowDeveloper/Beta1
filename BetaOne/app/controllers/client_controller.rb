@@ -1,22 +1,7 @@
 class ClientController < ApplicationController
 	
 	def create
-		if params[:client] and  params[:company] and  params[:client_reference] and params[:bank_account]
-			client_params = Hash.new
-			client_params = client_params.merge params[:client] 
-			client_params = client_params.merge params[:company]
-			client_params = client_params.merge params[:client_reference] 
-			client_params = client_params.merge params[:bank_account] 
-			if Form::ClientForm.new(client_params.symbolize_keys).valid?
-				new_client = Client.new(params[:client])
-				new_client.create_company(params[:company])
-				new_client.client_references.new(params[:company])
-				new_client.bank_account.new(params[:company])
-			end
-		else
-			redirect_to "/clients"
-		end
-=begin	
+
 		new_client = Client.new(client_params)
 		new_client.create_company(company_params)
 		new_client.client_references.new(client_references_params)
@@ -29,7 +14,6 @@ class ClientController < ApplicationController
 			status = "$('#status')[0].append='<center>"+status+"<center>'"
 		end
 		render js: status
-=end
 	end
 
 	def index
@@ -59,5 +43,48 @@ class ClientController < ApplicationController
 			@clients  = Client.all.limit(10);
 		end
 	end
-	
+
+	private
+	def client_params
+		params.require(:client).permit(
+			:name,
+			:rg,
+			:dob,
+			:cpf,
+			:relationship,
+			:address,
+			:phone_number,
+			:phone_number2,
+			:email_address,
+			:email_address2,
+			:mobile_number,
+			:mobile_number2,
+			:client_type
+		)
+	end
+
+	def company_params
+		params.require(:company).permit(
+			:income,
+			:extra_income,
+			:ocupation,
+			:company_name
+		)
+	end
+
+	def client_references_params
+		params.require(:client_reference).permit(
+			:name,
+			:phone_number,
+			:phone_number2
+		)
+	end
+
+	def bank_account_params
+		params.require(:bank_account).permit(
+			:bank_id,
+			:agency,
+			:account_number
+		)
+	end
 end
