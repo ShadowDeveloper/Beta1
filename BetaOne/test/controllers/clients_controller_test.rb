@@ -1,6 +1,6 @@
 require File.expand_path("../../test_helper", __FILE__)
 
-class ClientControllerTest < ActionController::TestCase
+class ClientsControllerTest < ActionController::TestCase
 	setup do
 		session[:user_id] = 3
 	end
