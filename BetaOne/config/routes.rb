@@ -8,7 +8,7 @@ Proto::Application.routes.draw do
     get 'logout', on: :collection
   end
 
-  resources :client do
+  resources :clients do
     get 'list', on: :collection
   end
 

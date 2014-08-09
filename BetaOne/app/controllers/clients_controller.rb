@@ -1,4 +1,4 @@
-class ClientController < ApplicationController
+class ClientsController < ApplicationController
 	
 	def create
 
