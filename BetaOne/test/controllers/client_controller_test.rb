@@ -18,28 +18,36 @@ class ClientControllerTest < ActionController::TestCase
     params = {
       "utf8"=>"x",
       "authenticity_token"=>"lFyhlmZ8Sb2Lve9lyslEuaGVQQhEFbHWUua+pO+QYxA=",
-      "client"=>{"name"=>"aopksd",
-      "rg"=>"paoskd",
-      "dob"=>"poaskd",
-      "cpf"=>"opsda",
-      "relationship"=>"sapodk",
-      "address"=>"sapdok",
-      "phone_number"=>"aspodk",
-      "phone_number2"=>"aspodk",
-      "email_address"=>"aspdok",
-      "email_address2"=>"asdop",
-      "mobile_number"=>"aspdok",
-      "mobile_number2"=>"asdopk",
-      "client_type"=>"1"},
-      "company"=>{"income"=>"asokd",
-      "ocupation"=>"asdopk",
-      "company_name"=>"saodk"},
-      "client_reference"=>{"name"=>"asdopk",
-      "phone_number"=>"asdpok",
-      "phone_number2"=>"oaksd"},
-      "bank_account"=>{"bank_id"=>"asodk",
-      "agency"=>"aspodk",
-      "account_number"=>"aposkd"},
+      "client"=>{
+        "name"=>"rogesson barboza",
+        "rg"=>"19208333",
+        "dob"=>"12/11/1992",
+        "cpf"=>"192.123.422.12",
+        "relationship"=>"solteiro",
+        "address"=>"R. do sapo",
+        "phone_number"=>"(11) 2938-2934)",
+        "phone_number2"=>"(11) 2938-2934)",
+        "email_address"=>"rogesson@gmail.com",
+        "email_address2"=>"rogesson@gmail.com",
+        "mobile_number"=>"(11) 98991-1929)",
+        "mobile_number2"=>"(11) 98991-1929)",
+        "client_type"=>"1"
+      },
+      "company"=>{
+        "income"=>"1092,00",
+        "ocupation"=>"Professor",
+        "company_name"=>"Escola da Vida"
+      },
+      "client_reference"=>{
+        "name"=>"Guimerme",
+        "phone_number"=>"(11) 2938-2934",
+        "phone_number2"=>"(11) 2938-2934"
+      },
+      "bank_account"=>{
+        "bank_id"=>"1",
+        "agency"=>"109",
+        "account_number"=>"1991923"
+      },
       "commit"=>"Create Client"
     }
 
