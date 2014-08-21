@@ -1,4 +1,5 @@
 /*
+
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -16,101 +17,6 @@
 	font-family: 'myriad Pro' !important;
 }
 
-#MainContainerLogin
-{
-	margin: 0 auto;
-	max-width: 500px;
-	height: 480px;
-	background: #fff;
-	padding: 60px 20px 0 20px;
-	display: table;
-	xbox-shadow: 0px 0px 1px #b0aeae,  0px 2px 1px #b0aeae;
-}
-
-.logo{
-	background: url('/assets/logo.png') no-repeat;
-	max-width: 451px;
-	height: 80px;
-	margin: 0px auto;
-	margin-bottom: 45px;
-	background-size: 450px 90px;
-}
-
-.Welcome{
-	text-align: center;
-	color: #646464;
-	display: block;
-	margin-left: 0px auto;
-	margin-right: 0px auto;
-	margin-top: 20px;
-	margin-bottom: 40px
-}
-
-.FormLogin{
-	width:450px;
-	height: 279px;
-	display:table;
-	background: #d2d2d2;
-	margin: 0px auto;
-	padding:0 0 15px 0;text-align: center;
-	border-radius: 3px;
-	overflow: hidden; 
-}
-
-.fieldsForm{
-	display: block;
-	max-width: 419px;
-	height: 57px;
-	margin: 0px auto;
-	margin-bottom: 15px;
-	margin-top: 20px;
-}
-
-.FormLogin input[type='text'], .FormLogin input[type='password']{
-	float: left;
-	border:0px;
-	margin: 0;
-	width: 352px;
-	height: 57px;
-	padding: 0 5px 0 5px;
-	font-size: 18px;
-	box-shadow: 0 0 5px 0 #ccc inset;
-	color: #666;
-	border-top-right-radius:3px;
-	border-bottom-right-radius:3px; 
-
-}
-
-#idUserName, #idUserPassword{
-	float: left;
-	width: 57px;
-	height: 57px;
-	background: url('/assets/IcInputUser.png');
-	border-top-left-radius:3px;
-	border-bottom-left-radius:3px; 
-}
-
-#idUserPassword{
-	background-position: 0 57px !important;
-}
-
-.Titleform{
-	width: 100%;
-	height: auto;
-	background: #2364b0;
-	padding: 8px 0 8px 0;
-	text-align: center;
-	color:#fff;
-	font-size: 18px;
-	-webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    margin-bottom: 31px;
-}
-
-.submitLogin{width: 140px; height: 34px; float: right; margin: 10px 14px 0 0; background: url('/assets/submitLogin.png'); border: 0px; cursor:pointer; border-radius: 3px;}
-#errorPassword{color: red; display: none; height: 30px;}
 
 .HeaderClient{padding:10px 15px 10px 15px;}
 .navbar-brand{background-image: url('/assets/logoInterno.png'); background-color: #fff; background-size: 300px; background-repeat: no-repeat; width: 320px; background-position: 8px 0; height: 50px; border-radius: 3px;}

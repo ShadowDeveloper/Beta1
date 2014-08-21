@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'vendor/modernizr' %>
     
-<div class="row">
+<!--<div class="row">
 	<div id="containerLogin" class="large-12 text-center panel columns">
 		<h3>Bem Vindo !</h3>
 			<%= form_tag("/session/login", :method => "POST") do%>
@@ -26,6 +26,29 @@
 			    </div>
 			  </div>			
 										
+				
+				<%= submit_tag "Entrar", :class => "button right"%>
+			<%end%>
+	</div>
+</div>-->
+
+		<section id="MainContainerLogin">
+			<h1 class="logo"></h1>
+			<span class="Welcome">Bem Vindo !</span>
+			<%= form_tag("/session/login", :method => "POST", :class => "FormLogin") do%>
+		
+				<p class="Titleform">Login</p>
+				
+				<p class="fieldsForm">
+					<label for="userName" id="idUserName"></label>
+					<input type="text" name="user_name" required autofocus placeholder="USUÁRIO"><br>
+				</p>
+
+				<p class="fieldsForm">
+					<label for="userPassword" id="idUserPassword"></label>
+					<input type="password" name="password" required placeholder="SENHA">
+				</p>		
+				
 				<% if flash[:error]%>
 				<div id="errorPassword">
 					<p>
@@ -33,7 +56,20 @@
 					</p>
 				</div>
 				<% end %>
-				<%= submit_tag "Entrar", :class => "button right"%>
+				
+				<%= submit_tag "", :class => "submitLogin"%>
 			<%end%>
-	</div>
-</div>
+
+		</section>
+			
+
+<!--<script>
+
+var urlAtual = window.location.href;
+var urlWrong = urlAtual.indexOf("someWrong");
+
+if(urlWrong != -1){
+	jQuery('#errorPassword').html('<p>Usuário ou senha incorreto. Tente novamente!</p>');
+	jQuery('#errorPassword').slideDown('4000');
+}
+</script>-->
