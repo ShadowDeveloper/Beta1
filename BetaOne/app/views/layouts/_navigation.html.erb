@@ -1,12 +1,24 @@
 <%# navigation styled for Zurb Foundation 5 %>
-<nav class="top-bar" data-topbar>
+<!--<nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name"><%#link_to index, root_path %></li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
   <div class="top-bar-section">
     <ul>
-      <%= render 'layouts/navigation_links' %>
+      <%# render 'layouts/navigation_links' %>
     </ul>
   </div>
-</nav>
+</nav>-->
+
+
+<article id="RightBar">
+  <nav class="NavRightBar">
+    <ul>
+      <li class="active"><a href="/user/<%= session[:user_id]%>">Home</a></li>
+      <li><a href="/users/new">Cadastrar Usuario</a></li>
+      <li><a href="/clients/new">Cadastrar Cliente</a></li>
+      <li><a href="/clients/list">Buscar Cliente</a></li>
+    </ul>
+  </nav>  
+</article>
