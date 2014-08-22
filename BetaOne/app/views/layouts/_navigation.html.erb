@@ -15,7 +15,16 @@
 <aside id="RightBar">
   <nav class="NavRightBar">
     <ul>
-      <li class="active"><a href="/users/<%= session[:user_id]%>">Home</a></li>
+     <% arr_url_nav.each do |url| %>
+        <% if request.fullpath.match /#{url[:href]}/ %>
+            <li class="active"><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
+        <% else %>
+            <li><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
+        <% end %>
+     <% end %>
+    
+    
+      <li if class="active"><a href="/users/<%= session[:user_id]%>">Home</a></li>
       <li><a href="/users/new">Cadastrar Usuario</a></li>
       <li><a href="/clients/new">Cadastrar Cliente</a></li>
       <li><a href="/clients/list">Buscar Cliente</a></li>

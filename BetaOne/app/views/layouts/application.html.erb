@@ -19,7 +19,7 @@
     <header>
       <%= render 'layouts/topBar' %>
     </header>
-    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item(session[:user_id]) %>
     <section id="ContentContainer">
       <section class="ContentWrapper">
         <%= yield %>
