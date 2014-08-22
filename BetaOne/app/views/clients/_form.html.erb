@@ -1,7 +1,6 @@
-<%= form_for @client, url: "/clients", name: "client" do |cli| %>
+<%= form_for @client, url: "/clients", name: "client", remote: true do |cli| %>
 	<div id="personal_information" style="display:none;">
 	    <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
-	    
     	<%= cli.text_field :name, placeholder: "nome" %>
     
     	<%= cli.text_field :rg, placeholder: "rg" %>
@@ -64,6 +63,8 @@
     	<% end %>
     	<span onclick="display_steps('bank_account_information','reference_information')">Voltar</span>
 	    <%= cli.submit %>
+	    <div id="status_form">
+	    </div>
 	</div>
 <%end%>
 

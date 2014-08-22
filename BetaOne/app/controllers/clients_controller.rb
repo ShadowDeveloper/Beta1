@@ -7,10 +7,11 @@ class ClientsController < ApplicationController
 		new_client.bank_account.new(client_params[:bank_account])
 
 		if new_client.save
-			status = "window.location.href='/client/" + new_client.id.to_s + "'"
+			status = "window.location.href='/clients/" + new_client.id.to_s + "'"
 		else	
-			status = new_client.errors.full_messages[0]
-			status = "$('#status')[0].append='<center>" +status+ "<center>'"
+		    fail_field = new_client.errors.full_messages[0].split(" ")[0].downcase
+		    
+		    status = %Q{ $("#status_form").html("<p>Campo #{fail_field} incorreto</p>") }
 		end
 		render js: status
 	end

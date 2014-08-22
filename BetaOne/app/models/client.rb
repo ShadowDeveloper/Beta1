@@ -3,6 +3,8 @@ class Client < ActiveRecord::Base
 
 	default_scope { order :id => :desc }
 	
+    validates :name, :rg, presence: true
+	
 	validates :cpf, uniqueness: { message: " - CPF existente na base de dados." }
 	
 	has_many :client_references
