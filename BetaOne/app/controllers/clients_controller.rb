@@ -1,33 +1,10 @@
 class ClientsController < ApplicationController
 	
 	def create
-		session[:client_params].deep_merge!(params[:client]) if params[:client]
- 		@client = Client.new(session[:client_params])
-  		@client.current_step = session[:client_step]
-  		if @client.valid?
-    		if params[:back_button]
-      			@client.previous_step
-    		elsif @client.last_step?
-    			
-      			@client.save if @client.all_valid?
-    		else
-      			@client.next_step
-    		end
-    		session[:client_step] = @client.current_step
-  		end
-	  	
-	  	if @client.new_record?
-	    	render "new"
-	  	else
-		    session[:client_step] = session[:client_params] = nil
-		    flash[:notice] = "client saved!"
-		    redirect_to @client
-	  	end
-=begin
-		new_client = Client.new(client_params)
-		new_client.create_company(company_params)
-		new_client.client_references.new(client_references_params)
-		new_client.bank_account.new(bank_account_params)
+		new_client = Client.new(client_params[:client])
+		new_client.create_company(client_params[:company])
+		new_client.client_references.new(client_params[:client_reference])
+		new_client.bank_account.new(client_params[:bank_account])
 
 		if new_client.save
 			status = "window.location.href='/client/" + new_client.id.to_s + "'"
@@ -36,22 +13,13 @@ class ClientsController < ApplicationController
 			status = "$('#status')[0].append='<center>" +status+ "<center>'"
 		end
 		render js: status
-=end
 	end
 
 	def new
-		session[:client_params] ||= {}
-  		@client = Client.new(session[:client_params])
-  		session_client_step = session[:client_step] ||= "personal"
-  		@client.current_step = session[:client_step]
-
-
-=begin
 		@client       = Client.new
 		@company   	  = Company.new
 		@reference 	  = ClientReference.new
 		@bank_account = BankAccount.new
-=end
 	end
 
 	def show
@@ -71,45 +39,39 @@ class ClientsController < ApplicationController
 
 	private
 	def client_params
-		params.require(:client).permit(
-			:name,
-			:rg,
-			:dob,
-			:cpf,
-			:relationship,
-			:address,
-			:phone_number,
-			:phone_number2,
-			:email_address,
-			:email_address2,
-			:mobile_number,
-			:mobile_number2,
-			:client_type
+		params.permit(
+			client:[
+				:name,
+				:rg,
+				:dob,
+				:cpf,
+				:relationship,
+				:address,
+				:phone_number,
+				:phone_number2,
+				:email_address,
+				:email_address2,
+				:mobile_number,
+				:mobile_number2,
+				:client_type
+			],
+			company:[
+				:income,
+				:extra_income,
+				:ocupation,
+				:company_name
+			],
+			client_reference:[
+				:name,
+				:phone_number,
+				:phone_number2
+			],
+			bank_account:[
+				:bank_id,
+				:agency,
+				:account_number
+			]
 		)
 	end
 
-	def company_params
-		params.require(:company).permit(
-			:income,
-			:extra_income,
-			:ocupation,
-			:company_name
-		)
-	end
-
-	def client_references_params
-		params.require(:client_reference).permit(
-			:name,
-			:phone_number,
-			:phone_number2
-		)
-	end
-
-	def bank_account_params
-		params.require(:bank_account).permit(
-			:bank_id,
-			:agency,
-			:account_number
-		)
-	end
 end
