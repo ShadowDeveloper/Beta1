@@ -20,7 +20,7 @@
     <div id="residence_information" style="display:none;">
         <p class="titles"><h4>---Informações Residenciais---<h4></p><br/>
     
-    	<%= cli.text_field :address, placeholder: "address" %>
+    	<%= cli.text_field :address, placeholder: "address", onblur: "find_address('76873274')" %>
     
     	<%= cli.text_field :phone_number, placeholder: "phone_number" %>
     
@@ -74,4 +74,6 @@
         $("#"+ current_step).fadeOut();
         $("#"+ next_step).fadeIn();
     }
+    
+    
 </script>
