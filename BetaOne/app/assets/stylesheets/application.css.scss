@@ -63,7 +63,7 @@ body{
 // ==== End CSS NavBar da direita
 
 #ContentContainer{background: transparent; margin: 70px 0 0 298px;}
-.ContentWrapper{@include box-sizing(border-box); width: 100%; padding: 10px;}
+.ContentWrapper{@include box-sizing(border-box); width: 100% !important; padding: 10px;}
 
 .formNewUser{margin: 0px auto; width: 400px; height: 300px;}
 .formNewUser input[type="text"], .formNewUser input[type="password"]{float: right; height: 45px;}
