@@ -21,11 +21,9 @@ body{
 
 @import "variables";
 
+// CSS Header ====
 .HeaderContainer{@include box-sizing(border-box); padding:0 15px 0 15px; z-index:1001; width: 100%; min-height:60px; background: #fff; position: fixed; top:0; border-bottom: 3px solid #2364b0;}
-.navbar-brand{background-image: url('/assets/logoInterno.png'); background-color: #fff; background-size: 300px; background-repeat: no-repeat; width: 320px; background-position: 8px 0; height: 50px; border-radius: 3px;}
-.navbar-brand:hover{background-color:#fff !important;}
 
-#container{position: relative; background: transparent; padding:90px 20px 30px 20px;  width: 74%; height: 100%; float: right;}
 .HeaderUserInfos{
 	float:right;
 	margin:18px 0 0 0;
@@ -36,6 +34,8 @@ body{
 }
 
 .HeaderLogoInterno{width: 250px; float:left;  margin:5px 0 0 0;}
+// ==== End CSS Header
+
 // CSS NavBar da direita ====
 #RightBar{
 	position:fixed;
@@ -61,6 +61,9 @@ body{
 .active a:hover{ color: #428bca !important;}
 .NavRightBar ul li:hover{background: #eeeeee; color:#428bca; text-decoration: none; }
 // ==== End CSS NavBar da direita
+
+#ContentContainer{background: transparent; margin: 70px 0 0 298px;}
+.ContentWrapper{@include box-sizing(border-box); width: 100%; padding: 10px;}
 
 .formNewUser{margin: 0px auto; width: 400px; height: 300px;}
 .formNewUser input[type="text"], .formNewUser input[type="password"]{float: right; height: 45px;}

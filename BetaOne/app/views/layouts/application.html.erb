@@ -19,10 +19,11 @@
       <%= render 'layouts/topBar' %>
     </header>
     <%= render 'layouts/navigation' %>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+    <section id="ContentContainer">
+      <section class="ContentWrapper">
+        <%= yield %>
+      </section>
+    </section>
     
     <footer>
        <%= render 'layouts/footer' %>
