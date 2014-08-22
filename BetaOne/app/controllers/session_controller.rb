@@ -9,8 +9,9 @@ class SessionController < ApplicationController
 		).first
 
 		if  user
-			session[:user_id]    = user.id
-			session[:user_login] = user.login
+			session[:user_id]     = user.id
+			session[:user_login]  = user.login
+			session[:client_step] = "personal"
 			redirect_to user
 			return
 		else
@@ -22,6 +23,7 @@ class SessionController < ApplicationController
 	def logout
 		session.delete :user_id
 		session.delete :user_login
+		session.delete :client_step
 		redirect_to "/main"
 	end
 end

@@ -1,7 +1,28 @@
 class ClientsController < ApplicationController
 	
 	def create
-
+		session[:client_params].deep_merge!(params[:client]) if params[:client]
+ 		@client = Client.new(session[:client_params])
+  		@client.current_step = session[:client_step]
+  		if @client.valid?
+    		if params[:back_button]
+      			@client.previous_step
+    		elsif @client.last_step?
+      			@client.save if @client.all_valid?
+    		else
+      			@client.next_step
+    		end
+    		session[:client_step] = @client.current_step
+  		end
+	  	
+	  	if @client.new_record?
+	    	render "new"
+	  	else
+		    session[:client_step] = session[:client_params] = nil
+		    flash[:notice] = "client saved!"
+		    redirect_to @client
+	  	end
+=begin
 		new_client = Client.new(client_params)
 		new_client.create_company(company_params)
 		new_client.client_references.new(client_references_params)
@@ -14,13 +35,22 @@ class ClientsController < ApplicationController
 			status = "$('#status')[0].append='<center>" +status+ "<center>'"
 		end
 		render js: status
+=end
 	end
 
 	def new
+		session[:client_params] ||= {}
+  		@client = Client.new(session[:client_params])
+  		session_client_step = session[:client_step] ||= "personal"
+  		@client.current_step = session[:client_step]
+
+
+=begin
 		@client       = Client.new
 		@company   	  = Company.new
 		@reference 	  = ClientReference.new
 		@bank_account = BankAccount.new
+=end
 	end
 
 	def show
