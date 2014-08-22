@@ -1,4 +1,4 @@
-<%= form_for @client, url: "/clients", name: "client", remote: true do |cli| %>
+<%= form_for @client, name: "client", remote: true do |cli| %>
 	<div id="personal_information" style="display:none;">
 	    <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
     	<%= cli.text_field :name, placeholder: "nome" %>
