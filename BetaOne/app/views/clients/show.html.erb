@@ -13,8 +13,8 @@
 
 	<center>
 		<b>Novo Imóvel</b>
-		<%= form_tag ("/residence"), method: :post do %>
-			<%= text_field_tag :address, nil, placeholder: "Endereço"%><br />
+		<%= form_for Residence.new, url: "/residences", name: "residence" do |res| %>
+			<%=  res.text_field :address, placeholder: "Endereço"%><br />
 			<%= submit_tag "Gravar"%>
 		<%end%>
 	</center>
