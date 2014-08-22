@@ -20,7 +20,7 @@
     <div id="residence_information" style="display:none;">
         <p class="titles"><h4>---Informações Residenciais---<h4></p><br/>
     
-    	<%= cli.text_field :address, placeholder: "address", onblur: "find_address('76873274')" %>
+    	<%= cli.text_field :address, placeholder: "address", onblur: "getCEP()" %>
     
     	<%= cli.text_field :phone_number, placeholder: "phone_number" %>
     
@@ -74,6 +74,24 @@
         $("#"+ current_step).fadeOut();
         $("#"+ next_step).fadeIn();
     }
+    
+    
+    function getCEP()
+    {
+        $.ajax({
+        url: 'http://correiosapi.apphb.com/cep/76873274',
+        dataType: 'json',
+        crossDomain: true,
+        contentType: "application/json",
+        statusCode: {
+        200: function(data) { console.log(data); } // Ok
+        ,400: function(msg) { console.log(msg); } // Bad Request
+        ,404: function(msg) { console.log("CEP não encontrado!!"); } // Not Found
+        }
+    });
+        
+    }
+  
     
     
 </script>
