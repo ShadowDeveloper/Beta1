@@ -68,7 +68,17 @@
 <%end%>
 
 <script>
-    $(document).ready(function(){ $("#personal_information").fadeIn(); }) 
+    $(document).ready(function(){ 
+        $("#personal_information").fadeIn();
+        $('#client_cpf').mask('000.000.000-00');
+        $('#client_dob').mask('00/00/0000');
+        $('#client_phone_number').mask('(00) 0000-0000');
+        $('#client_phone_number2').mask('(00) 0000-0000');
+        $('#client_phone_number2').mask('(00) 0000-0000');
+        $('#client_mobile_number').mask('(00) 0000-00000');
+        $('#client_reference_phone_number').mask('(00) 0000-0000');
+        $('#client_reference_phone_number2').mask('(00) 0000-0000');
+    }) 
 
     function display_steps(current_step, next_step){
         $("#"+ current_step).fadeOut();
@@ -78,8 +88,8 @@
     
     function getCEP()
     {
-        $.ajax({
-        url: 'http://correiosapi.apphb.com/cep/76873274',
+          $.ajax({
+        url: 'http://correiosapi.apphb.com/cep/qweqwe',
         dataType: 'json',
         crossDomain: true,
         contentType: "application/json",
