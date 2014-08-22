@@ -1,0 +1,5 @@
+<%= fields_for(BankAccount.new) do |bank|%>
+		<%= bank.text_field :bank_id , placeholder: "bank_id"%>
+		<%= bank.text_field :agency , placeholder: "agency"%>
+		<%= bank.text_field :account_number , placeholder: "account_number"%>
+	<% end %>

@@ -3,11 +3,8 @@ Proto::Application.routes.draw do
   
   resources :residence
 
-  resources :users do
-    post 'login', on: :collection
-    get 'logout', on: :collection
-  end
-
+  resources :users 
+  
   resources :clients do
     get 'list', on: :collection
   end
