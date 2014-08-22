@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
 	
 	def create
-
+		debugger
 		new_client = Client.new(client_params)
 		new_client.create_company(company_params)
 		new_client.client_references.new(client_references_params)
@@ -40,45 +40,39 @@ class ClientsController < ApplicationController
 
 	private
 	def client_params
-		params.require(:client).permit(
-			:name,
-			:rg,
-			:dob,
-			:cpf,
-			:relationship,
-			:address,
-			:phone_number,
-			:phone_number2,
-			:email_address,
-			:email_address2,
-			:mobile_number,
-			:mobile_number2,
-			:client_type
+		params.permit(
+			client:[
+				:name,
+				:rg,
+				:dob,
+				:cpf,
+				:relationship,
+				:address,
+				:phone_number,
+				:phone_number2,
+				:email_address,
+				:email_address2,
+				:mobile_number,
+				:mobile_number2,
+				:client_type
+			],
+			company:[
+				:income,
+				:extra_income,
+				:ocupation,
+				:company_name
+			],
+			client_reference:[
+				:name,
+				:phone_number,
+				:phone_number2
+			],
+			bank_account:[
+				:bank_id,
+				:agency,
+				:account_number
+			]
 		)
 	end
 
-	def company_params
-		params.require(:company).permit(
-			:income,
-			:extra_income,
-			:ocupation,
-			:company_name
-		)
-	end
-
-	def client_references_params
-		params.require(:client_reference).permit(
-			:name,
-			:phone_number,
-			:phone_number2
-		)
-	end
-
-	def bank_account_params
-		params.require(:bank_account).permit(
-			:bank_id,
-			:agency,
-			:account_number
-		)
-	end
 end
