@@ -14,7 +14,7 @@
     	<%= cli.text_field :mobile_number2, placeholder: "mobile_number2"%>
     	<%= cli.text_field :email_address2, placeholder: "email_address2"%>
     	<%= cli.text_field :client_type, placeholder: "client_type" %>
-    	<span onclick="display_steps('personal_information','company_information')">Next</span>
+    	<span onclick="display_steps('personal_information','company_information')">Próximo</span>
 	</div>
 	
 	<div id="company_information" style="display:none;">
@@ -23,7 +23,8 @@
     		<%= comp.text_field :ocupation, placeholder: "ocupation" %>
     		<%= comp.text_field :company_name, placeholder: "company_name"  %>
     	<%end%>
-    	<span onclick="display_steps('company_information','reference_information')">Next</span>
+    	<span onclick="display_steps('company_information','personal_information')">Voltar</span>
+    	<span onclick="display_steps('company_information','reference_information')">Próximo</span>
 	</div>
 	
 	<div id="reference_information" style="display:none;">
@@ -32,7 +33,8 @@
     		<%= ref.text_field :phone_number , placeholder: "phone_number"%>
     		<%= ref.text_field :phone_number2 , placeholder: "phone_number2"%>
     	<% end %>
-    	<span onclick="display_steps('reference_information','bank_account_information')">Next</span>
+    	<span onclick="display_steps('reference_information','company_information')">Voltar</span>
+    	<span onclick="display_steps('reference_information','bank_account_information')">Próximo</span>
     </div>
     
     <div id="bank_account_information" style="display:none;">
@@ -41,6 +43,7 @@
     		<%= bank.text_field :agency , placeholder: "agency"%>
     		<%= bank.text_field :account_number , placeholder: "account_number"%>
     	<% end %>
+    	<span onclick="display_steps('bank_account_information','reference_information')">Voltar</span>
 	    <%= cli.submit %>
 	</div>
 <%end%>
