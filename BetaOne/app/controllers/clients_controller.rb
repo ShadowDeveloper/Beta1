@@ -8,6 +8,7 @@ class ClientsController < ApplicationController
     		if params[:back_button]
       			@client.previous_step
     		elsif @client.last_step?
+    			
       			@client.save if @client.all_valid?
     		else
       			@client.next_step

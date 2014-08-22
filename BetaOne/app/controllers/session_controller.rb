@@ -24,6 +24,7 @@ class SessionController < ApplicationController
 		session.delete :user_id
 		session.delete :user_login
 		session.delete :client_step
+		session.delete :client_params
 		redirect_to "/main"
 	end
 end
