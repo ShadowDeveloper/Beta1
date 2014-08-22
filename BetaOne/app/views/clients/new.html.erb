@@ -1,14 +1,7 @@
 <div id="container">
   <center>
   <h1>Cadastro - Cliente Pessoa Física<h1>
-
-  <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
-    <%# render "form" %>
-    <%= form_for @client do |f| %>
-      <%= render "#{@client.current_step}_step", :f => f %>
-      <p><%= f.submit "Continue" %></p>
-      <p><%= f.submit "Back", :name => "back_button" unless @client.first_step? %></p>
-    <% end %>
+    <%= render "form" %>
   </center>
   <div id="status" name="status">
   </div>

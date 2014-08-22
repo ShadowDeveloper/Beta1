@@ -1,35 +1,79 @@
 <%= form_for @client, url: "/clients", name: "client" do |cli| %>
-	<%= cli.text_field :name, placeholder: "nome" %>
-	<%= cli.text_field :rg, placeholder: "rg" %>
-	<%= cli.text_field :dob, placeholder: "dob" %>
-	<%= cli.text_field :cpf, placeholder: "cpf" %>
-	<%= cli.text_field :relationship, placeholder: "relationship" %>
-	<%= cli.text_field :address, placeholder: "address" %>
-	<%= cli.text_field :phone_number, placeholder: "phone_number" %>
-	<%= cli.text_field :phone_number2, placeholder: "phone_number2" %>
-	<%= cli.text_field :email_address, placeholder: "email_address" %>
-	<%= cli.text_field :email_address2, placeholder: "email_address2"%>
-	<%= cli.text_field :mobile_number, placeholder: "mobile_number"%>
-	<%= cli.text_field :mobile_number2, placeholder: "mobile_number2"%>
-	<%= cli.text_field :email_address2, placeholder: "email_address2"%>
-	<%= cli.text_field :client_type, placeholder: "client_type" %>
+	<div id="personal_information" style="display:none;">
+	    <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
+	    
+    	<%= cli.text_field :name, placeholder: "nome" %>
+    
+    	<%= cli.text_field :rg, placeholder: "rg" %>
+    
+    	<%= cli.text_field :dob, placeholder: "dob" %>
+    
+    	<%= cli.text_field :cpf, placeholder: "cpf" %>
+    
+    	<%= cli.text_field :relationship, placeholder: "relationship" %>
+        
+        <%= cli.text_field :email_address, placeholder: "email_address" %>
+        
+        <span onclick="display_steps('personal_information','residence_information')">Próximo</span>
+    </div>
+    
+    <div id="residence_information" style="display:none;">
+        <p class="titles"><h4>---Informações Residenciais---<h4></p><br/>
+    
+    	<%= cli.text_field :address, placeholder: "address", onblur: "find_address('76873274')" %>
+    
+    	<%= cli.text_field :phone_number, placeholder: "phone_number" %>
+    
+    	<%= cli.text_field :phone_number2, placeholder: "phone_number2" %>
+    	
+    	<%= cli.text_field :mobile_number, placeholder: "mobile_number"%>
+    
+    	<%= cli.hidden_field :client_type, placeholder: "client_type" %>
+    	<span onclick="display_steps('residence_information','personal_information')">Voltar</span>
+    	<span onclick="display_steps('residence_information','company_information')">Próximo</span>
+	</div>
 	
-	<%= fields_for(@company) do |comp| %>
-		<%= comp.text_field :income , placeholder: "income"%>
-		<%= comp.text_field :ocupation, placeholder: "ocupation" %>
-		<%= comp.text_field :company_name, placeholder: "company_name"  %>
-	<%end%>
+	<div id="company_information" style="display:none;">
+	    <p class="titles"><h4>---Informações Profissionais---<h4></p><br/>
+    	<%= fields_for(@company) do |comp| %>
+    		<%= comp.text_field :income , placeholder: "income"%>
+    		<%= comp.text_field :ocupation, placeholder: "ocupation" %>
+    		<%= comp.text_field :company_name, placeholder: "company_name"  %>
+    	<%end%>
+    	<span onclick="display_steps('company_information','personal_information')">Voltar</span>
+    	<span onclick="display_steps('company_information','reference_information')">Próximo</span>
+	</div>
 	
-	<%= fields_for(@reference) do |ref|%>
-		<%= ref.text_field :name , placeholder: "name"%>
-		<%= ref.text_field :phone_number , placeholder: "phone_number"%>
-		<%= ref.text_field :phone_number2 , placeholder: "phone_number2"%>
-	<% end %>
-
-	<%= fields_for(@bank_account) do |bank|%>
-		<%= bank.text_field :bank_id , placeholder: "bank_id"%>
-		<%= bank.text_field :agency , placeholder: "agency"%>
-		<%= bank.text_field :account_number , placeholder: "account_number"%>
-	<% end %>
-	<%= cli.submit %>
+	<div id="reference_information" style="display:none;">
+	    <p class="titles"><h4>---Referências Pessoais---<h4></p><br/>
+    	<%= fields_for(@reference) do |ref|%>
+    		<%= ref.text_field :name , placeholder: "name"%>
+    		<%= ref.text_field :phone_number , placeholder: "phone_number"%>
+    		<%= ref.text_field :phone_number2 , placeholder: "phone_number2"%>
+    	<% end %>
+    	<span onclick="display_steps('reference_information','company_information')">Voltar</span>
+    	<span onclick="display_steps('reference_information','bank_account_information')">Próximo</span>
+    </div>
+    
+    <div id="bank_account_information" style="display:none;">
+        <p class="titles"><h4>---Dados Bancários---<h4></p><br/>
+    	<%= fields_for(@bank_account) do |bank|%>
+    		<%= bank.text_field :bank_id , placeholder: "bank_id"%>
+    		<%= bank.text_field :agency , placeholder: "agency"%>
+    		<%= bank.text_field :account_number , placeholder: "account_number"%>
+    	<% end %>
+    	<span onclick="display_steps('bank_account_information','reference_information')">Voltar</span>
+	    <%= cli.submit %>
+	</div>
 <%end%>
+
+<script>
+    $(document).ready(function(){ $("#personal_information").fadeIn(); }) 
+
+    function display_steps(current_step, next_step){
+        $("#"+ current_step).fadeOut();
+        $("#"+ next_step).fadeIn();
+    }
+    
+    
+</script>
