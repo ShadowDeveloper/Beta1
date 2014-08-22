@@ -1,2 +1,10 @@
 $WhiteColor: #fff;
-$rogesson: red;
+$fontProject: tahoma;
+$marginCenter:0px auto;
+
+@mixin box-sizing($boxsizing) {
+	-webkit-box-sizing:$boxsizing;
+	-moz-box-sizing:$boxsizing;
+	box-sizing: $boxsizing;
+}
+
