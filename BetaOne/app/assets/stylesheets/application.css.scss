@@ -1,5 +1,4 @@
 /*
-
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -11,29 +10,57 @@
  *
  *= require_self
  *= require_tree .
- */
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*/
 
-*{
-	font-family: 'myriad Pro' !important;
+
+body{
+	font-family: tahoma;
 }
 
+@import "variables";
 
-.HeaderClient{padding:10px 15px 10px 15px;}
+.HeaderContainer{@include box-sizing(border-box); padding:0 15px 0 15px; z-index:1001; width: 100%; min-height:60px; background: #fff; position: fixed; top:0; border-bottom: 3px solid #2364b0;}
 .navbar-brand{background-image: url('/assets/logoInterno.png'); background-color: #fff; background-size: 300px; background-repeat: no-repeat; width: 320px; background-position: 8px 0; height: 50px; border-radius: 3px;}
-.navbar-brand:hover{background-color:#fff !important; }
+.navbar-brand:hover{background-color:#fff !important;}
 
 #container{position: relative; background: transparent; padding:90px 20px 30px 20px;  width: 74%; height: 100%; float: right;}
+.HeaderUserInfos{
+	float:right;
+	margin:18px 0 0 0;
+	li{float: left; list-style: none; margin: 0 3px 0 3px;}
+	li:last-child{padding: 1px 0 0 0;}
+	img{display: inline-block; margin:0 5px 0 0;}
+	a{color:#585858;}
+}
+
+.HeaderLogoInterno{width: 250px; float:left;  margin:5px 0 0 0;}
+// CSS NavBar da direita ====
+#RightBar{
+	position:fixed;
+	display:block;
+	z-index:1000;
+	top:0;
+	width: 230px;
+	height: 100%;
+	background: #f5f5f5;
+}
+
+.NavRightBar{
+	margin: 73px 0 0 0;
+	ul{list-style: none; display: block; list-style-type: disc; margin: 0px;}
+	li{list-style: none; padding: 10px 10px 10px 10px;}
+	a{color:#428bca; font-size: 16px; display: block; width: 100%; height: 100%;}
+	a:hover{text-decoration: none;}
+}
 
 .userName{text-transform:capitalize; color: #fff;}
-#RightBar{position:fixed; display:block;z-index:100; top:71px; width: 335px; height: 100%; background: #f5f5f5;}
-.NavRightBar ul{list-style: none; display: block; list-style-type: disc; -webkit-margin-before: 1em; -webkit-margin-after: 1em; -webkit-margin-start: 0px; -webkit-margin-end: 0px; -webkit-padding-start: 0px;}
-.NavRightBar ul li{list-style: none; padding: 10px 10px 10px 10px;}
-.NavRightBar ul li a{color:#428bca; font-size: 16px; display: block; width: 100%; height: 100%;}
-.NavRightBar ul li a:hover{text-decoration: none;}
 .active{background: #428bca; color: #fff;}
 .active > a{ color: #fff !important;}
 .active a:hover{ color: #428bca !important;}
 .NavRightBar ul li:hover{background: #eeeeee; color:#428bca; text-decoration: none; }
+// ==== End CSS NavBar da direita
 
 .formNewUser{margin: 0px auto; width: 400px; height: 300px;}
 .formNewUser input[type="text"], .formNewUser input[type="password"]{float: right; height: 45px;}

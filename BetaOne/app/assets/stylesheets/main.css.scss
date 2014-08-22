@@ -9,7 +9,7 @@
 #MainContainerLogin{
 	margin: 0 auto;
 	max-width: 500px;
-	height: 480px;
+	max-height: 480px;
 	background: #fff;
 	padding: 60px 20px 0 20px;
 	display: table;
@@ -23,16 +23,6 @@
 	margin: 0px auto;
 	margin-bottom: 45px;
 	background-size: 450px 90px;
-}
-
-.Welcome{
-	text-align: center;
-	color: #646464;
-	display: block;
-	margin-left: 0px auto;
-	margin-right: 0px auto;
-	margin-top: 20px;
-	margin-bottom: 40px
 }
 
 .FormLogin{
@@ -87,6 +77,7 @@
     -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+    font-family: $fontProject;
     margin-bottom: 31px;
 }
 
