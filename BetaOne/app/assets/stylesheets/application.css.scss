@@ -68,8 +68,11 @@ body{
 .iconClient{@extend .NavIcons; background:url(/assets/clientIcon.png);}
 .iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}
 .iconHome{@extend .NavIcons; background:url(/assets/homeIcon.png); width: 12px; height: 12px;}
-
 // ==== End CSS NavBar da direita
+
+.infosClient{
+	li{list-style: none;}
+}
 
 #ContentContainer{background: transparent; margin: 70px 0 0 298px;}
 .ContentWrapper{@include box-sizing(border-box); width: 100% !important; padding: 10px;}
