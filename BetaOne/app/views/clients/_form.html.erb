@@ -1,6 +1,6 @@
 <%= form_for @client, name: "client", remote: true do |cli| %>
 	<div id="personal_information" style="display:none;">
-	    <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
+	    <p class="titles"><h4>Informações Pessoais<h4></p><br/>
     	<p>
             <label>Nome</label>
             <%= cli.text_field :name, placeholder: "Nome" %>
@@ -33,7 +33,7 @@
     </div>
     
     <div id="residence_information" style="display:none;">
-        <p class="titles"><h4>---Informações Residenciais---<h4></p><br/>
+        <p class="titles"><h4>Informações Residenciais<h4></p><br/>
         
         <p>
             <label>CEP</label>
@@ -83,7 +83,7 @@
 	</div>
 	
 	<div id="company_information" style="display:none;">
-	    <p class="titles"><h4>---Informações Profissionais---<h4></p><br/>
+	    <p class="titles"><h4>Informações Profissionais<h4></p><br/>
     	<%= fields_for(@company) do |comp| %>
     		<p>
                 <label>Salário</label>
@@ -105,7 +105,7 @@
 	</div>
 	
 	<div id="reference_information" style="display:none;">
-	    <p class="titles"><h4>---Referências Pessoais---<h4></p><br/>
+	    <p class="titles"><h4>Referências Pessoais<h4></p><br/>
     	<%= fields_for(@reference) do |ref|%>
             <p>
                 <label>Nome</label>
@@ -195,3 +195,11 @@
         });
     }
 </script>
+
+<style>
+label {
+    font-size: 20px;
+    color: rgb(54, 54, 177);
+    text-align: left;
+}
+</style>
