@@ -22,6 +22,7 @@
     <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item(session[:user_id]) %>
     <section id="ContentContainer">
       <section class="ContentWrapper">
+        <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
         <%= yield %>
       </section>
     </section>
