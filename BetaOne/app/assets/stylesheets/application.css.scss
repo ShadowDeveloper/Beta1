@@ -55,6 +55,9 @@ body{
 	a:hover{text-decoration: none;}
 }
 
+.nextButton{background: url(/assets/btnNext.png); width: 150px; height: 35px; display: block; color:#fff; font-size: 12px; text-transform: uppercase; font-weight: bold; text-align: center; padding: 11px; cursor: pointer; float: right;}
+.previousButton{@extend .nextButton; background: url(/assets/btnPrevious.png); float: left;}
+
 .userName{text-transform:capitalize; color: #fff;}
 .active{background: #428bca; color: #fff;}
 .active > a{ color: #fff !important;}
