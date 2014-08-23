@@ -7,7 +7,7 @@ class SessionController < ApplicationController
 		 	login:    params[:user_name],
 			password: params[:password]
 		).first
-
+		
 		if  user
 			session[:user_id]     = user.id
 			session[:user_login]  = user.login
