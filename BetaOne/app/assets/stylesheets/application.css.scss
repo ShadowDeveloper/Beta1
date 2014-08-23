@@ -74,6 +74,12 @@ body{
 	li{list-style: none;}
 }
 
+#bank_account_information{
+	input[type="submit"]{
+		@extend .nextButton;
+	}
+}
+
 #ContentContainer{background: transparent; margin: 70px 0 0 298px;}
 .ContentWrapper{@include box-sizing(border-box); width: 100% !important; padding: 10px;}
 
