@@ -71,12 +71,14 @@ body{
 .NavIcons{margin:0 7px 0 0; width: 18px; height: 18px; display:inline-block;}
 .iconClient{@extend .NavIcons; background:url(/assets/clientIcon.png);}
 .iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}
-.iconHome{@extend .NavIcons; background:url(/assets/userIcon.png);}
+.iconHome{@extend .NavIcons; background:url(/assets/homeIcon.png); width: 12px; height: 12px;}
 
 // ==== End CSS NavBar da direita
 
 #ContentContainer{background: transparent; margin: 70px 0 0 298px;}
 .ContentWrapper{@include box-sizing(border-box); width: 100% !important; padding: 10px;}
+
+.buttonColor{@extend .button; background: #084182;}
 
 .formNewUser{margin: 0px auto; width: 400px; height: 300px;}
 .formNewUser input[type="text"], .formNewUser input[type="password"]{float: right; height: 45px;}
