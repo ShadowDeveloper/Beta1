@@ -51,8 +51,8 @@ body{
 	margin: 73px 0 0 0;
 	ul{list-style: none; display: block; list-style-type: disc; margin: 0px;}
 	li{list-style: none; padding: 10px 10px 10px 10px;}
-	a{color:#428bca; font-size: 16px; display: block; width: 100%; height: 100%;}
-	a:hover{text-decoration: none;}
+	a{color:#fff; display: inline; text-decoration: none;}
+	a:hover{text-decoration: none; color:#fff;}
 }
 
 .nextButton{background: url(/assets/btnNext.png); width: 150px; height: 35px; display: block; color:#fff; font-size: 12px; text-transform: uppercase; font-weight: bold; text-align: center; padding: 11px; cursor: pointer; float: right;}
@@ -64,10 +64,6 @@ body{
 .active a:hover{ color: #fff !important;}
 .NavRightBar ul li:hover{background: #2264b0; color:#fff; text-decoration: none;}
 
-.NavRightBar{
-	a{color:#428bca; display: inline; text-decoration: none;}
-	a:hover{color:#fff;}
-}
 .NavIcons{margin:0 7px 0 0; width: 18px; height: 18px; display:inline-block;}
 .iconClient{@extend .NavIcons; background:url(/assets/clientIcon.png);}
 .iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}
