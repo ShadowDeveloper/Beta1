@@ -17,9 +17,9 @@
     <ul>
      <% arr_url_nav.each do |url| %>
         <% if request.fullpath.match /#{url[:href]}/ %>
-            <li class="active"><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
+            <li class="active"><i class="iconClient"></i><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
         <% else %>
-            <li><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
+            <li><i class="iconUser"></i><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
         <% end %>
      <% end %>
     </ul>
