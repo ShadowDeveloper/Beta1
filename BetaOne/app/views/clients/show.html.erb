@@ -3,11 +3,13 @@
 	<div class="panel">
 		<ul class="infosClient">
 			<li><b>CPF:</b> <%= @client.cpf %></li>
-			<li><b>Nome:</b> <%= @client.name %></li>
+			<li><b>Nome:</b> <%= @client.name.capitalize %></li>
 			<li><b>Data de Nascimento:</b> <%= @client.dob %></li>
 			<li><b>RG:</b> <%= @client.rg %></li>
 			<li><b>Telefone:</b> <%= @client.phone_number %></li>
+			<!-- 
 			<li><b>Endereço:</b> <%= @client.address %></li>
+			->
 		</ul>
 	</div>
 
