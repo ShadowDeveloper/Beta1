@@ -44,7 +44,7 @@ body{
 	top:0;
 	width: 230px;
 	height: 100%;
-	background: #f5f5f5;
+	background: #084182;
 }
 
 .NavRightBar{
@@ -59,10 +59,20 @@ body{
 .previousButton{@extend .nextButton; background: url(/assets/btnPrevious.png); float: left;}
 
 .userName{text-transform:capitalize; color: #fff;}
-.active{background: #428bca; color: #fff;}
+.active{background: #2264b0; color: #fff;}
 .active > a{ color: #fff !important;}
-.active a:hover{ color: #428bca !important;}
-.NavRightBar ul li:hover{background: #eeeeee; color:#428bca; text-decoration: none; }
+.active a:hover{ color: #fff !important;}
+.NavRightBar ul li:hover{background: #2264b0; color:#fff; text-decoration: none;}
+
+.NavRightBar{
+	a{color:#428bca; display: inline; text-decoration: none;}
+	a:hover{color:#fff;}
+}
+.NavIcons{margin:0 7px 0 0; width: 18px; height: 18px; display:inline-block;}
+.iconClient{@extend .NavIcons; background:url(/assets/clientIcon.png);}
+.iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}
+.iconHome{@extend .NavIcons; background:url(/assets/userIcon.png);}
+
 // ==== End CSS NavBar da direita
 
 #ContentContainer{background: transparent; margin: 70px 0 0 298px;}
