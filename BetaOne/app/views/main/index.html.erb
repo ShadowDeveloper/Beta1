@@ -48,19 +48,22 @@
 					<input type="password" name="password" required placeholder="SENHA">
 				</p>		
 				
-				<% if flash[:error]%>
-				<div id="errorPassword">
-					<p>
-						Os dados digitados estão incorretos. Tente novamente!
-					</p>
-				</div>
-				<% end %>
+				
+				
 				
 				<%= submit_tag "", :class => "submitLogin"%>
 			<%end%>
 
 		</section>
-			
+		<% if flash[:error]%>
+			<center>
+				<div>
+					<p>
+						<span style="color:red;"><b>Os dados digitados estão incorretos. Tente novamente!</b></span>
+					</p>
+				</div>
+			</center>
+		<% end %>
 
 <!--<script>
 
