@@ -9,9 +9,9 @@ class ClientsController < ApplicationController
 		if new_client.save
 			status = "window.location.href='/clients/" + new_client.id.to_s + "'"
 		else	
-		    fail_field = new_client.errors.full_messages[0].split(" ")[0].downcase
+		    #fail_field = new_client.errors.full_messages[0].split(" ")[0].downcase
 		    
-		    status = %Q{ $("#status_form").html("<p>Campo #{fail_field} incorreto</p>") }
+		    status = %Q{ $("#status_form").html("<p>Preencha Todos os Campos</p>") }
 		end
 		render js: status
 	end
