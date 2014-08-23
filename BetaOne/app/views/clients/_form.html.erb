@@ -1,44 +1,87 @@
 <%= form_for @client, name: "client", remote: true do |cli| %>
 	<div id="personal_information" style="display:none;">
 	    <p class="titles"><h4>---Informações Pessoais---<h4></p><br/>
-    	<%= cli.text_field :name, placeholder: "nome" %>
-    
-    	<%= cli.text_field :rg, placeholder: "rg" %>
-    
-    	<%= cli.text_field :dob, placeholder: "dob" %>
-    
-    	<%= cli.text_field :cpf, placeholder: "cpf" %>
-    
-    	<%= cli.select(:relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'} )%>
+    	<p>
+            <label>Nome</label>
+            <%= cli.text_field :name, placeholder: "Nome" %>
+        </p>
+            <label>RG</label>
+    	   <%= cli.text_field :rg, placeholder: "RG" %>
+        </p>
         
-        <%= cli.text_field :email_address, placeholder: "email_address" %>
-        
+        <p>
+            <label>Data de Nascimento</label>
+    	   <%= cli.text_field :dob, placeholder: "Data de Nascimento" %>
+        </p>
+    	
+        <p>
+            <label>CPF</label>
+            <%= cli.text_field :cpf, placeholder: "CPF" %>
+        </p>
+    	
+        <p>
+            <label>Estado Civil</label>
+            <%= cli.select(:relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'} )%>
+        </p>
+
+        <p>
+            <label>E-mail</label>
+            <%= cli.text_field :email_address, placeholder: "E-mail" %>
+        </p>
+
         <span class="nextButton" onclick="display_steps('personal_information','residence_information')">Continuar</span>
     </div>
     
     <div id="residence_information" style="display:none;">
         <p class="titles"><h4>---Informações Residenciais---<h4></p><br/>
-    
-    	<%= cli.text_field :address, placeholder: "address", onblur: "getCEP()" %>
-    
-    	<%= cli.text_field :phone_number, placeholder: "phone_number" %>
-    
-    	<%= cli.text_field :phone_number2, placeholder: "phone_number2" %>
+        
+        <p>
+            <label>CEP</label>
+            <%= cli.text_field :address, placeholder: "CEP", onblur: "getCEP()" %>
+        </p>
     	
-    	<%= cli.text_field :mobile_number, placeholder: "mobile_number"%>
-    
-    	<%= cli.hidden_field :client_type, placeholder: "client_type" %>
-    	<span class="previousButton" click="display_steps('residence_information','personal_information')">Voltar</span>
+        <p>
+            <label>Telefone</label>
+            <%= cli.text_field :phone_number, placeholder: "Telefone" %>
+        </p>
+
+        <p>
+            <label>Telefone 2</label>
+    	   <%= cli.text_field :phone_number2, placeholder: "Telefone 2" %>
+    	</p>
+    	
+        <p>
+            <label>Celular</label>
+            <%= cli.text_field :mobile_number, placeholder: "Celular"%>
+        </p>
+
+        <p>
+    	   <%= cli.hidden_field :client_type, placeholder: "client_type" %>
+    	</p>
+
+        <span class="previousButton" onclick="display_steps('residence_information','personal_information')">Voltar</span>
+
     	<span class="nextButton" onclick="display_steps('residence_information','company_information')">Próximo</span>
 	</div>
 	
 	<div id="company_information" style="display:none;">
 	    <p class="titles"><h4>---Informações Profissionais---<h4></p><br/>
     	<%= fields_for(@company) do |comp| %>
-    		<%= comp.text_field :income , placeholder: "income"%>
-    		<%= comp.text_field :ocupation, placeholder: "ocupation" %>
-    		<%= comp.text_field :company_name, placeholder: "company_name"  %>
-    	<%end%>
+    		<p>
+                <label>Salário</label>
+                <%= comp.text_field :income , placeholder: "Salário"%>
+    		</p>
+
+            <p>
+                <label>Profissão</label>
+                <%= comp.text_field :ocupation, placeholder: "Profissão" %>
+    		</p>
+            
+            <p>
+                <label>Empresa</label>
+                <%= comp.text_field :company_name, placeholder: "Empresa"  %>
+    	    </p>
+        <%end%>
     	<span class="previousButton" onclick="display_steps('company_information','personal_information')">Voltar</span>
     	<span class="nextButton" onclick="display_steps('company_information','reference_information')">Próximo</span>
 	</div>
@@ -46,9 +89,20 @@
 	<div id="reference_information" style="display:none;">
 	    <p class="titles"><h4>---Referências Pessoais---<h4></p><br/>
     	<%= fields_for(@reference) do |ref|%>
-    		<%= ref.text_field :name , placeholder: "name"%>
-    		<%= ref.text_field :phone_number , placeholder: "phone_number"%>
-    		<%= ref.text_field :phone_number2 , placeholder: "phone_number2"%>
+            <p>
+                <label>Nome</label>
+                <%= ref.text_field :name , placeholder: "Nome"%>
+    		</p>
+            
+            <p>
+                <label>Telefone</label>
+                <%= ref.text_field :phone_number , placeholder: "Telefone"%>
+    		</p>
+            
+            <p>
+                <label>Telefone 2</label>
+                <%= ref.text_field :phone_number2 , placeholder: "Telefone 2"%>
+            </p>
     	<% end %>
     	<span class="previousButton" onclick="display_steps('reference_information','company_information')">Voltar</span>
     	<span class="nextButton" onclick="display_steps('reference_information','bank_account_information')">Próximo</span>
@@ -57,9 +111,20 @@
     <div id="bank_account_information" style="display:none;">
         <p class="titles"><h4>---Dados Bancários---<h4></p><br/>
     	<%= fields_for(@bank_account) do |bank|%>
-    		<%= bank.select(:bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}) %>
-    		<%= bank.text_field :agency , placeholder: "agency"%>
-    		<%= bank.text_field :account_number , placeholder: "account_number"%>
+            <p>
+               <label>Banco</label>
+    		   <%= bank.select(:bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}) %>
+            </p>
+    		
+            <p>
+                <label>Agência</label>
+                <%= bank.text_field :agency , placeholder: "Agência"%>
+    		</p>
+            
+            <p>
+                <label>Conta Corrente</label>
+                <%= bank.text_field :account_number , placeholder: "Conta Corrente"%>
+            </p>
     	<% end %>
     	<span class="previousButton" onclick="display_steps('bank_account_information','reference_information')">Voltar</span>
 	    <%= cli.submit %>
