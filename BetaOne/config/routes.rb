@@ -15,6 +15,9 @@ Proto::Application.routes.draw do
     post 'login', on: :collection
     get 'logout', on: :collection
   end
+
+  resources :home do
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
