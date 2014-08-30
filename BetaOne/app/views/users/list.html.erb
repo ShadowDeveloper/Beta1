@@ -6,7 +6,7 @@
     <%= submit_tag "Buscar",  :class=>"button right"%>
   <%end%>
 
-  <%if @user%>
+  <%if !@user.empty?%>
     <%= render "search"%>
   <%end%>
 </div>
