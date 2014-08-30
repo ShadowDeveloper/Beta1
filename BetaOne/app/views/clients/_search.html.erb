@@ -1,0 +1,14 @@
+<center>
+    <table style="width:300px">
+    <tr>
+      <th>CPF</th>
+      <th>NOME</th> 
+    </tr>
+  <% @clients.each  do |client| %>
+<tr>
+  <td><a href="/clients/<%=client.id%>"><%= client.cpf %></a></td>
+  <td><%= client.name.upcase %></td>
+</tr>
+  <% end %>
+</table>
+</center>

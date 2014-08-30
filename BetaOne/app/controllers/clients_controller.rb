@@ -34,7 +34,7 @@ class ClientsController < ApplicationController
 		elsif params[:search_by] == "nome"
 			@clients  = Client.where("name like ?", "%#{params[:search]}%")
 		else
-			@clients  = Client.all.limit(10);
+			@clients = nil
 		end
 	end
 

@@ -5,7 +5,7 @@ class Client < ActiveRecord::Base
 	
     validates :name, :rg, presence: true
 	
-	#validates :cpf, uniqueness: { message: " - CPF existente na base de dados." }
+	validates :cpf, uniqueness: { message: " - CPF existente na base de dados." }
 	
 	has_many :client_references
 

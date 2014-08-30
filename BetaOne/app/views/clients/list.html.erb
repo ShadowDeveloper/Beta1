@@ -4,7 +4,7 @@
   <p>
     <label>Buscar Por:</label>
     <select name="search_by">
-     <option value="last">Ultimos</option>
+     <option value="">Selecione</option>
      <option value="cpf">CPF</option>
      <option value="nome">Nome</option>
     </select>
@@ -13,18 +13,7 @@
     <%= submit_tag "Buscar",  :class=>"button right"%>
   <%end%>
 
-
-	<center>
-    <table style="width:300px">
-    <tr>
-      <th>CPF</th>
-      <th>NOME</th> 
-    </tr>
-  <% @clients.each  do |client| %>
-<tr>
-  <td><a href="/clients/<%=client.id%>"><%= client.cpf %></a></td>
-  <td><%= client.name.upcase %></td>
-</tr>
-  <% end %>
-</table>
+  <%if @clients%>
+    <%= render "search"%>
+  <%end%>
 </div>
