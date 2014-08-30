@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
 
 	validates :cpf, uniqueness: {message: " - CPF existente na base de dados."}
 	validates :login, uniqueness: {message: " - Login existente na base de dados."}
+	validates :name, presence: true
 end

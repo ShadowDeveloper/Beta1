@@ -68,4 +68,18 @@ class UsersControllerTest < ActionController::TestCase
 		
 		assert_equal(User.count, count)
 	end
+
+	test "should not create user without name" do
+		count = User.count
+		params = {
+			user: {
+				login: "blalblala",
+				cpf:   "2112121222",
+				admin: 1
+			}
+		}
+		post(:create, params)
+		
+		assert_equal(User.count, count)
+	end
 end
