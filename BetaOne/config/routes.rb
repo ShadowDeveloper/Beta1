@@ -3,7 +3,9 @@ Proto::Application.routes.draw do
   
   resources :residence
 
-  resources :users 
+  resources :users do
+    get 'list', on: :collection
+  end
   
   resources :clients do
     get 'list', on: :collection
