@@ -1,22 +1,62 @@
+<span>Informações Pessoais</span>
 
+<div class="panel">
+	<ul class="infosClient">
+		<li><b>CPF:</b> <%= @client.cpf %></li>
+		<li><b>Nome:</b> <%= @client.name.capitalize %></li>
+		<li><b>Data de Nascimento:</b> <%= @client.dob %></li>
+		<li><b>RG:</b> <%= @client.rg %></li>
+		<li><b>Telefone:</b> <%= @client.phone_number %></li>
+		<li><b>Estado Civil:</b> <%= @client.relationship %></li>
+		<li><b>E-mail:</b> <%= @client.email_address %></li>
+		<li><b>Telefone:</b> <%= @client.phone_number %></li>
+		<li><b>Telefone:</b> <%= @client.phone_number2 %></li>
+		<li><b>Celular:</b> <%= @client.mobile_number %></li>
+	</ul>
+</div>
 
-	<div class="panel">
+<span>Informações Residenciais</span>
+<div class="panel">
+	<ul class="infosClient">
+		<li><b>CEP:</b> <%= @client.address %></li>
+	</ul>
+</div>
+
+<span>Informações Profissionais</span>
+<div class="panel">
+	<ul class="infosClient">
+		<li><b>Salário:</b> <%= @client.company.income %></li>
+		<li><b>Profissão:</b> <%= @client.company.ocupation.capitalize %></li>
+		<li><b>Empresa:</b> <%= @client.company.company_name.capitalize %></li>
+	</ul>
+</div>
+
+<span>Referências Pessoais</span>
+<div class="panel">
+	<%  @client.client_references.each do |ref|%>
 		<ul class="infosClient">
-			<li><b>CPF:</b> <%= @client.cpf %></li>
-			<li><b>Nome:</b> <%= @client.name.capitalize %></li>
-			<li><b>Data de Nascimento:</b> <%= @client.dob %></li>
-			<li><b>RG:</b> <%= @client.rg %></li>
-			<li><b>Telefone:</b> <%= @client.phone_number %></li>
-			<!-- 
-			<li><b>Endereço:</b> <%= @client.address %></li>
-			->
+			<li><b>Nome:</b> <%= ref.name %></li>
+			<li><b>Telefone:</b> <%= ref.phone_number %></li>
+			<li><b>Telefone:</b> <%=ref.phone_number2 %></li>
 		</ul>
-	</div>
+	<% end %>
+</div>
 
-	<!--<center>
-		<b>Novo Imóvel</b>
-		<%# form_for Residence.new, url: "/residences", name: "residence" do |res| %>
-			<%#  res.text_field :address, placeholder: "Endereço"%><br />
-			<%# submit_tag "Gravar"%>
-		<%#end%>
-	</center>-->
+
+<span>Dados Bancários</span>
+<div class="panel">
+	<%  @client.bank_account.each do |bank|%>
+		<ul class="infosClient">
+			<li><b>Banco:</b> <%= bank.bank_id %></li>
+			<li><b>Agencia:</b> <%= bank.agency %></li>
+			<li><b>Conta Corrente:</b> <%= bank.account_number %></li>
+		</ul>
+	<% end %>
+</div>
+<!--<center>
+	<b>Novo Imóvel</b>
+	<%# form_for Residence.new, url: "/residences", name: "residence" do |res| %>
+		<%#  res.text_field :address, placeholder: "Endereço"%><br />
+		<%# submit_tag "Gravar"%>
+	<%#end%>
+</center>-->
