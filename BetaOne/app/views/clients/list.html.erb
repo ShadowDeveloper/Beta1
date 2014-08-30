@@ -3,13 +3,13 @@
   <%= form_tag("/clients/list", method: "get",  :class => "formNewUser") do %>
   <p>
     <label>Buscar Por:</label>
-    <select name="search_by">
+    <select id="search_by" name="search_by">
      <option value="">Selecione</option>
      <option value="cpf">CPF</option>
      <option value="nome">Nome</option>
     </select>
   </p>  
-    <input type="text" name="search" class="form-control"/><br>
+    <input type="text" id="search" name="search" class="form-control"/><br>
     <%= submit_tag "Buscar",  :class=>"button right"%>
   <%end%>
 
@@ -17,3 +17,16 @@
     <%= render "search"%>
   <%end%>
 </div>
+
+<script>
+  $( "#search_by" ).change(function() {
+    if( $("#search_by").val() == "cpf") {
+      $('#search').mask('000.000.000-00');
+    } else {
+      $('#search').val("");
+      $('#search').unmask();
+    }
+      
+  });
+  
+</script>
