@@ -44,7 +44,7 @@
 
 // sidebar
 .sidebar{
-	background: $blueOfProject; position: relative;
+	background: $blueOfProject; position: relative; left:-30px;
 	a{padding: 10px; line-height: 38px; color:$WhiteColor;}
 		.active{background:$WhiteColor;
 			a{color:$blueOfProject;}
