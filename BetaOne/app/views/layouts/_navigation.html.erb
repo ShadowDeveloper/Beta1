@@ -1,27 +1,18 @@
 <%# navigation styled for Zurb Foundation 5 %>
-<!--<nav class="top-bar" data-topbar>
+<nav class="top-bar" data-topbar>
   <ul class="title-area">
-    <li class="name"><%#link_to index, root_path %></li>
+    <li class="name nameEnterprise">
+    	<a href="#"><img src="/assets/logoInterno.png"></a>
+    </li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
+		<!--<ul class="show-for-small"></ul>-->
   <div class="top-bar-section">
-    <ul>
-      <%# render 'layouts/navigation_links' %>
-    </ul>
+		<ul class="right">
+			  <li><a href="#" class="userName">
+			  	<img src="/assets/avatar.jpg" height="29" width="29" alt="avatar image"><%= session[:user_login] %></a></li>
+			  <li class="divider hide-for-small"></li>
+	          <li><a href="/session/logout">Sair</a></li>
+        </ul>
   </div>
-</nav>-->
-
-
-<aside id="RightBar">
-  <nav class="NavRightBar">
-    <ul>
-     <% arr_url_nav.each do |url| %>
-        <% if request.fullpath.match /#{url[:href]}/ %>
-            <li class="active"><i class="iconClient"></i><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
-        <% else %>
-            <li><i class="iconUser"></i><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
-        <% end %>
-     <% end %>
-    </ul>
-  </nav>  
-</aside>
+</nav>

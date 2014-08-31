@@ -9,27 +9,21 @@
     <%= javascript_include_tag 'vendor/modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="http://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
-  
   </head>
-
   <body>
     <header>
-      <%= render 'layouts/topBar' %>
+       <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
     </header>
-    <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item(session[:user_id]) %>
-    <section id="ContentContainer">
-      <section class="ContentWrapper">
-        <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
-        <%= yield %>
-      </section>
-    </section>
-    
-    <footer>
-       <%= render 'layouts/footer' %>
-    </footer> 
 
+    <main role="main">
+        <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
+        <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
+        <%# render 'layouts/messages' %>
+        <div class="large-9 medium-8 columns">
+          <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

@@ -5,94 +5,57 @@
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
  *
- *= require_self
  *= require_tree .
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-*/
+ *= require_self
+ */
 
+@import "variables.scss";
 
-body{
-	font-family: tahoma;
+// Top navigation
+.nameEnterprise{width: 200px;
+	img{max-width: 100%;}
 }
-
-@import "variables";
-
-// CSS Header ====
-.HeaderContainer{@include box-sizing(border-box); padding:0 15px 0 15px; z-index:1001; width: 100%; min-height:60px; background: #fff; position: fixed; top:0; border-bottom: 3px solid #2364b0;}
-
-.HeaderUserInfos{
-	float:right;
-	margin:18px 0 0 0;
-	li{float: left; list-style: none; margin: 0 3px 0 3px;}
-	li:last-child{padding: 1px 0 0 0;}
-	img{display: inline-block; margin:0 5px 0 0;}
-	a{color:#585858;}
+.top-bar{background: #fff; border-bottom:$BlueBorderBottom; height: 55px; line-height: 55px;}
+.userName{
+	img{margin: 0 5px 0 0;}
 }
-
-.HeaderLogoInterno{width: 250px; float:left;  margin:5px 0 0 0;}
-// ==== End CSS Header
-
-// CSS NavBar da direita ====
-#RightBar{
-	position:fixed;
-	display:block;
-	z-index:1000;
-	top:0;
-	width: 230px;
-	height: 100%;
-	background: #084182;
-}
-
-.NavRightBar{
-	margin: 73px 0 0 0;
-	ul{list-style: none; display: block; list-style-type: disc; margin: 0px;}
-	li{list-style: none; padding: 10px 10px 10px 10px;}
-	a{color:#fff; display: inline; text-decoration: none;}
-	a:hover{text-decoration: none; color:#fff;}
-}
-
-.nextButton{background: url(/assets/btnNext.png); width: 150px; height: 35px; display: block; color:#fff; font-size: 12px; text-transform: uppercase; font-weight: bold; text-align: center; padding: 11px; cursor: pointer; float: right;}
-.previousButton{@extend .nextButton; background: url(/assets/btnPrevious.png); float: left;}
-
-.userName{text-transform:capitalize; color: #fff;}
-.active{background: #2264b0; color: #fff;}
-.active > a{ color: #fff !important;}
-.active a:hover{ color: #fff !important;}
-.NavRightBar ul li:hover{background: #2264b0; color:#fff; text-decoration: none;}
-
-.NavIcons{margin:0 7px 0 0; width: 18px; height: 18px; display:inline-block;}
-.iconClient{@extend .NavIcons; background:url(/assets/clientIcon.png);}
-.iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}
-.iconHome{@extend .NavIcons; background:url(/assets/homeIcon.png); width: 12px; height: 12px;}
-// ==== End CSS NavBar da direita
-
-.infosClient{
-	li{list-style: none;}
-}
-
-#bank_account_information{
-	input[type="submit"]{
-		@extend .nextButton;
+.top-bar-section{
+	li:not(.has-form) a:not(.button), li.active:not(.has-form) a:not(.button){
+		@include topBarHeight(52px);
+		color: $blueOfProject;
+		background: $WhiteColor;
+	}
+	li:not(.has-form) a:not(.button):hover{
+		background: $blueOfProject;
+	}
+	ul{
+		.divider{
+			@include topBarHeight(52px);
+			border-right: 1px solid #ccc;
+		}
 	}
 }
+// End Top navigation
 
-#ContentContainer{background: transparent; margin: 70px 0 0 298px;}
-.ContentWrapper{@include box-sizing(border-box); width: 100% !important; padding: 10px;}
-
-.buttonColor{@extend .button; background: #084182;}
-
-.formNewUser{margin: 0px auto; width: 400px; height: 300px;}
-.formNewUser input[type="text"], .formNewUser input[type="password"]{float: right; height: 45px;}
-input[type="checkbox"]{float: left;}
-.formNewUser p{margin: 10px 0 10px 0; display: table; width: 100%; height: auto;}
-.formNewUser label{color: #949494; font-weight: normal; display: block; margin-bottom: 3px; font-size: 17px;}
-
-.submitSmall{
-  width: 50%;
-  float: right;
-  margin: 15px 0;
+// sidebar
+.sidebar{
+	background: $blueOfProject; position: relative;
+	a{padding: 10px; line-height: 38px; color:$WhiteColor;}
+		.active{background:$WhiteColor;
+			a{color:$blueOfProject;}
+		}
+	li:hover{@extend .active;}
+	.sidebar-divisor{border-bottom:1px solid #1656a1;}
 }
+
+	.NavIcons{margin:0 7px 0 10px; width: 18px; height: 18px; display:inline-block;}
+	.iconClient{@extend .NavIcons; background:url(/assets/clientIcon.png);}
+	.iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}
+	.iconHome{@extend .NavIcons; background:url(/assets/homeIcon.png); width: 12px; height: 12px;}
+// end sidebar
+
