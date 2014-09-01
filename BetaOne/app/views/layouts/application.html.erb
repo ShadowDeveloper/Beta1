@@ -17,13 +17,13 @@
        <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
     </header>
 
-    <main role="main">
+    <main role="main" data-equalizer>
         <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
-        <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
-        <%# render 'layouts/messages' %>
-        <div class="large-9 medium-8 columns">
-          <%= yield %>
-      </div>
+        <div class="large-9 medium-8 columns" data-equalizer-watch>
+          <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
+          <%# render 'layouts/messages' %>
+            <%= yield %>
+        </div>
     </main>
   </body>
 </html>
