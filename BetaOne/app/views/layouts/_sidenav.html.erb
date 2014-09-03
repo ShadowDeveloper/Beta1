@@ -1,0 +1,15 @@
+<div class="large-3 medium-4 columns" data-equalizer-watch>
+	<div class="sidebar" data-equalizer-watch>
+	  <ul class="no-bullet">
+		<% arr_url_nav.each do |url| %>
+		        <% if request.fullpath.match /#{url[:href]}/ %>
+		            <li class="active"><i class="iconClient"></i><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
+		            <li class="sidebar-divisor"></li>
+		        <% else %>
+		            <li><i class="iconUser"></i><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
+		            <li class="sidebar-divisor"></li>
+		        <% end %>
+		<% end %>
+	  </ul>
+	</div>
+</div>
