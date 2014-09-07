@@ -1,7 +1,7 @@
 Proto::Application.routes.draw do
   resources :main
   
-  resources :residence
+  resources :residences
 
   resources :users do
     get 'list', on: :collection
