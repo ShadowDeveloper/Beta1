@@ -29,7 +29,7 @@ class ClientsController < ApplicationController
 
 	def list
 		if params[:search_by] == "cpf"
-			search_by = "cpf = #{params[:search]}" 
+			search_by = "cpf = #{params[:search]}"
 			@clients  = Client.where("cpf = ?", params[:search])
 		elsif params[:search_by] == "nome"
 			@clients  = Client.where("name like ?", "%#{params[:search]}%")
