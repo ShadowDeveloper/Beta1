@@ -2,7 +2,7 @@
 	<div class="sidebar" data-equalizer-watch>
 	  <ul class="no-bullet">
 		<% arr_url_nav.each do |url| %>
-		        <% if request.fullpath.match /#{url[:href]}/ %>
+		        <% if request.fullpath.match /#{url[:id]}/ %>
 		            <li class="active"><i class="iconClient"></i><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
 		            <li class="sidebar-divisor"></li>
 		        <% else %>
