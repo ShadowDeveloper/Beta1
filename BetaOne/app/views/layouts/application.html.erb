@@ -21,7 +21,7 @@
 
     <main role="main" data-equalizer>
         <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
-        <div class="large-9 medium-8 columns" data-equalizer-watch>
+        <div class="large-9 medium-8 columns">
           <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
           <%# render 'layouts/messages' %>
             <%= yield %>
