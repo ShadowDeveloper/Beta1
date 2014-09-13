@@ -5,6 +5,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Proto" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Proto" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'foundation-icons', media: 'all', 'data-turbolinks-track' => true %>
     <%# Modernizr is required for Zurb Foundation %>
     <%= javascript_include_tag 'vendor/modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -19,9 +20,9 @@
        <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
     </header>
 
-    <main role="main" data-equalizer>
+    <main role="main" class="scroll-container">
         <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
-        <div class="large-9 medium-8 columns">
+        <div class="large-9 medium-8 columns mainContainer">
           <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
           <%# render 'layouts/messages' %>
             <%= yield %>

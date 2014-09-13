@@ -22,6 +22,7 @@
 }
 .top-bar{background: #fff; border-bottom:$BlueBorderBottom; height: 55px; line-height: 55px;}
 .userName{
+	text-transform: capitalize !important;
 	img{margin: 0 5px 0 0;}
 }
 .top-bar-section{
@@ -43,7 +44,10 @@
 // End Top navigation
 
 // sidebar
+.mainContainer{padding: 20px 0 0 0;}
+main{height: 100%; xdisplay: table;}
 .sideNavContainer{height: 100%;}
+
 .sidebar{
 	background: $blueOfProject; position: relative; height: 100%;
 	a{padding: 10px; line-height: 38px; color:$WhiteColor;}
@@ -59,6 +63,4 @@
 	.iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}
 	.iconHome{@extend .NavIcons; background:url(/assets/homeIcon.png); width: 12px; height: 12px;}
 // end sidebar
-
-main{height: 100%;}
 
