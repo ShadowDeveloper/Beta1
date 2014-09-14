@@ -47,6 +47,9 @@
 .mainContainer{padding: 20px 0 0 0;}
 main{height: 100%; xdisplay: table;}
 .sideNavContainer{height: 100%;}
+.tabs{
+	i{color: #2364b0;}
+}
 
 .sidebar{
 	background: $blueOfProject; position: relative; height: 100%;
@@ -54,7 +57,14 @@ main{height: 100%; xdisplay: table;}
 		.active{background:$WhiteColor;
 			a{color:$blueOfProject;}
 		}
+	li{padding: 0 0 0 14px;}
+	li{padding: 0 0 0 14px;
+		i{color: #fff;}
+	}
 	li:hover{@extend .active;}
+	.active{
+		i{color: #2364b0;}
+	}
 	.sidebar-divisor{border-bottom:1px solid #1656a1;}
 }
 
