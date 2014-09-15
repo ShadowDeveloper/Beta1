@@ -3,14 +3,14 @@
 	  <ul class="no-bullet">
 		<% arr_url_nav.each do |url| %>
 		        <% if request.fullpath.match /#{url[:id]}/ %>
-		            <li class="active"><i class="fi-home"></i>
+		            <li class="active"><i class="<%= url[:icon] %>"></i>
 		            	<a id="<%= url[:id] %>" href="<%= url[:href] %>">
 		            		<%= url[:value] %>
 		            	</a>
 		            </li>
 		            <li class="sidebar-divisor"></li>
 		        <% else %>
-		            <li><i class="fi-torso"></i>
+		            <li><i class="<%= url[:icon] %>"></i>
 		            	<a id="<%= url[:id] %>" href="<%= url[:href] %>">
 		            		<%= url[:value] %>
 		            	</a>

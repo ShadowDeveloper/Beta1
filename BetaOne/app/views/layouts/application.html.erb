@@ -17,11 +17,11 @@
   </head>
   <body>
     <header>
-       <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
+       <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item%>
     </header>
 
     <main role="main" class="scroll-container">
-        <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item(session[:user_id])%>
+        <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item%>
         <div class="large-9 medium-8 columns mainContainer">
           <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
           <%# render 'layouts/messages' %>
