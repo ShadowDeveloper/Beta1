@@ -17,6 +17,6 @@ class ResidencesController < ApplicationController
 	end
 
 	def new
-
+		
 	end
 end
