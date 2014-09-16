@@ -20,6 +20,10 @@
 .nameEnterprise{width: 200px;
 	img{max-width: 100%;}
 }
+@media only screen and (min-width: 40.063em) {/* min-width 641px, medium screens */
+.top-bar{position: fixed; width: 100%; z-index: 99;}
+.sideNavContainer{position:fixed; height: 100%; left:-15px; top:55px;}
+}
 .top-bar{background: #fff; border-bottom:$BlueBorderBottom; height: 55px; line-height: 55px;}
 .userName{
 	text-transform: capitalize !important;
@@ -46,7 +50,6 @@
 // sidebar
 .mainContainer{padding: 65px 0 0 0;}
 main{height: 100%; xdisplay: table; background: #fff;}
-.sideNavContainer{height: 100%; left:-30px;}
 .tabs{
 	i{color: #2364b0;}
 }
