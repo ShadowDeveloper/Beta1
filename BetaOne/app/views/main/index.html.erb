@@ -1,36 +1,7 @@
 <%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'vendor/modernizr' %>
-
-<!--<div class="row">
-	<div id="containerLogin" class="large-12 text-center panel columns">
-		<h3>Bem Vindo !</h3>
-			<%= form_tag("/session/login", :method => "POST") do%>
-			<div class="row">
-			    <div class="small-8">
-			      <div class="row">
-			        <div class="small-3 columns">
-			          <label for="right-label" class="right inline">Login</label>
-			        </div>
-			        <div class="small-9 columns">
-			          <input type="text" name="user_name" id="right-label" required autofocus placeholder="Usuário">
-			        </div>
-			      </div>
-				<div class="row">
-			        <div class="small-3 columns">
-			          <label for="right-label" class="right inline">Senha:</label>
-			        </div>
-			        <div class="small-9 columns">
-			          <input type="password" name="password" required placeholder="SENHA">
-			        </div>
-			      </div>			      
-			    </div>
-			  </div>			
-										
-				
-				<%= submit_tag "Entrar", :class => "button right"%>
-			<%end%>
-	</div>
-</div>-->
 
 		<section id="MainContainerLogin">
 			<h1 class="logo"></h1>
@@ -47,22 +18,22 @@
 					<label for="userPassword" id="idUserPassword"></label>
 					<input type="password" name="password" required placeholder="SENHA">
 				</p>		
-				
-				
-				
+
 				
 				<%= submit_tag "", :class => "submitLogin"%>
 			<%end%>
 
+			<div id="myModal" class="reveal-modal tiny" data-reveal>
+			  <h4>Os dados digitados estão incorretos. Tente novamente!</h4>
+			  <a class="close-reveal-modal">&#215;</a>
+			</div>
+
 		</section>
+		
 		<% if flash[:error]%>
-			<center>
-				<div>
-					<p>
-						<span style="color:red;"><b>Os dados digitados estão incorretos. Tente novamente!</b></span>
-					</p>
-				</div>
-			</center>
+			<script>
+					$('#myModal').foundation('reveal', 'open');
+			</script>
 		<% end %>
 
 <!--<script>
