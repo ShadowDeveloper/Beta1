@@ -1,0 +1,32 @@
+Teste do google maps,
+Exemplos e documentacao completa em:<br>
+http://apneadiving.github.io/<br>
+https://developers.google.com/maps/documentation/javascript/reference<br><br>
+
+DPS VC da uma olhada =)
+
+<div style='width: 800px;'>
+  <div id="basic_map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script>
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'basic_map'} }, function(){
+  if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+});
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+    picture: {
+        url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+        width:  36,
+        height: 36
+      },
+      infowindow: "hello!"
+  });
+  handler.map.centerOn(marker);
+};
+</script>
