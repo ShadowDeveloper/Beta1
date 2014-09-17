@@ -17,18 +17,20 @@
         
         <%= text_box((cli.text_field :rg, placeholder: "RG"),"RG") %>
         <%= text_box((cli.text_field :dob, placeholder: "Data de Nascimento"),"Data de Nascimento") %>
-        <%= text_box((cli.text_field :cpf, placeholder: "CPF"),"Cpf") %>
+        <%= text_box((cli.text_field :cpf, placeholder: "CPF"),"CPF") %>
         
     
         
         <div class="row">
             <div class="small-3 columns"><label class="right inline">Estado Civil</label></div>
-            <div class="small-9 columns"><%= cli.select(:relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'} )%></div>
+            <div class="small-9 columns">
+            <%= cli.select(:relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'} )%></div>
         </div>
         
-        <%= text_box((cli.email_field :email_address, placeholder: "CPF"),"E-mail") %>
+        <%= text_box((cli.email_field :email_address, placeholder: "E-Mail"),"E-mail") %>
 
-        <span class="nextButton" onclick="display_steps('personal_information','residence_information')">Continuar</span>
+        
+        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel2">Continuar</a></dd></dl>
     </div>
 
   </div>
@@ -78,9 +80,9 @@
            <%= cli.hidden_field :client_type, placeholder: "client_type" %>
         </p>
 
-        <span class="previousButton" onclick="display_steps('residence_information','personal_information')">Voltar</span>
+        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel1">Voltar</a></dd></dl>
 
-        <span class="nextButton" onclick="display_steps('residence_information','company_information')">Próximo</span>
+        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel3">Continuar</a></dd></dl>
     </div>
   </div>
   <div class="content" id="panel3">
@@ -102,8 +104,8 @@
                 <%= comp.text_field :company_name, placeholder: "Empresa"  %>
             </p>
         <%end%>
-        <span class="previousButton" onclick="display_steps('company_information','personal_information')">Voltar</span>
-        <span class="nextButton" onclick="display_steps('company_information','reference_information')">Próximo</span>
+        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel2">Voltar</a></dd></dl>
+        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel4">Continuar</a></dd></dl>
     </div>
   </div>
   <div class="content" id="panel4">
@@ -125,10 +127,11 @@
                 <%= ref.text_field :phone_number2 , placeholder: "Telefone 2"%>
             </p>
         <% end %>
-        <span class="previousButton" onclick="display_steps('reference_information','company_information')">Voltar</span>
-        <span class="nextButton" onclick="display_steps('reference_information','bank_account_information')">Próximo</span>
+        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel3">Voltar</a></dd></dl>
+        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel5">Continuar</a></dd></dl>
     </div>
   </div>
+
   <div class="content" id="panel5">
      <div id="bank_account_information">
         <p class="titles"><h4>Dados Bancários<h4></p><br/>
@@ -148,7 +151,7 @@
                 <%= bank.text_field :account_number , placeholder: "Conta Corrente"%>
             </p>
         <% end %>
-        <span class="previousButton" onclick="display_steps('bank_account_information','reference_information')">Voltar</span>
+                <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel4">Voltar</a></dd></dl>
         <%= cli.submit('Cadastrar') %>
         <div id="status_form">
         </div>

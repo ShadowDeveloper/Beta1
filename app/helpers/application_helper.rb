@@ -13,8 +13,8 @@ module ApplicationHelper
     def text_box(input, label)
     	raw(%Q{
     		<div class="row">
-            	<div class="small-3 columns"><label class="right inline">#{label}</label></div>
-           		<div class="small-9 columns"> #{input}</div>
+            	<div class="small-2 columns"><label style="white-space: nowrap; text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-14">#{label}:</label></div>
+           		<div class="small-10 columns"> #{input}</div>
         	</div>
     	})
     end
