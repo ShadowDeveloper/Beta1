@@ -26,7 +26,7 @@
             <div class="small-9 columns"><%= cli.select(:relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'} )%></div>
         </div>
         
-        <%= text_box((cli.text_field :email_address, placeholder: "CPF"),"E-mail") %>
+        <%= text_box((cli.email_field :email_address, placeholder: "CPF"),"E-mail") %>
 
         <span class="nextButton" onclick="display_steps('personal_information','residence_information')">Continuar</span>
     </div>
