@@ -4,117 +4,94 @@
   <dd class="active"><a href="#panel1"><i class="fi-torsos-male-female size-21"></i></a></dd>
   <dd><a href="#panel2"><i class="fi-marker size-21"></i></a></dd>
   <dd><a href="#panel3"><i class="fi-torso-business size-21"></i></a></dd>
-  <dd><a href="#panel4"><i class="fi-telephone size-21"></i></a></dd>
+  <!-- <dd><a href="#panel4"><i class="fi-telephone size-21"></i></a></dd> -->
   <dd><a href="#panel5"><i class="fi-dollar size-21"></i></a></dd>
 </dl>
 <div class="tabs-content">
   <div class="content active" id="panel1">
     <div id="personal_information">
         <p class="titles"><h4>Informações Pessoais<h4></p><br/>
-   
+        
+        <%= radio_box("Pessoa",(radio_button_tag :client_type, "pj", "sim"), ["Pesssa Fisica","Pessoa Juridica"]) %>
+
         <%= text_box("nome",(cli.text_field :name, placeholder: "Ex: Rodrigo")) %>     
         <%= text_box("RG",(cli.text_field :rg, placeholder: "Ex: 1234545", maxlength: 15)) %>
         <%= text_box("Data de Nascimento",(cli.text_field :dob, placeholder: "Ex: 11/11/1111")) %>
         <%= text_box("CPF",(cli.text_field :cpf, placeholder: "CPF")) %>
-        <%= select_combo("Estado Civil",(cli.select( :relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'}))) %>
+
+        <%= select_combo "Estado Civil",(cli.select :relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'}) %>
         <%= text_box("E-mail",(cli.email_field :email_address, placeholder: "Ex: seuemail@email.com")) %>
-        <dl data-tab><dd><a class="button expand" href="#panel2">Continuar</a></dd></dl>
-    </div>
-
-  </div>
-  <div class="content" id="panel2">
-        <div id="residence_information">
-        <p class="titles"><h4>Informações Residenciais<h4></p>
-        <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEP(this.value)")) %>     
-
-        <p>
-            <label>Cidade</label>
-            <input type="text" id="city" placeholder="Cidade" disabled>
-        </p>
-
-        <p>
-            <label>Bairro</label>
-            <input type="text" id="neigborhood" placeholder="Bairro" disabled>
-        </p>
-            <label>Rua</label>
-            <input type="text" id="street" placeholder="Rua" disabled>
-        <p>
-
-        </p>
-            <label>Nº</label>
-            <input type="text" id="number" placeholder="Nº">
-        <p>
-            
-        </p>
-            <label>Telefone</label>
-            <%= cli.text_field :phone_number, placeholder: "Telefone" %>
-        </p>
         
-        <p>
-            <label>Celular</label>
-            <%= cli.text_field :mobile_number, placeholder: "Celular"%>
-        </p>
+        <dl data-tab><dd><a class="button right" href="#panel2">Continuar</a></dd></dl>
+    </div>
+  </div
+  >
+  <div class="content" id="panel2">
+      <div id="residence_information">
+      <p class="titles"><h4>Informações Residenciais<h4></p>
 
-        <p>
-           <%= cli.hidden_field :client_type, placeholder: "client_type" %>
-        </p>
+      <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEP(this.value)")) %>
 
-        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel1">Voltar</a></dd></dl>
+      <%= text_box("Cidade",(text_field_tag :city, nil, placeholder: "Ex: São Paulo", id:"city", disabled: true)) %>
 
-        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel3">Continuar</a></dd></dl>
+      <%= text_box("Bairro",(text_field_tag :neigborhood, nil, placeholder: "Ex: Indianapolis", id:"neigborhood", disabled: true)) %>
+
+      <%= text_box("Rua",(text_field_tag :street, nil, placeholder: "Ex: Av.Morumbi", id:"street", disabled: true)) %>
+
+      <%= text_box("Nº",(text_field_tag :street, nil, placeholder: "Ex: 85", id:"street")) %>
+
+      <%= text_box("Telefone",(cli.text_field :phone_number, placeholder: "Ex: 11 9999-9999")) %>
+
+      <%= text_box("Celular",(cli.text_field :mobile_number, placeholder: "Ex: 11 99999-9999")) %>
+
+         <dl data-tab><dd><a class="button left" href="#panel1">Voltar</a></dd></dl>
+         <dl data-tab><dd><a class="button right" href="#panel3">Continuar</a></dd></dl>
     </div>
   </div>
+
   <div class="content" id="panel3">
     <div id="company_information">
         <p class="titles"><h4>Informações Profissionais<h4></p><br/>
         <%= fields_for(@company) do |comp| %>
-            <p>
-                <label>Salário</label>
-                <%= comp.text_field :income , placeholder: "Salário"%>
-            </p>
-
-            <p>
-                <label>Profissão</label>
-                <%= comp.text_field :ocupation, placeholder: "Profissão" %>
-            </p>
-            
-            <p>
-                <label>Empresa</label>
-                <%= comp.text_field :company_name, placeholder: "Empresa"  %>
-            </p>
+            <%= text_box("Salário",(comp.text_field :income, placeholder: "Ex: R$1.500")) %>
+            <%= text_box("Profissão",(comp.text_field :ocupation, placeholder: "Ex: Advogado")) %>
+            <%= text_box("Empresa",(comp.text_field :company_name, placeholder: "Ex: Nome Empresa")) %>
         <%end%>
-        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel2">Voltar</a></dd></dl>
-        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel4">Continuar</a></dd></dl>
+
+        <dl data-tab><dd><a class="button left" href="#panel2">Voltar</a></dd></dl>
+        <dl data-tab><dd><a class="button right" href="#panel5">Continuar</a></dd></dl>
     </div>
   </div>
-  <div class="content" id="panel4">
+  <!-- <div class="content" id="panel4">
     <div id="reference_information">
         <p class="titles"><h4>Referências Pessoais<h4></p><br/>
-        <%= fields_for(@reference) do |ref|%>
+        <%# fields_for(@reference) do |ref|%>
             <p>
                 <label>Nome</label>
-                <%= ref.text_field :name , placeholder: "Nome"%>
+                <%# ref.text_field :name , placeholder: "Nome"%>
             </p>
             
             <p>
                 <label>Telefone</label>
-                <%= ref.text_field :phone_number , placeholder: "Telefone"%>
+                <%# ref.text_field :phone_number , placeholder: "Telefone"%>
             </p>
             
             <p>
                 <label>Telefone 2</label>
-                <%= ref.text_field :phone_number2 , placeholder: "Telefone 2"%>
+                <%# ref.text_field :phone_number2 , placeholder: "Telefone 2"%>
             </p>
-        <% end %>
+        <%# end %>
         <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel3">Voltar</a></dd></dl>
         <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel5">Continuar</a></dd></dl>
     </div>
-  </div>
+  </div> -->
 
   <div class="content" id="panel5">
      <div id="bank_account_information">
         <p class="titles"><h4>Dados Bancários<h4></p><br/>
         <%= fields_for(@bank_account) do |bank|%>
+            <%= text_box("CPF",(cli.text_field :cpf, placeholder: "CPF")) %>
+
             <p>
                <label>Banco</label>
                <%= bank.select(:bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}) %>
@@ -130,7 +107,7 @@
                 <%= bank.text_field :account_number , placeholder: "Conta Corrente"%>
             </p>
         <% end %>
-                <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel4">Voltar</a></dd></dl>
+         <dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl>
         <%= cli.submit('Cadastrar') %>
         <div id="status_form">
         </div>
