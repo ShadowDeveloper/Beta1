@@ -1,2 +1,3 @@
 <%= form_for @residences, name: "residence", remote: true do |res| %>
+	<%= res.select(:type,[['Compra','1'],['Locação','2'],['Venda','3']]) %>
 <% end %>
