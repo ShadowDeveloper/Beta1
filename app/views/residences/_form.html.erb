@@ -1,9 +1,13 @@
+
+
 <%= form_for @residences, name: "residence", remote: true do |res| %>
-	<%= select_combo 'Status de Residencia',( res.select :status, residence_status)  %>
-	<%= select_combo 'Tipo de Residencia',( res.select :type, residence_type)  %>
+	<%= select_combo 'Status',( res.select :status, residence_status)  %>
+	<%= select_combo 'Tipo',( res.select :type, residence_type)  %>
 	<%= text_box 'CEP', (res.text_field :cep) %>
 	<%= text_box 'Rua', (res.text_field :street, disabled: true) %>
 	<%= text_box 'Bairro', (res.text_field :neighbourhood, disabled: true) %>
 	<%= text_box 'Cidade', (res.text_field :city, disabled: true) %>
 	<%= text_box 'Estado', (res.text_field :state, disabled: true) %>
+
+												Passo 2
 <% end %>
