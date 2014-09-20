@@ -1,3 +1,3 @@
 class Residence < ActiveRecord::Base
-	self.table_name = "residence"
+	self.table_name = "residences"
 end
