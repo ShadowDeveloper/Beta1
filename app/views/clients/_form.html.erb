@@ -18,18 +18,14 @@
         <%= text_box("CPF",(cli.text_field :cpf, placeholder: "CPF")) %>
         <%= select_combo("Estado Civil",(cli.select( :relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'}))) %>
         <%= text_box("E-mail",(cli.email_field :email_address, placeholder: "Ex: seuemail@email.com")) %>
-        <dl class="tabs " data-tab><dd><a class="nextButton button expand" href="#panel2">Continuar</a></dd></dl>
-
+        <dl data-tab><dd><a class="button expand" href="#panel2">Continuar</a></dd></dl>
     </div>
 
   </div>
   <div class="content" id="panel2">
         <div id="residence_information">
-        <p class="titles"><h4>Informações Residenciais<h4></p><br/>
-        <p>
-            <label>CEP</label>
-            <%= cli.text_field :address, placeholder: "CEP", onblur: "getCEP(this.value)" %>
-        </p>
+        <p class="titles"><h4>Informações Residenciais<h4></p>
+        <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEP(this.value)")) %>     
 
         <p>
             <label>Cidade</label>
