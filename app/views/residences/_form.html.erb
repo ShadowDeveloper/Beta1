@@ -1,3 +1,5 @@
 <%= form_for @residences, name: "residence", remote: true do |res| %>
+	<%= select_combo 'Status de Residencia',( res.select :status, residence_status)  %>
 	<%= select_combo 'Tipo de Residencia',( res.select :type, residence_type)  %>
+	<%= text_box 'CEP', (res.text_field :cep) %>
 <% end %>
