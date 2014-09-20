@@ -2,7 +2,7 @@
 											Passo 2
 <%= form_for @residence, name: "residence", remote: true do |res| %>
 	<%= select_combo 'Status',( res.select :status, residence_status)  %>
-	<%= select_combo 'Tipo',( res.select :type, residence_type)  %>
+	<%= select_combo 'Tipo',( res.select :residence_type, residence_type)  %>
 	<%= text_box 'CEP', (res.text_field :cep) %>
 	<%= text_box 'Rua', (res.text_field :street, disabled: true) %>
 	<%= text_box 'Bairro', (res.text_field :neighbourhood, disabled: true) %>
@@ -18,9 +18,9 @@
 		<%= text_box 'Valor IPTU', (info.text_field :iptu_value) %>
 											 	Passo 3
 		<%= text_box 'Área Total do Terreno', (info.text_field :area_total) %>
-		<%= text_box 'Escritura Definitiva', (info.text_field :scritura_definitiva) %>
-		<%= text_box 'Escritura Alienada', (info.text_field :estritura_alienada) %>
-		<%= text_box 'Escritura Inventário', (info.text_field :estritura_inventario) %>
+		<%= text_box 'Escritura Definitiva', (info.text_field :escritura_definitiva) %>
+		<%= text_box 'Escritura Alienada', (info.text_field :escritura_alienada) %>
+		<%= text_box 'Escritura Inventário', (info.text_field :escritura_inventario) %>
 												Passo 4
 		<div style="margin:20px;"> 
 			Casa Germinada
@@ -32,8 +32,8 @@
 		</div>
 		<%= text_box 'Dormitórios', (info.text_field :qdt_domitorio) %>
 		<%= text_box 'Suites', (info.text_field :qtd_suite) %>
-		<%= text_box 'Banheiros', (info.text_field :iqtd_banheiro) %>
-		<%= text_box 'Garagem', (info.text_field :iqtd_garage) %>
+		<%= text_box 'Banheiros', (info.text_field :qtd_banheiro) %>
+		<%= text_box 'Garagem', (info.text_field :qtd_garage) %>
 	<%end%>
 
 	<%= res.submit "Cadastrar"%>
