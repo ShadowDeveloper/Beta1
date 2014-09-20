@@ -18,9 +18,7 @@
         <%= text_box((cli.text_field :rg, placeholder: "RG"),"RG") %>
         <%= text_box((cli.text_field :dob, placeholder: "Data de Nascimento"),"Data de Nascimento") %>
         <%= text_box((cli.text_field :cpf, placeholder: "CPF"),"CPF") %>
-        
-    
-        
+       
         <div class="row">
             <div class="small-3 columns"><label class="right inline">Estado Civil</label></div>
             <div class="small-9 columns">
@@ -37,6 +35,10 @@
   <div class="content" id="panel2">
         <div id="residence_information">
         <p class="titles"><h4>Informações Residenciais<h4></p><br/>
+        <p>
+            <label>CEP</label>
+            <%= cli.text_field :address, placeholder: "CEP", onblur: "getCEP(this.value)" %>
+        </p>
 
         <p>
             <label>Cidade</label>
