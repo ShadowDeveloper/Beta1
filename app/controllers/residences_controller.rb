@@ -6,15 +6,15 @@ class ResidencesController < ApplicationController
 
 		residence.create_residence_info(residence_params[:residence_info])
 		
-		msg = ""
+		
 		if residence.valid?
 			residence.save
-			msg = "Residencia Cadastrada com Sucesso!"
+			status = "window.location = '/residences/new'"
 		else
-			msg = "Error"
+			status = %Q{ $(".alert-box").slideDown();}
 		end
 
-		render js: "alert('Residencia Cadastrada!')"
+		render js: status
 	end
 
 	def index
