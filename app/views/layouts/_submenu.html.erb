@@ -1,15 +1,22 @@
-<%if submenu_for.match(/clients/) %>
-<ul class="breadcrumbs">
-  <li><a href="/home"><i class="fi-home size-14"></i></a></li>
-  <li><a href="/clients/new">Novo Cliente</a></li>
-  <li><a href="/clients/list">Buscar Cliente</a></li>
-</ul>
-<% end%>
+<% if submenu_for.match(/clients/) %>
+	<ul class="breadcrumbs">
+	  <li><a href="/home"><i class="fi-home size-14"></i></a></li>
+	  <li><a href="/clients/new">Novo Cliente</a></li>
+	  <li><a href="/clients/list">Buscar Cliente</a></li>
+	</ul>
+<% end %>
 
-<%if submenu_for.match(/users/) %>
-<ul class="breadcrumbs">
-  <li><a href="/home"><i class="fi-home size-14"></i></a></li>
-  <li><a href="/users/new">Novo Usuário</a></li>
-  <li><a href="/users/list">Buscar Usuário</a></li>
-</ul>
-<% end%>
+<% if submenu_for.match(/users/) %>
+	<ul class="breadcrumbs">
+	  <li><a href="/home"><i class="fi-home size-14"></i></a></li>
+	  <li><a href="/users/new">Novo Usuário</a></li>
+	  <li><a href="/users/list">Buscar Usuário</a></li>
+	</ul>
+<% end %>
+
+<% if submenu_for.match(/residences/) %>
+	<ul class="breadcrumbs">
+	  <li><a href="/home"><i class="fi-home size-14"></i></a></li>
+	  <li><a href="/residences/new">Novo Imóvel</a></li>
+	</ul>
+<% end %>
