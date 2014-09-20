@@ -22,12 +22,19 @@
 		<%= text_box 'Escritura Alienada', (info.text_field :estritura_alienada) %>
 		<%= text_box 'Escritura Inventário', (info.text_field :estritura_inventario) %>
 												Passo 4
-		<%= text_box 'Casa Germinada', (info.text_field :casa_germinada) %>
-		<%= text_box 'Casa Alto Padrao', (info.text_field :casa_alto_padrao) %>
+		<div style="margin:20px;"> 
+			Casa Germinada
+			<%= check_box("Casa Germinada", :casa_germinada, {}, "1", "0") %>
+		</div>
+		<div style="margin:20px;"> 
+			Casa Alto Padrao
+			<%= check_box("Casa Alto Padrao", :casa_alto_padrao, {}, "1", "0") %>
+		</div>
 		<%= text_box 'Dormitórios', (info.text_field :qdt_domitorio) %>
 		<%= text_box 'Suites', (info.text_field :qtd_suite) %>
 		<%= text_box 'Banheiros', (info.text_field :iqtd_banheiro) %>
 		<%= text_box 'Garagem', (info.text_field :iqtd_garage) %>
 	<%end%>
 
+	<%= res.submit "Cadastrar"%>
 <% end %>

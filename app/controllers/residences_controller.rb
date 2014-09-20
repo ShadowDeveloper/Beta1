@@ -2,7 +2,7 @@ class ResidencesController < ApplicationController
 
 	def create
 		#TODO criar dados
-		redirect_to :back
+		render js: "alert('Residencia cadastrada')"
 	end
 
 	def index
