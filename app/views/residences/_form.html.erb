@@ -1,2 +1,33 @@
-<%= form_for @residences, name: "residence", remote: true do |res| %>
+
+											Passo 2
+<%= form_for @residence, name: "residence", remote: true do |res| %>
+	<%= select_combo 'Status',( res.select :status, residence_status)  %>
+	<%= select_combo 'Tipo',( res.select :type, residence_type)  %>
+	<%= text_box 'CEP', (res.text_field :cep) %>
+	<%= text_box 'Rua', (res.text_field :street, disabled: true) %>
+	<%= text_box 'Bairro', (res.text_field :neighbourhood, disabled: true) %>
+	<%= text_box 'Cidade', (res.text_field :city, disabled: true) %>
+	<%= text_box 'Estado', (res.text_field :state, disabled: true) %>
+
+												Passo 2
+	<%= fields_for @residence_info do |info|%>
+		<%= text_box 'Matricula', (info.text_field :residence_code) %>
+		<%= text_box 'Valor Venda', (info.text_field :sell_value) %>
+		<%= text_box 'Valor Aluguel', (info.text_field :rent_value) %>
+		<%= text_box 'Valor Condominio', (info.text_field :condominium_value) %>
+		<%= text_box 'Valor IPTU', (info.text_field :iptu_value) %>
+											 	Passo 3
+		<%= text_box 'Área Total do Terreno', (info.text_field :area_total) %>
+		<%= text_box 'Escritura Definitiva', (info.text_field :scritura_definitiva) %>
+		<%= text_box 'Escritura Alienada', (info.text_field :estritura_alienada) %>
+		<%= text_box 'Escritura Inventário', (info.text_field :estritura_inventario) %>
+												Passo 4
+		<%= text_box 'Casa Germinada', (info.text_field :casa_germinada) %>
+		<%= text_box 'Casa Alto Padrao', (info.text_field :casa_alto_padrao) %>
+		<%= text_box 'Dormitórios', (info.text_field :qdt_domitorio) %>
+		<%= text_box 'Suites', (info.text_field :qtd_suite) %>
+		<%= text_box 'Banheiros', (info.text_field :iqtd_banheiro) %>
+		<%= text_box 'Garagem', (info.text_field :iqtd_garage) %>
+	<%end%>
+
 <% end %>

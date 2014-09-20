@@ -20,7 +20,6 @@ module ApplicationHelper
     end
 
     def select_combo(label,select)
-      # debugger 
       raw(%Q{
             <div class="row">
                   <div class="small-2 columns"><label style="white-space: nowrap; text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-14">#{label}:</label></div>

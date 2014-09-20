@@ -17,6 +17,7 @@ class ResidencesController < ApplicationController
 	end
 
 	def new
-		@residences = Residence.new
+		@residence = Residence.new
+		@residence_info = ResidenceInfo.new
 	end
 end
