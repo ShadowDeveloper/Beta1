@@ -13,7 +13,6 @@
         <p class="titles"><h4>Informações Pessoais<h4></p><br/>
         
         <%= radio_box("Pessoa",(radio_button_tag :client_type, "pj", "sim"), ["Pesssa Fisica","Pessoa Juridica"]) %>
-
         <%= text_box("nome",(cli.text_field :name, placeholder: "Ex: Rodrigo")) %>     
         <%= text_box("RG",(cli.text_field :rg, placeholder: "Ex: 1234545", maxlength: 15)) %>
         <%= text_box("Data de Nascimento",(cli.text_field :dob, placeholder: "Ex: 11/11/1111")) %>
@@ -62,55 +61,24 @@
         <dl data-tab><dd><a class="button right" href="#panel5">Continuar</a></dd></dl>
     </div>
   </div>
-  <!-- <div class="content" id="panel4">
-    <div id="reference_information">
-        <p class="titles"><h4>Referências Pessoais<h4></p><br/>
-        <%# fields_for(@reference) do |ref|%>
-            <p>
-                <label>Nome</label>
-                <%# ref.text_field :name , placeholder: "Nome"%>
-            </p>
-            
-            <p>
-                <label>Telefone</label>
-                <%# ref.text_field :phone_number , placeholder: "Telefone"%>
-            </p>
-            
-            <p>
-                <label>Telefone 2</label>
-                <%# ref.text_field :phone_number2 , placeholder: "Telefone 2"%>
-            </p>
-        <%# end %>
-        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel3">Voltar</a></dd></dl>
-        <dl class="tabs" data-tab><dd><a class="nextButton" href="#panel5">Continuar</a></dd></dl>
-    </div>
-  </div> -->
 
   <div class="content" id="panel5">
      <div id="bank_account_information">
         <p class="titles"><h4>Dados Bancários<h4></p><br/>
+        <div data-alert class="alert-box alert" style="display: none;">
+            Preencha todos os campos!
+            <a href="#" class="close">&times;</a>
+        </div>
         <%= fields_for(@bank_account) do |bank|%>
-            <%= text_box("CPF",(cli.text_field :cpf, placeholder: "CPF")) %>
+            
+        <%= select_combo "Banco",(bank.select :bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}) %>
+            
+            <%= text_box("Agência",(bank.text_field :agency, placeholder: "Agência")) %>
 
-            <p>
-               <label>Banco</label>
-               <%= bank.select(:bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}) %>
-            </p>
-            
-            <p>
-                <label>Agência</label>
-                <%= bank.text_field :agency , placeholder: "Agência"%>
-            </p>
-            
-            <p>
-                <label>Conta Corrente</label>
-                <%= bank.text_field :account_number , placeholder: "Conta Corrente"%>
-            </p>
+            <%= text_box("onta Corrente",(bank.text_field :account_number , placeholder: "Conta Corrente")) %>            
         <% end %>
          <dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl>
-        <%= cli.submit('Cadastrar') %>
-        <div id="status_form">
-        </div>
+        <%= cli.submit('Cadastrar', :class => "button right") %>
     </div>
   </div>  
 </div>

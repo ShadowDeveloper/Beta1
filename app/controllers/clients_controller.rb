@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
 		else	
 		    #fail_field = new_client.errors.full_messages[0].split(" ")[0].downcase
 		    
-		    status = %Q{ $("#status_form").html("<p>Preencha Todos os Campos</p>") }
+		    status = %Q{ $(".alert-box").slideDown();}
 		end
 		render js: status
 	end
