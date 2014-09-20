@@ -56,3 +56,6 @@ end
 
 # CSS/SASS Framework
  gem 'foundation-rails'
+
+# Geolocalizaco
+ gem 'geocoder'
