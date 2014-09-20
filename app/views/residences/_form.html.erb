@@ -1,6 +1,6 @@
 
 
-<%= form_for @residences, name: "residence", remote: true do |res| %>
+<%= form_for @residence, name: "residence", remote: true do |res| %>
 	<%= select_combo 'Status',( res.select :status, residence_status)  %>
 	<%= select_combo 'Tipo',( res.select :type, residence_type)  %>
 	<%= text_box 'CEP', (res.text_field :cep) %>
@@ -10,4 +10,5 @@
 	<%= text_box 'Estado', (res.text_field :state, disabled: true) %>
 
 												Passo 2
+			
 <% end %>
