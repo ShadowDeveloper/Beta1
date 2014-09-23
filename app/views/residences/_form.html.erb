@@ -1,6 +1,7 @@
 
 											Passo 2
 <%= form_for @residence, name: "residence", remote: true do |res| %>
+    <%= text_box 'CPF', (text_field_tag :cpf) %>
 	<%= select_combo 'Status',( res.select :status, residence_status)  %>
 	<%= select_combo 'Tipo',( res.select :residence_type, residence_type)  %>
 	<%= text_box 'CEP', (res.text_field :cep, onblur: "getCEP(this.value)") %>
@@ -47,6 +48,7 @@
 <script>
     $(document).ready(function(){ 
         $('#residence_cep').mask('00000-000');
+        $('#cpf').mask('000.000.000-00');
     }) 
 
     function display_steps(current_step, next_step){
