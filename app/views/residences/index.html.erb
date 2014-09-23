@@ -1,3 +1,27 @@
+<div id="container">
+
+  <%= form_tag("/residences", method: "get") do %>
+  <p>
+      <label>Selecione um Tipo</label>
+      <select id="residence_type" name="residence_type">
+         <option value="">Selecione</option>
+         <option value="cpf">Residencial</option>
+         <option value="nome">Comercial</option>
+      </select>
+   </p>  
+
+    <%= submit_tag "Buscar",  :class=>"button right"%>
+  <%end%>
+
+  <%if @residence%>
+    <% render "search"%>
+  <%end%>
+</div>
+<script>
+   $( "#residence_type" ).change(function() {
+      console.log( this[0].value );
+   });
+</script>
 <!--
 Teste do google maps,
 Exemplos e documentacao completa em:<br>
@@ -6,41 +30,3 @@ https://developers.google.com/maps/documentation/javascript/reference<br><br>
 
 DPS VC da uma olhada =)
 -->
-<div style='width: 800px;'>
-  <div id="basic_map" style='width: 800px; height: 400px;'></div>
-</div>
-
-<script>
-var handler = Gmaps.build('Google');
-handler.buildMap({ internal: {id: 'basic_map'} }, function(){
-  
-  var markers = handler.addMarkers([
-    { lat: 43, lng: 3.5},
-    { lat: 45, lng: 4},
-    { lat: 47, lng: 3.5},
-    { lat: 49, lng: 4},
-    { lat: 51, lng: 3.5}
-  ]);
-
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(displayOnMap);}
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();  
-
-});
-
-function displayOnMap(position){
-  var marker = handler.addMarker({
-    lat: position.coords.latitude,
-    lng: position.coords.longitude,
-    picture: {
-        url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-        width:  36,
-        height: 36
-      },
-      infowindow: "hello!"
-  });
-  handler.map.centerOn(marker);
-  handler.getMap().setZoom(15);
-};
-</script>
