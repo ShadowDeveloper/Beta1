@@ -1,7 +1,6 @@
 <div id="container">
-
-  <%= form_tag("/residences", method: "get") do %>
-  <p>
+   <%= form_tag("/residences", method: "get") do %>
+   <p>
       <label>Selecione um Tipo</label>
       <select id="residence_type" name="residence_type">
          <option value="">Selecione</option>
@@ -9,11 +8,17 @@
          <option value="2">Comercial</option>
       </select>
    </p>
-   <p id="residence_type_choose">
-
-   </p>  
-
-    <%= submit_tag "Buscar",  :class=>"button right"%>
+   <p id="residence_type_choose"></p>
+   <p>
+      <label>Status do Imóvel</label>
+      <select id="residence_status" name="residence_status">
+         <option value="">Selecione</option>
+         <option value="1">Compra</option>
+         <option value="2">Locação</option>
+         <option value="3">Venda</option>
+      </select>
+   </p> 
+   <%= submit_tag "Buscar",  :class=>"button right"%>
   <%end%>
 
   <%if @residence%>

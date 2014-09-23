@@ -18,6 +18,7 @@ class ResidencesController < ApplicationController
 	end
 
 	def index
+		debugger
 	end
 
 	def show
