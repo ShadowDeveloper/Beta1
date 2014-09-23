@@ -5,8 +5,11 @@ class Residence < ActiveRecord::Base
 	has_one :residence_info
 
 	def position
-		position = Geocoder.search(self.street)[0].data["geometry"]["location"]
-		
+		position = Geocoder.search(self.street_code)[0].data["geometry"]["location"]
 		[position['lat'],position['lng']]
+	end
+	
+	def street_code
+	   "#{self.cep} #{self.city}"
 	end
 end
