@@ -3,7 +3,7 @@
 <%= form_for @residence, name: "residence", remote: true do |res| %>
 	<%= select_combo 'Status',( res.select :status, residence_status)  %>
 	<%= select_combo 'Tipo',( res.select :residence_type, residence_type)  %>
-	<%= text_box 'CEP', (res.text_field :cep) %>
+	<%= text_box 'CEP', (res.text_field :cep, onblur: "getCEP(this.value)") %>
 	<%= text_box 'Rua', (res.text_field :street, disabled: true) %>
 	<%= text_box 'Bairro', (res.text_field :neighbourhood, disabled: true) %>
 	<%= text_box 'Cidade', (res.text_field :city, disabled: true) %>
@@ -42,3 +42,40 @@
       <a href="#" class="close">&times;</a>
    </div>
 <% end %>
+
+<script>
+    $(document).ready(function(){ 
+        $('#residence_cep').mask('00000-000');
+    }) 
+
+    function display_steps(current_step, next_step){
+        $("#"+ current_step).fadeOut();
+        $("#"+ next_step).fadeIn();
+    }
+    
+    
+    function getCEP(cep)
+    {
+        //cep fit 04042-070
+        cep = cep.replace("-","");
+        $.ajax({
+          url: 'http://correiosapi.apphb.com/cep/'+cep,
+          dataType: 'jsonp',
+          crossDomain: true,
+          contentType: "application/json",
+          statusCode: {
+            200: function(data) { 
+                console.log(data);
+                $("#residence_city")[0].value = data["cidade"];
+                $("#residence_neighbourhood")[0].value = data["bairro"];
+                $("#residence_street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
+                $("#residence_state")[0].value = data["estado"];
+
+
+            } // Ok
+            ,400: function(msg) { console.log(msg);} // Bad Request
+            ,404: function(msg) { console.log("CEP não encontrado!!");} // Not Found
+          }
+        });
+    }
+</script>
