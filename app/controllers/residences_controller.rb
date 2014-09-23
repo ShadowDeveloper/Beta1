@@ -9,7 +9,7 @@ class ResidencesController < ApplicationController
 		
 		if residence.valid?
 			residence.save
-			status = "window.location = '/residences/new'"
+			status = "window.location = '/residences/#{residence.id}'"
 		else
 			status = %Q{ $(".alert-box").slideDown();}
 		end
@@ -18,7 +18,7 @@ class ResidencesController < ApplicationController
 	end
 
 	def index
-		debugger
+
 	end
 
 	def show

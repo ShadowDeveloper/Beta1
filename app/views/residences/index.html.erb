@@ -21,9 +21,7 @@
    <%= submit_tag "Buscar",  :class=>"button right"%>
   <%end%>
 
-  <%if @residence%>
-    <% render "search"%>
-  <%end%>
+
 </div>
 <script>
    $( "#residence_type" ).change(function() {
@@ -40,11 +38,4 @@
       }
    });
 </script>
-<!--
-Teste do google maps,
-Exemplos e documentacao completa em:<br>
-http://apneadiving.github.io/<br>
-https://developers.google.com/maps/documentation/javascript/reference<br><br>
 
-DPS VC da uma olhada =)
--->
