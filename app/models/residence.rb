@@ -10,6 +10,6 @@ class Residence < ActiveRecord::Base
 	end
 	
 	def street_code
-	   "#{self.cep} #{self.city}"
+	   "#{self.street}, #{self.number} #{self.city}"
 	end
 end
