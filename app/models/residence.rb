@@ -15,4 +15,8 @@ class Residence < ActiveRecord::Base
 	def street_code
 	   "#{self.street}, #{self.number} #{self.city}"
 	end
+	
+	def status_name
+	    CommonData::ResidenceStatus[self.status.to_s]
+	end
 end
