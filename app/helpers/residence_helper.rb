@@ -24,4 +24,11 @@ module ResidenceHelper
           "3" => "Locação"
         }
     end
+    
+    def self.type_name
+        {
+          "1" => "Residencial",
+          "2" => "Comercial"
+        }
+    end
 end

@@ -1,6 +1,7 @@
 class Residence < ActiveRecord::Base
 	self.table_name = "residences"
 	validates :cep, presence: true
+
 	has_one :residence_info
 	def position
 		position = Geocoder.search(self.street_code)[0].data["geometry"]["location"]
@@ -16,6 +17,10 @@ class Residence < ActiveRecord::Base
 	
 	def status_name
 	    ResidenceHelper::status_name[self.status.to_s]
+	end
+	
+	def type_name
+	    ResidenceHelper::status_name[self.residence_type.to_s]
 	end
 	
 end
