@@ -3,4 +3,10 @@ class Residence < ActiveRecord::Base
 	validates :cep, presence: true
 
 	has_one :residence_info
+
+	def position
+		position = Geocoder.search(self.street)[0].data["geometry"]["location"]
+		
+		[position['lat'],position['lng']]
+	end
 end
