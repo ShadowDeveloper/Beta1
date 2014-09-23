@@ -33,7 +33,7 @@ class ResidencesController < ApplicationController
 		@residence_info = ResidenceInfo.new
 	end
 
-	private
+	protected
 	def residence_params
 		params.permit(
 			residence:[
