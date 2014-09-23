@@ -5,9 +5,12 @@
       <label>Selecione um Tipo</label>
       <select id="residence_type" name="residence_type">
          <option value="">Selecione</option>
-         <option value="cpf">Residencial</option>
-         <option value="nome">Comercial</option>
+         <option value="1">Residencial</option>
+         <option value="2">Comercial</option>
       </select>
+   </p>
+   <p id="residence_type_choose">
+
    </p>  
 
     <%= submit_tag "Buscar",  :class=>"button right"%>
@@ -19,7 +22,17 @@
 </div>
 <script>
    $( "#residence_type" ).change(function() {
-      console.log( this[0].value );
+      if( this.value == "1") {
+         $("#residence_type_choose").empty();
+         $("#residence_type_choose").append("<select id='residence_type_personal' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Casa</option><option value='2'>Apartamento</option></select>"
+         );
+      } else if(this.value == "2"){
+         $("#residence_type_choose").empty();
+         $("#residence_type_choose").append("<select id='residence_type_business' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Sala Comercial</option><option value='2'>Galpão</option></select>"
+         );
+      } else {
+         $("#residence_type_choose").empty();
+      }
    });
 </script>
 <!--
