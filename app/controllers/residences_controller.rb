@@ -2,6 +2,7 @@ class ResidencesController < ApplicationController
 
 	def create
 		#TODO criar dados
+		debugger
 		residence = Residence.new(residence_params[:residence])
 
 		residence.create_residence_info(residence_params[:residence_info])
@@ -41,6 +42,10 @@ class ResidencesController < ApplicationController
 				:status,
 				:type,
 				:cep,
+				:street,
+				:neighbourhood,
+				:city,
+				:state
 			],
 			residence_info:[
 				:residence_code,
