@@ -6,7 +6,10 @@ class Residence < ActiveRecord::Base
 
 	def position
 		position = Geocoder.search(self.street_code)[0].data["geometry"]["location"]
-		[position['lat'],position['lng']]
+		{
+		    lat: position['lat'],
+		    lng: position['lng']
+		}
 	end
 	
 	def street_code
