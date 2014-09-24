@@ -16,4 +16,19 @@ module ResidenceHelper
 			['Comercial','2']
 		]
 	end
+	
+	def self.status_name
+        {
+          "1" => "Venda",
+          "2" => "Compra",
+          "3" => "Locação"
+        }
+    end
+    
+    def self.type_name
+        {
+          "1" => "Residencial",
+          "2" => "Comercial"
+        }
+    end
 end

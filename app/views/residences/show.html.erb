@@ -1,6 +1,19 @@
+<span>Dados do Imóvel</span>
 <div class="panel">
 	<ul class="infosClient">
-		<li><b>CEP:</b> <%= @residence.cep %></li>
+		<li><b>Status: </b><%= @residence.status_name %></li>
+		<li><b>Tipo: </b><%= @residence.type_name %></li>
+	</ul>
+</div>
+
+<span>Dados de Localização</span>
+<div class="panel">
+	<ul class="infosClient">
+		<li><b>CEP: </b><%= @residence.cep %></li>
+		<li><b>Endereço: </b><%= "#{@residence.street}, #{@residence.number}" %></li>
+		<li><b>Bairro: </b><%= "#{@residence.neighbourhood}" %></li>
+		<li><b>Estado: </b><%= "#{@residence.state}" %></li>
+		<li><b>Cidade: </b><%= "#{@residence.city}" %></li>
 	</ul>
 </div>
 

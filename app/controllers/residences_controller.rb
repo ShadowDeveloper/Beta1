@@ -7,6 +7,8 @@ class ResidencesController < ApplicationController
 		
 		
 		if residence.valid?
+		   residence.client_id = Client.where(cpf: params[:cpf]).first.id
+			#residence.address = "#{residence.position[:lat]}|#{residence.position[:lng]}"
 			residence.save
 			status = "window.location = '/residences/#{residence.id}'"
 		else
@@ -17,7 +19,11 @@ class ResidencesController < ApplicationController
 	end
 
 	def index
-
+		if params[:residence_type]
+			@residences = Residence.where(
+				residence_type: params[:residence_type]
+			)
+		end
 	end
 
 	def show
@@ -33,12 +39,12 @@ class ResidencesController < ApplicationController
 		@residence_info = ResidenceInfo.new
 	end
 
-	private
+	protected
 	def residence_params
 		params.permit(
 			residence:[
 				:status,
-				:type,
+				:residence_type,
 				:cep,
 				:street,
 				:neighbourhood,
