@@ -1,3 +1,4 @@
+<%= @residence_geo %>
 <div id="container">
    <%= form_tag("/residences", method: "get") do %>
    <p>
@@ -20,9 +21,9 @@
    </p> 
    <%= submit_tag "Buscar",  :class=>"button right"%>
   <%end%>
-<% if @residences %>
-   <%= render "search" %>
-<% end %>
+
+   <%= render "search", residence_geo: @residence_geo %>
+
 
 </div>
 <script>

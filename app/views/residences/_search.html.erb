@@ -1,22 +1,18 @@
-Em Breve =)
+
 <div style='width: 800px;'>
-  <div id="basic_map" style='width: 800px; height: 400px;'></div>
+  <div id="multi_markers" style='width: 800px; height: 400px;'></div>
 </div>
+
 <script>
-/*
-	function displayOnMap(position){
-	  var marker = handler.addMarker({
-	    lat: "<%# Residence.last.position[:lat] %>",
-	    lng: "<%# Residence.last.position[:lng] %>",
-	    picture: {
-	        url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-	        width:  36,
-	        height: 36
-	      },
-	      infowindow: "hello!"
-	  });
-	  handler.map.centerOn(marker);
-	  handler.getMap().setZoom(15);
-	};
-*/
+var handler = Gmaps.build('Google');
+var arr_geo = [];
+<% residence_geo.each do |res| %>
+    
+    arr_geo.push({ lat: <%= res[:lat] %>, lng: <%= res[:lng] %>})  
+<%end%>
+handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+  var markers = handler.addMarkers(arr_geo);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
 </script>
