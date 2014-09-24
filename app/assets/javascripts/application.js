@@ -17,3 +17,69 @@
 //= require_tree .
 //= require underscore
 //= require gmaps/google
+
+//mascaras dos forms de input
+function ProjectInputMasks(){
+    // Clients masks
+    $("#personal_information").fadeIn();
+    $('#client_cpf').mask('000.000.000-00');
+    $('#client_dob').mask('00/00/0000');
+    $('#client_phone_number').mask('(00) 0000-0000');
+    $('#client_phone_number2').mask('(00) 0000-0000');
+    $('#client_mobile_number').mask('(00) 0000-00000');
+    $('#client_reference_phone_number').mask('(00) 0000-0000');
+    $('#client_reference_phone_number2').mask('(00) 0000-0000');
+    $('#client_address').mask('00000-000');
+    $('#company_income').mask('R$ 00000000');
+    
+    // Residence masks
+    $('#residence_cep').mask('00000-000');
+    $('#cpf').mask('000.000.000-00');
+
+}
+
+//Calculo de CEPs dos correios
+function getCEPClients(cep){
+    //cep fit 04042-070
+    cep = cep.replace("-","");
+    $.ajax({
+      url: 'http://correiosapi.apphb.com/cep/'+cep,
+      dataType: 'jsonp',
+      crossDomain: true,
+      contentType: "application/json",
+      statusCode: {
+        200: function(data) { 
+            console.log(data);
+            $("#city")[0].value = data["cidade"];
+            $("#neigborhood")[0].value = data["bairro"];
+            $("#street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
+
+
+        } // Ok
+        ,400: function(msg) { console.log(msg);} // Bad Request
+        ,404: function(msg) { console.log("CEP n?o encontrado!!");} // Not Found
+      }
+    });
+}
+
+function getCEPResidence(cep){
+    //cep fit 04042-070
+    cep = cep.replace("-","");
+    $.ajax({
+      url: 'http://correiosapi.apphb.com/cep/'+cep,
+      dataType: 'jsonp',
+      crossDomain: true,
+      contentType: "application/json",
+      statusCode: {
+        200: function(data) { 
+            console.log(data);
+            $("#residence_city")[0].value = data["cidade"];
+            $("#residence_neighbourhood")[0].value = data["bairro"];
+            $("#residence_street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
+            $("#residence_state")[0].value = data["estado"];
+        } // Ok
+        ,400: function(msg) { console.log(msg);} // Bad Request
+        ,404: function(msg) { console.log("CEP n?o encontrado!!");} // Not Found
+      }
+    });
+}

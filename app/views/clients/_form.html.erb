@@ -29,7 +29,7 @@
       <div id="residence_information">
       <p class="titles"><h4>Informações Residenciais<h4></p>
 
-      <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEP(this.value)")) %>
+      <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEPClients(this.value)")) %>
 
       <%= text_box("Cidade",(text_field_tag :city, nil, placeholder: "Ex: São Paulo", id:"city", disabled: true)) %>
 
@@ -89,46 +89,5 @@
 <%end%>
 
 <script>
-    $(document).ready(function(){ 
-        $("#personal_information").fadeIn();
-        $('#client_cpf').mask('000.000.000-00');
-        $('#client_dob').mask('00/00/0000');
-        $('#client_phone_number').mask('(00) 0000-0000');
-        $('#client_phone_number2').mask('(00) 0000-0000');
-        $('#client_mobile_number').mask('(00) 0000-00000');
-        $('#client_reference_phone_number').mask('(00) 0000-0000');
-        $('#client_reference_phone_number2').mask('(00) 0000-0000');
-        $('#client_address').mask('00000-000');
-        $('#company_income').mask('R$ 00000000');
-    }) 
-
-    function display_steps(current_step, next_step){
-        $("#"+ current_step).fadeOut();
-        $("#"+ next_step).fadeIn();
-    }
-    
-    
-    function getCEP(cep)
-    {
-        //cep fit 04042-070
-        cep = cep.replace("-","");
-        $.ajax({
-          url: 'http://correiosapi.apphb.com/cep/'+cep,
-          dataType: 'jsonp',
-          crossDomain: true,
-          contentType: "application/json",
-          statusCode: {
-            200: function(data) { 
-                console.log(data);
-                $("#city")[0].value = data["cidade"];
-                $("#neigborhood")[0].value = data["bairro"];
-                $("#street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
-
-
-            } // Ok
-            ,400: function(msg) { console.log(msg);} // Bad Request
-            ,404: function(msg) { console.log("CEP não encontrado!!");} // Not Found
-          }
-        });
-    }
+    ProjectInputMasks();
 </script>
