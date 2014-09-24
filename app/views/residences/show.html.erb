@@ -34,8 +34,8 @@ handler.buildMap({
   function(){
     markers = handler.addMarkers([
       {
-        "lat": "<%= @residence.position[:lat] %>",
-        "lng": "<%= @residence.position[:lng] %>",
+        "lat": "<%= @residence.geo[:lat] %>",
+        "lng": "<%= @residence.geo[:lng] %>",
         "picture": {
           "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
           "width":  36,
@@ -51,8 +51,8 @@ handler.buildMap({
 /*
 function displayOnMap(position){
   var marker = handler.addMarker({
-    lat: "<%= @residence.position[:lat] %>",
-    lng: "<%= @residence.position[:lng] %>",
+    lat: "<%= @residence.geo[:lat] %>",
+    lng: "<%= @residence.geo[:lng] %>",
     picture: {
         url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
         width:  36,

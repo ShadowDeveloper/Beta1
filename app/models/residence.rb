@@ -27,7 +27,7 @@ class Residence < ActiveRecord::Base
 		position = self.address.split("|")
 		{
 			lat: position[0].to_f,
-		   lng: position[0].to_f
+		    lng: position[1].to_f
 		}
 	end
 	

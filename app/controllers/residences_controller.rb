@@ -7,8 +7,9 @@ class ResidencesController < ApplicationController
 		
 		
 		if residence.valid?
-		   residence.client_id = Client.where(cpf: params[:cpf]).first.id
-			#residence.address = "#{residence.position[:lat]}|#{residence.position[:lng]}"
+		    #residence.client_id = Client.where(cpf: params[:cpf]).first.id
+		    pos = residence.position
+			residence.address = "#{pos[:lat]}|#{pos[:lng]}"
 			residence.save
 			status = "window.location = '/residences/#{residence.id}'"
 		else
