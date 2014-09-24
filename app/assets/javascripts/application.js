@@ -17,20 +17,3 @@
 //= require_tree .
 //= require underscore
 //= require gmaps/google
-
-$(function() {
-  $(document).foundation();
-});
-
-
-//funcao que retorna a resposta de um ajax request
-// function flash_message(type, message){
-// if (type == "error"){
-// 		color = "blue";
-// } else {
-// 		color = "green";
-// }
-
-// 	var message = "<div id='flash'>" + message + "</div>"
-// 	$("body").append(message);
-// }
