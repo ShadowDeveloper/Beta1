@@ -19,7 +19,9 @@
 		<%= text_box 'Cidade', (res.text_field :city, readonly: true) %>
 		<%= text_box 'Estado', (res.text_field :state, readonly: true) %>
 		<%= text_box 'Número', (res.text_field :number) %>
-		<dl data-tab><dd><a class="button right" href="#panel2">Continuar</a></dd></dl>		
+		<div class="row">
+			<dl data-tab><dd><a class="button right" href="#panel2">Continuar</a></dd></dl>
+		</div>
 	</div>
 
 	<div class="content" id="panel2">
@@ -29,17 +31,21 @@
 			<%= text_box 'Valor Aluguel', (info.text_field :rent_value) %>
 			<%= text_box 'Valor Condominio', (info.text_field :condominium_value) %>
 			<%= text_box 'Valor IPTU', (info.text_field :iptu_value) %>
+		<div class="row">
 			<dl data-tab><dd><a class="button left" href="#panel1">Voltar</a></dd></dl>
-			<dl data-tab><dd><a class="button right" href="#panel3">Continuar</a></dd></dl>			
+			<dl data-tab><dd><a class="button right" href="#panel3">Continuar</a></dd></dl>
+		</div>	
 	</div>		
 
-	<div class="content" id="panel3">		
+	<div class="content" id="panel3">
 			<%= text_box 'Área Total do Terreno', (info.text_field :area_total) %>
 			<%= text_box 'Escritura Definitiva', (info.text_field :escritura_definitiva) %>
 			<%= text_box 'Escritura Alienada', (info.text_field :escritura_alienada) %>
 			<%= text_box 'Escritura Inventário', (info.text_field :escritura_inventario) %>
-			<dl data-tab><dd><a class="button left" href="#panel2">Voltar</a></dd></dl>
-			<dl data-tab><dd><a class="button right" href="#panel4">Continuar</a></dd></dl>			
+			<div class="row">
+				<dl data-tab><dd><a class="button left" href="#panel2">Voltar</a></dd></dl>
+				<dl data-tab><dd><a class="button right" href="#panel4">Continuar</a></dd></dl>			
+			</div>
 	</div>			
 
 	<div class="content" id="panel4">
@@ -60,8 +66,10 @@
 			<%= text_box 'Banheiros', (info.text_field :qtd_banheiro) %>
 			<%= text_box 'Garagem', (info.text_field :qtd_garage) %>
 		<%end%>
-		<dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl>
-		<%= res.submit('Cadastrar', :class => "button right")%>
+		<div class="row">
+			<dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl>
+			<%= res.submit('Cadastrar', :class => "button right")%>
+		</div>
 	</div>
 </div>
 <% end %>
