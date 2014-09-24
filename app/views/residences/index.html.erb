@@ -20,7 +20,9 @@
    </p> 
    <%= submit_tag "Buscar",  :class=>"button right"%>
   <%end%>
-
+<% if @residences %>
+   <%= render "search" %>
+<% end %>
 
 </div>
 <script>

@@ -22,5 +22,13 @@ class Residence < ActiveRecord::Base
 	def type_name
 	    ResidenceHelper::status_name[self.residence_type.to_s]
 	end
+
+	def geo
+		position = self.address.split("|")
+		{
+			lat: position[0].to_f,
+		   lng: position[0].to_f
+		}
+	end
 	
 end
