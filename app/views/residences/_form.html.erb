@@ -14,6 +14,7 @@
 		<%= select_combo 'Status',( res.select :status, residence_status)  %>
 		<%= select_combo 'Tipo',( res.select :residence_type, residence_type)  %>
 		<%= text_box 'CEP', (res.text_field :cep, onblur: "getCEPResidence(this.value)") %>
+		<div class="row"><img src="/assets/load.GIF" id="loadingImg" style="display: none;"></div>
 		<%= text_box 'Rua', (res.text_field :street, readonly: true) %>
 		<%= text_box 'Bairro', (res.text_field :neighbourhood, readonly: true) %>
 		<%= text_box 'Cidade', (res.text_field :city, readonly: true) %>

@@ -48,13 +48,15 @@ function getCEPClients(cep){
       crossDomain: true,
       contentType: "application/json",
       statusCode: {
-        200: function(data) { 
-            console.log(data);
-            $("#city")[0].value = data["cidade"];
-            $("#neigborhood")[0].value = data["bairro"];
-            $("#street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
-
-
+        200: function(data){
+          document.querySelector('#loadingImg').style.display="block";
+            setTimeout(function(){
+              document.querySelector('#loadingImg').style.display="none";
+              console.log(data);
+              $("#city")[0].value = data["cidade"];
+              $("#neigborhood")[0].value = data["bairro"];
+              $("#street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
+            }, 1100);
         } // Ok
         ,400: function(msg) { console.log(msg);} // Bad Request
         ,404: function(msg) { console.log("CEP n?o encontrado!!");} // Not Found
@@ -71,12 +73,16 @@ function getCEPResidence(cep){
       crossDomain: true,
       contentType: "application/json",
       statusCode: {
-        200: function(data) { 
-            console.log(data);
-            $("#residence_city")[0].value = data["cidade"];
-            $("#residence_neighbourhood")[0].value = data["bairro"];
-            $("#residence_street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
-            $("#residence_state")[0].value = data["estado"];
+        200: function(data) {
+          document.querySelector('#loadingImg').style.display="block";
+            setTimeout(function(){
+              document.querySelector('#loadingImg').style.display="none";
+              console.log(data);
+              $("#residence_city")[0].value = data["cidade"];
+              $("#residence_neighbourhood")[0].value = data["bairro"];
+              $("#residence_street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
+              $("#residence_state")[0].value = data["estado"];
+            }, 1100);
         } // Ok
         ,400: function(msg) { console.log(msg);} // Bad Request
         ,404: function(msg) { console.log("CEP n?o encontrado!!");} // Not Found
