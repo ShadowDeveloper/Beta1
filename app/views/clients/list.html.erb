@@ -1,16 +1,20 @@
-<div id="container">
+<div id="row">
 
   <%= form_tag("/clients/list", method: "get",  :class => "formNewUser") do %>
-  <p>
+  <div class="row text-center">
     <label>Buscar Por:</label>
-    <select id="search_by" name="search_by">
+    <select id="search_by" class="small-5 columns" name="search_by">
      <option value="">Selecione</option>
      <option value="cpf">CPF</option>
      <option value="nome">Nome</option>
     </select>
-  </p>  
-    <input type="text" id="search" name="search" class="form-control"/><br>
+  </div>
+
+  <div class="row">  
+    <input type="text" id="search" name="search" class="small-5 columns"/><br>
     <%= submit_tag "Buscar",  :class=>"button right"%>
+  </div>
+
   <%end%>
 
   <%if @clients%>
@@ -30,3 +34,7 @@
   });
   
 </script>
+
+<style>
+  #search_by, #search{margin: 20px auto !important; float: none;  width: 50%; }
+</style>

@@ -1,25 +1,27 @@
 <%= @residence_geo %>
-<div id="container">
+<div id="row">
    <%= form_tag("/residences", method: "get") do %>
-   <p>
+   <div class="row text-center">
       <label>Selecione um Tipo</label>
-      <select id="residence_type" name="residence_type">
+         <select id="residence_type" class="small-5 columns" name="residence_type">
          <option value="">Selecione</option>
          <option value="1">Residencial</option>
          <option value="2">Comercial</option>
       </select>
-   </p>
+   </div>
    <p id="residence_type_choose"></p>
-   <p>
+   <div class="row text-center">
       <label>Status do Imóvel</label>
-      <select id="residence_status" name="residence_status">
+      <select id="residence_status" class="small-5 columns" name="residence_status">
          <option value="">Selecione</option>
          <option value="1">Compra</option>
          <option value="2">Locação</option>
          <option value="3">Venda</option>
       </select>
-   </p> 
-   <%= submit_tag "Buscar",  :class=>"button right"%>
+   </div> 
+   <div class="row">
+      <%= submit_tag "Buscar",  :class=>"button right"%>
+   </div>
   <%end%>
 
    <%= render "search", residence_geo: @residence_geo %>
@@ -42,3 +44,6 @@
    });
 </script>
 
+<style>
+   #residence_type, #residence_status{margin: 20px auto !important; float: none;  width: 50%; }
+</style>
