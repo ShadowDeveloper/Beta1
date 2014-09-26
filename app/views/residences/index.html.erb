@@ -1,5 +1,4 @@
-<%= @residence_geo %>
-<div id="row">
+<div id="container">
    <%= form_tag("/residences", method: "get") do %>
    <div class="row text-center">
       <label>Selecione um Tipo</label>
@@ -23,24 +22,23 @@
       <%= submit_tag "Buscar",  :class=>"button right"%>
    </div>
   <%end%>
-
-   <%= render "search", residence_geo: @residence_geo %>
+  <%= render "search", residence_geo: @residence_geo %>
 
 
 </div>
 <script>
    $( "#residence_type" ).change(function() {
-      if( this.value == "1") {
-         $("#residence_type_choose").empty();
-         $("#residence_type_choose").append("<select id='residence_type_personal' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Casa</option><option value='2'>Apartamento</option></select>"
-         );
-      } else if(this.value == "2"){
-         $("#residence_type_choose").empty();
-         $("#residence_type_choose").append("<select id='residence_type_business' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Sala Comercial</option><option value='2'>Galpão</option></select>"
-         );
-      } else {
-         $("#residence_type_choose").empty();
-      }
+         if( this.value == "1") {
+            $("#residence_type_choose").empty();
+            $("#residence_type_choose").append("<select id='residence_type_personal' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Casa</option><option value='2'>Apartamento</option></select>"
+            );
+          } else if(this.value == "2"){
+             $("#residence_type_choose").empty();
+             $("#residence_type_choose").append("<select id='residence_type_business' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Sala Comercial</option><option value='2'>Galpão</option></select>"
+             );
+          } else {
+             $("#residence_type_choose").empty();
+          }
    });
 </script>
 
