@@ -8,7 +8,7 @@
          <option value="2">Comercial</option>
       </select>
    </div>
-   <p id="residence_type_choose"></p>
+   <div id="residence_type_choose" class="row text-center"></div>
    <div class="row text-center">
       <label>Status do Imóvel</label>
       <select id="residence_status" class="small-5 columns" name="residence_status">
@@ -30,11 +30,11 @@
    $( "#residence_type" ).change(function() {
          if( this.value == "1") {
             $("#residence_type_choose").empty();
-            $("#residence_type_choose").append("<select id='residence_type_personal' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Casa</option><option value='2'>Apartamento</option></select>"
+            $("#residence_type_choose").append("<select id='residence_type_personal' class='small-5 columns' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Casa</option><option value='2'>Apartamento</option></select>"
             );
           } else if(this.value == "2"){
              $("#residence_type_choose").empty();
-             $("#residence_type_choose").append("<select id='residence_type_business' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Sala Comercial</option><option value='2'>Galpão</option></select>"
+             $("#residence_type_choose").append("<select id='residence_type_business' class='small-5 columns' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Sala Comercial</option><option value='2'>Galpão</option></select>"
              );
           } else {
              $("#residence_type_choose").empty();
@@ -43,5 +43,5 @@
 </script>
 
 <style>
-   #residence_type, #residence_status{margin: 20px auto !important; float: none;  width: 50%; }
+   #residence_type, #residence_status,#residence_type_personal,#residence_type_business{margin: 20px auto !important; float: none !important;  width: 50%; }
 </style>
