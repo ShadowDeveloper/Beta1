@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 			status =  new_user.errors.full_messages.first
 		end
 
-		render js: "$('#status')[0].innerHTML='<center>"+status+"<center>'"
+		# render js: "$('#status')[0].innerHTML='<center>"+status+"<center>'"
+		render js: "fnAlertUsers('"+status+"')"
 	end
 
 	#get /users/

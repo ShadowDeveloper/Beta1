@@ -7,13 +7,15 @@ class ClientsController < ApplicationController
 		new_client.bank_account.new(client_params[:bank_account])
 
 		if new_client.save
-			status = "window.location.href='/clients/" + new_client.id.to_s + "'"
+			# status = "window.location.href='/clients/" + new_client.id.to_s + "'"
+			status =new_client.id.to_s
+			ok = "Cliente cadastrado com sucesso!"
 		else	
 		    #fail_field = new_client.errors.full_messages[0].split(" ")[0].downcase
 		    
 		    status = %Q{ $(".alert-box").slideDown();}
 		end
-		render js: status
+		render js: "fnAlertClients('"+ok+"','"+status+"')"
 	end
 
 	def new
