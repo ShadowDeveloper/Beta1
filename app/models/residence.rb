@@ -26,8 +26,13 @@ class Residence < ActiveRecord::Base
 	def geo
 		position = self.address.split("|")
 		{
-			lat: position[0].to_f,
-		    lng: position[1].to_f
+			lat:    position[0].to_f,
+		    lng:    position[1].to_f,
+		    type:   self.type_name,
+		    status: self.status_name,
+		    id:     self.id,
+		    cep:    self.cep,
+		    bairro: self.neighbourhood
 		}
 	end
 	

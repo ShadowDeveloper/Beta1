@@ -9,7 +9,18 @@
 
 var arr_geo = [];
 <% residence_geo.each do |res| %>
-    arr_geo.push({ lat: <%= res[:lat] %>, lng: <%= res[:lng] %>, name: 'Venda', infowindow: "Venda: ------"})  
+    arr_geo.push({ lat: <%= res[:lat] %>, lng: <%= res[:lng] %>, name: 'Código: <%= res[:id] %>  Bairro: <%= res[:bairro] %>', infowindow: '<div id="content">'+
+      '<div id="siteNotice">'+
+          '</div>'+
+          '<h3 id="firstHeading" class="firstHeading">Dados do Imóvel</h1>'+
+          '<div id="bodyContent">'+
+          '<p><b>Código do Imóvel:</b> <%= res[:id]%><br>' +
+          '<b>Tipo:</b> <%= res[:type]%><br>' +
+          '<b>Status:</b> <%= res[:status]%><br>' +
+          '<b>CEP:</b> <%= res[:cep]%><br>' +
+          '<a href="/residences/<%= res[:id]%>" target="blank">Página do Imóveil</a></p>'+
+          '</div>'+
+      '</div>'})  
 <%end%>
 
 
