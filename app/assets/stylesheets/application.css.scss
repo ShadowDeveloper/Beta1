@@ -71,6 +71,7 @@ main{height: 100%; xdisplay: table; background: #fff;}
 	.sidebar-divisor{border-bottom:1px solid #4e4e4e;}
 }
 
+	#loadingImg{width:30px; height: 30px; margin: 0 auto 10px auto;}
 	.NavIcons{margin:0 7px 0 10px; width: 18px; height: 18px; display:inline-block;}
 	.iconClient{@extend .NavIcons; background:url(/assets/clientIcon.png);}
 	.iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}

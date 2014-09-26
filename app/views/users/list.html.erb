@@ -1,9 +1,11 @@
-<div id="container">
+<div id="row text-center">
 
   <%= form_tag("/users/list", method: "get",  :class => "formNewUser") do %>
-    <label>Login</label>
-    <input type="text" id="search" name="search" class="form-control"/><br>
-    <%= submit_tag "Buscar",  :class=>"button right"%>
+    <div class="row text-center">
+      <label>Login</label>
+      <input type="text" id="search" name="search" class="form-control small-5 columns"/><br>
+      <%= submit_tag "Buscar",  :class=>"button right"%>
+    </div>
   <%end%>
 
   <%if !@user.empty?%>
@@ -23,3 +25,5 @@
   });
   
 </script>
+
+<style>#search_by, #search{margin: 20px auto !important; float: none;  width: 50%;}</style>
