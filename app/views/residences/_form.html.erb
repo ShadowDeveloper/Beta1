@@ -10,7 +10,7 @@
 
 <div class="tabs-content">
 	  <div class="content active" id="panel1">
-	    <%= text_box 'CPF', (text_field_tag :cpf) %>
+	  <%= text_box 'CPF', (text_field_tag :cpf, placeholder: "CPF") %>
 		<%= select_combo 'Status',( res.select :status, residence_status)  %>
 		<%= select_combo 'Tipo',( res.select :residence_type, residence_type)  %>
 		<%= text_box 'CEP', (res.text_field :cep, onblur: "getCEPResidence(this.value)") %>
