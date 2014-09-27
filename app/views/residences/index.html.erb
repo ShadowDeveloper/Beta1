@@ -24,30 +24,8 @@
   <%end%>
   
   <%  if not @residence_geo.empty? %>
-  <%= render "search", residence_geo: @residence_geo %>
-<<<<<<< HEAD
-
-</div>
-<script>
-   $( "#residence_type" ).change(function(){
-         if( this.value == "1") {
-            $("#residence_type_choose").empty();
-            $("#residence_type_choose").append("<select id='residence_type_personal' class='small-5 columns' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Casa</option><option value='2'>Apartamento</option></select>"
-            );
-          } else if(this.value == "2"){
-             $("#residence_type_choose").empty();
-             $("#residence_type_choose").append("<select id='residence_type_business' class='small-5 columns' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Sala Comercial</option><option value='2'>Galpão</option></select>"
-             );
-          } else {
-             $("#residence_type_choose").empty();
-          }
-   });
-</script>
-=======
+    <%= render "search", residence_geo: @residence_geo %>
   <%end%>
-
-</div>
->>>>>>> 3f733e82f62006d144eaf8cc3ac02a7dcfc62389
 
 <style>
    #residence_type, #residence_status,#residence_type_personal,#residence_type_business{margin: 20px auto !important; float: none !important;  width: 50%; }

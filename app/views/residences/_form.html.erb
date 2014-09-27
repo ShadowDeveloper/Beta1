@@ -78,4 +78,28 @@
 
 <script>
 	ProjectInputMasks();
+	$( document ).ready(function() {
+    $("#cpf").blur(function(){verifyCPF()});
+	});
+	
+	function verifyCPF(){
+		if ($("#cpf").val() != ""){
+			var value = { cpf: $("#cpf").val() }
+			$.ajax({
+				type: "GET",
+			  	url: "/clients/verify_by_cpf/",
+			  	data: value,
+			   	success: function (data) {
+			   		if (data.message == "success"){
+			   			$("#cpf")[0].style.borderColor = "green"
+			   		} else {
+			   			$("#cpf")[0].style.borderColor = "red"
+			   		}
+			   			
+			    		console.log(data.message);
+					}
+				}	
+			);
+		}
+}
 </script>

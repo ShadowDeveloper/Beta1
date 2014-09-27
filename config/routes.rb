@@ -9,6 +9,7 @@ Proto::Application.routes.draw do
   
   resources :clients do
     get 'list', on: :collection
+    get 'verify_by_cpf', on: :collection
   end
 
   resources :session do
