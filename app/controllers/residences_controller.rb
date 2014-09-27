@@ -20,7 +20,6 @@ class ResidencesController < ApplicationController
 	end
 
 	def index
-
 		if params[:residence_type] != ""
 			residences = Residence.where(residence_type: params[:residence_type].to_i, status: params[:residence_status].to_i)
 			@residence_geo = []

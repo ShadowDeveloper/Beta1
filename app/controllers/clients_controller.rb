@@ -40,6 +40,16 @@ class ClientsController < ApplicationController
 		end
 	end
 
+	def verify_by_cpf
+		if Client.where(cpf: params[:cpf]).first.nil?
+			response = {:message => "success", code: 200}
+		else
+			response = {:message => "error", code: 500}
+		end
+
+		render :json => response.to_json
+	end
+
 	private
 	def client_params
 		params.permit(
