@@ -22,7 +22,7 @@ class ResidencesController < ApplicationController
 	def index
 
 		if params[:residence_type] != ""
-			residences = Residence.where("address is not NULL")
+			residences = Residence.where(residence_type: params[:residence_type].to_i, status: params[:residence_status].to_i)
 			@residence_geo = []
 			residences.map {|res| @residence_geo.push res.geo}
 			@residence_geo
