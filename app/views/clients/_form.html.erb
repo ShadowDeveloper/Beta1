@@ -19,7 +19,8 @@
         <%= select_combo "Estado Civil",(cli.select :relationship, [['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'}) %>
         <%= text_box("E-mail",(cli.email_field :email_address, placeholder: "Ex: seuemail@email.com")) %>
         <div class="row">
-          <dl data-tab><dd><a class="button right" href="#panel2">Continuar</a></dd></dl>
+          <div class="small-2 columns"></div>
+          <div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel2">Continuar</a></dd></dl></div>
         </div>
     </div>
   </div
@@ -36,8 +37,10 @@
       <%= text_box("Telefone",(cli.text_field :phone_number, placeholder: "Ex: 11 9999-9999")) %>
       <%= text_box("Celular",(cli.text_field :mobile_number, placeholder: "Ex: 11 99999-9999")) %>
         <div class="row">
-         <dl data-tab><dd><a class="button left" href="#panel1">Voltar</a></dd></dl>
-         <dl data-tab><dd><a class="button right" href="#panel3">Continuar</a></dd></dl>
+          <div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel1">Voltar</a></dd></dl></div>
+          <div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel3">Continuar</a></dd></dl></div>
+         
+         
         </div> 
     </div>
   </div>
@@ -51,8 +54,8 @@
             <%= text_box("Empresa",(comp.text_field :company_name, placeholder: "Ex: Nome Empresa")) %>
         <%end%>
       <div class="row">
-        <dl data-tab><dd><a class="button left" href="#panel2">Voltar</a></dd></dl>
-        <dl data-tab><dd><a class="button right" href="#panel5">Continuar</a></dd></dl>
+          <div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel2">Voltar</a></dd></dl></div>
+          <div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel5">Continuar</a></dd></dl></div>        
       </div>
     </div>
   </div>
@@ -70,8 +73,8 @@
         <%= text_box("onta Corrente",(bank.text_field :account_number , placeholder: "Conta Corrente")) %>            
         <% end %>
         <div class="row">
-         <dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl>
-         <%= cli.submit('Cadastrar', :class => "button right") %>
+          <div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl></div>
+          <div class="small-10 columns"><%= cli.submit('Cadastrar', :class => "button right") %></div>
         </div>
     </div>
   </div>  

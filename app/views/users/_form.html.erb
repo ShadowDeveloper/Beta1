@@ -5,14 +5,15 @@
     <%= text_box("Nome",(f.text_field :name, placeholder: "Ex: Ramires", :class=> "form-control", :required => "required")) %>
     <%= text_box("CPF",(f.text_field :cpf, placeholder: "Ex: 333.333.333-55", :class=> "form-control cpf", :required => "required")) %>
     <%= text_box("Senha",(f.password_field :password, placeholder: "Ex: Qbz12Tr", :class=> "form-control", :required => "required")) %>
-		
-		<div class="row">
-      <label style="float:left; margin:0 5px 0 110px;">Administrador</label>
-      <%= check_box_tag :adm %> 
-    </div>
 
 		<div class="row">
-      <%= f.submit "Gravar", :class=>"button right buttonColor"%>
+      <div class="small-2 columns">
+      <%= check_box_tag :adm, nil,nil,:style => "float:right; margin:5px 0 0 0;" %>
+      <label style="float:right; margin:0 5px 0 0; font-size: 14px; font-weight: bold; color:#000">Administrador</label>
+      </div>  
+      <div class="small-10 columns">
+        <%= f.submit "Gravar", :class=>"button right buttonColor"%>
+      </div>
     </div>
 
     <div id="status" name="status"></div>
