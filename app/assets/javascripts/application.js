@@ -98,11 +98,11 @@ function fnAlertUsers(msg){
 }
 
 //function para cadastro com sucesso
-function fnAlertClients(msg,url){
+function fnAlertClients(msg, code, url){
   $('body').append("<div id='myModal' class='reveal-modal small' data-reveal><p class='lead'>"+msg+"</p><a class='close-reveal-modal'>&#215;</a></div>");
   $('#myModal').foundation('reveal', 'open');
-  setTimeout(function(){
-    window.location.href='/clients/"'+url+'"';
-  }, 1300);
+  if (code == "200"){
+    window.location.href=""+url
+  }
   return;
 }

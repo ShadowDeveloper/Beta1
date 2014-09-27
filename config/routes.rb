@@ -21,6 +21,7 @@ Proto::Application.routes.draw do
   end
 
   resources :reports do
+    get 'client_x_day', on: :collection
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
