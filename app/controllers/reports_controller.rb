@@ -1,19 +1,19 @@
+# encoding: utf-8
 class ReportsController < ApplicationController
 	def index
 	end
 
 	def client_x_day
 		Axlsx::Package.new do |p|
-		  p.workbook.add_worksheet(:name => "Clientes Cadastrados por dia") do |sheet|
-		    sheet.add_row ["Nome"]
-		    cli = Client.all
-		    cli.map{|c| c.name}.each { |label| sheet.add_row [label, rand(24)+1] }
-		    cli.map{|c| c.name}.each { |label| sheet.add_row [label, rand(24)+2] }
-		    #sheet.add_chart(Axlsx::Pie3DChart, :start_at => [0,5], :end_at => [10, 20], :title => "example 3: Pie Chart") do |chart|
-		    #  chart.add_series :data => sheet["B2:B4"], :labels => sheet["A2:A4"],  :colors => ['FF0000', '00FF00', '0000FF']
-		    #end
-		  end
- 		 p.serialize('cliente_x_dia.xlsx')
+		  p.workbook.add_worksheet(:name => "Basic Worksheet") do |sheet|
+	 	  sheet.add_row ['Relatório de Clientes Ativos']
+        sheet.add_row ["CPF", "Nome", "E-mail", "Celular","Telefone"]
+	     Client.all.each do |cli|
+	      sheet.add_row [cli.cpf, cli.name, cli.email_address, cli.mobile_number, cli.phone_number]
+	     end
+ 	 end
+ 		 p.serialize('reports/cliente_x_dia.xlsx')
+ 		 send_file "reports/cliente_x_dia.xlsx", :type => "application/vnd.ms-excel", :filename => "cliente_x_dia.xls", :stream => false
 		end
 	end
 end
