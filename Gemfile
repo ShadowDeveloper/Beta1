@@ -59,3 +59,6 @@ end
 
 # Geolocalizaco
  gem 'geocoder'
+
+# Relatório
+ gem 'axlsx'
