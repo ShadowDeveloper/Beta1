@@ -7,7 +7,7 @@ module ApplicationHelper
         nav_itemx = arr.push({id: /clients/, href: "/clients/list", value: "Cliente", icon:"fi-torso"})
         nav_itemx = arr.push({id: /users/, href: "/users/list", value: "Usuário", icon:"fi-torso-business"})
         nav_itemx = arr.push({id: /residences/, href: "/residences", value: "Imóveis", icon:"fi-home"})
-        nav_itemx = arr.push({id: /charts/, href: "#", value: "Relatórios", icon:"fi-graph-bar"})
+        nav_itemx = arr.push({id: /reports/, href: "/reports", value: "Relatórios", icon:"fi-graph-bar"})
         nav_itemx
     end
 
