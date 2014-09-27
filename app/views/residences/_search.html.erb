@@ -13,7 +13,7 @@ var arr_geo = [];
     arr_geo.push({ lat: <%= res[:lat] %>, lng: <%= res[:lng] %>, name: 'Código: <%= res[:id] %>  Bairro: <%= res[:bairro] %>', infowindow: '<div id="content">'+
       '<div id="siteNotice">'+
           '</div>'+
-          '<h3 id="firstHeading" class="firstHeading">Dados do Imóvel</h1>'+
+          '<h4 id="firstHeading" class="firstHeading">Dados do Imóvel</h4>'+
           '<div id="bodyContent">'+
           '<p><b>Código do Imóvel:</b> <%= res[:id]%><br>' +
           '<b>Tipo:</b> <%= res[:type]%><br>' +
