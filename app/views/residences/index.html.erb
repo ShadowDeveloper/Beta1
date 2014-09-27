@@ -24,10 +24,9 @@
   <%end%>
   <%= render "search", residence_geo: @residence_geo %>
 
-
 </div>
 <script>
-   $( "#residence_type" ).change(function() {
+   $( "#residence_type" ).change(function(){
          if( this.value == "1") {
             $("#residence_type_choose").empty();
             $("#residence_type_choose").append("<select id='residence_type_personal' class='small-5 columns' name='residence_type_choose'><option value=''>Selecione</option><option value='1'>Casa</option><option value='2'>Apartamento</option></select>"
