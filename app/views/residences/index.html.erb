@@ -1,32 +1,34 @@
-<div id="container">
+
    <%= form_tag("/residences", method: "get") do %>
-   <div class="row text-center">
-      <label>Selecione um Tipo</label>
-         <select id="residence_type" class="small-5 columns" name="residence_type">
-         <option value="">Selecione</option>
-         <option value="1">Residencial</option>
-         <option value="2">Comercial</option>
-      </select>
+   <div class="row">
+      <div class="small-2 columns"><label class="right inline size-14">Selecione um Tipo:</label></div>
+      <div class="small-7 columns left">
+           <select id="residence_type" name="residence_type">
+             <option value="">Selecione</option>
+             <option value="1">Residencial</option>
+             <option value="2">Comercial</option>
+           </select>
+      </div>
    </div>
-   <div id="residence_type_choose" class="row text-center"></div>
-   <div class="row text-center">
-      <label>Status do Imóvel</label>
-      <select id="residence_status" class="small-5 columns" name="residence_status">
-         <option value="">Selecione</option>
-         <option value="1">Compra</option>
-         <option value="2">Locação</option>
-         <option value="3">Venda</option>
-      </select>
+   <div id="residence_type_choose" class="row"></div>
+
+   <div class="row">
+      <div class="small-2 columns"><label class="right inline size-14">Status do Imóvel:</label></div>
+      <div class="small-7 columns left">
+        <select id="residence_status" name="residence_status">
+           <option value="">Selecione</option>
+           <option value="1">Compra</option>
+           <option value="2">Locação</option>
+           <option value="3">Venda</option>
+        </select>
+    </div>
    </div> 
    <div class="row">
-      <%= submit_tag "Buscar",  :class=>"button right"%>
+    <div class="small-2 columns"><label class="right inline size-14"></label></div>
+    <div class="small-7 columns left"><%= submit_tag "Buscar",  :class=>"button right"%></div>         
    </div>
   <%end%>
   
   <%  if not @residence_geo.empty? %>
     <%= render "search", residence_geo: @residence_geo %>
   <%end%>
-
-<style>
-   #residence_type, #residence_status,#residence_type_personal,#residence_type_business{margin: 20px auto !important; float: none !important;  width: 50%; }
-</style>
