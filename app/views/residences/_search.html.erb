@@ -1,10 +1,13 @@
 
 <div class="row">
   <div class="large-12 columns">
-    <div id="sidebar_builder"</div>
+    <div id="sidebar_builder"></div>
+    <div class='sidebar_container large-12 columns panel'>
+      <ul class="side-nav">
+      </ul>
+    </div>    
   </div>
-</div>
-<div id='sidebar_container'>
+
 </div>
 <script>
 
@@ -41,7 +44,7 @@ function bindLiToMarker($li, marker){
 function createSidebar(json_array){
   _.each(json_array, function(json){
     var $li = $( createSidebarLi(json) );
-    $li.appendTo('#sidebar_container');
+    $li.appendTo('.sidebar_container > ul');
     bindLiToMarker($li, json.marker);
   });
 };
