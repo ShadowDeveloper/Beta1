@@ -70,10 +70,7 @@ main{height: 100%; xdisplay: table; background: #fff;}
 	}
 	.sidebar-divisor{border-bottom:1px solid #4e4e4e;}
 }
-//Forms
-	.button{background: #fff; border: 2px solid #2364b0; color:#2364b0;}
-	.button:hover{background:#2364b0;}
-//End Forms
+
 	#loadingImg{width:30px; height: 30px; margin: 0 auto 10px auto;}
 
 	.breadcrumbs{height: 50px; padding-top: 1.2rem !important; background: #2364b0;
@@ -84,4 +81,13 @@ main{height: 100%; xdisplay: table; background: #fff;}
 	.iconUser{@extend .NavIcons; background:url(/assets/userIcon.png);}
 	.iconHome{@extend .NavIcons; background:url(/assets/homeIcon.png); width: 12px; height: 12px;}
 // end sidebar
+
+//Forms
+	.button{background: #fff; border: 2px solid #2364b0; color:#2364b0;}
+	.button:hover{background:#2364b0;}
+//End Forms
+
+//Maps
+	#sidebar_builder{width: 100%; height: 400px;}
+//end Maps
 
