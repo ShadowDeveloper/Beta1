@@ -90,5 +90,12 @@ main{height: 100%; xdisplay: table; background: #fff;}
 
 //Maps
 	#sidebar_builder, #basic_map{width: 100%; height: 400px;}
-//end Maps
+	.sidebar_container 
+	ul {
+		li { border-left: 2px solid #2364b0; border-bottom: 2px solid #2364b0;
+			a{color:#666 !important;}
+		}
+		// li:last-child{ border-bottom: 0px;}
+	} 
+//end Mabps
 
