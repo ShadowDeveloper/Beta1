@@ -14,8 +14,8 @@ module ApplicationHelper
     def text_box(label,input )
     	raw(%Q{
     		<div class="row">
-            	<div class="small-2 columns"><label style="white-space: nowrap; text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-14">#{label}:</label></div>
-           		<div class="small-10 columns"> #{input}</div>
+            	<div class="large-2 medium-3 small-2 columns"><label style="text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-12">#{label}:</label></div>
+           		<div class="large-10 medium-9 small-10 columns"> #{input}</div>
         	</div>
     	})
     end
@@ -23,8 +23,8 @@ module ApplicationHelper
     def select_combo(label,select)
       raw(%Q{
             <div class="row">
-                  <div class="small-2 columns"><label style="white-space: nowrap; text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-14">#{label}:</label></div>
-                  <div class="small-10 columns"> #{select}</div>
+                  <div class="large-2 medium-3 small-2 columns"><label style="text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-12">#{label}:</label></div>
+                  <div class="large-10 medium-9 small-10 columns"> #{select}</div>
             </div>
          })
     end
