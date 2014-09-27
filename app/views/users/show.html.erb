@@ -4,3 +4,20 @@
 		<li><b>Nome:</b> <%= @user.name %></li>
 	</ul>
 </div>
+<div class="panel">
+	<ul class="infosClient">
+		<li><b>Região de Atuacão:</b> <%= UserHelper::region[@user.address] ||= "---" %></li>
+	</ul>
+	<%= form_tag("/users/update", method: "put",  :class => "formNewUser") do %>
+	<input type="hidden" name="user_id" value="<%= params[:id]%>">
+	<select name="region">
+		<option value="">Selecione</option>
+		<option value="1">Norte</option>
+		<option value="2">Sul</option>
+		<option value="3">Leste</option>
+		<option value="4">Oeste</option>
+	</select>
+</div>
+	<%= submit_tag "Gravar",  :class=>"button right"%>
+<%end%>
+

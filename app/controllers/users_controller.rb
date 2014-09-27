@@ -32,7 +32,15 @@ class UsersController < ApplicationController
 
 	#get /users/:id
 	def show
-		@user = User.find(session[:user_id])
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:user_id])
+		@user.address = params[:region]
+		@user.save
+
+		redirect_to :back
 	end
 
 	def list

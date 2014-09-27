@@ -70,7 +70,7 @@
         <%= fields_for(@bank_account) do |bank|%>
         <%= select_combo "Banco",(bank.select :bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}) %>
         <%= text_box("Agência",(bank.text_field :agency, placeholder: "Agência")) %>
-        <%= text_box("onta Corrente",(bank.text_field :account_number , placeholder: "Conta Corrente")) %>            
+        <%= text_box("Conta Corrente",(bank.text_field :account_number , placeholder: "Conta Corrente")) %>            
         <% end %>
         <div class="row">
           <div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl></div>
