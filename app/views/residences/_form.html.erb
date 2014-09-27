@@ -21,7 +21,9 @@
 		<%= text_box 'Estado', (res.text_field :state, readonly: true) %>
 		<%= text_box 'Número', (res.text_field :number) %>
 		<div class="row">
-			<dl data-tab><dd><a class="button right" href="#panel2">Continuar</a></dd></dl>
+		  <div class="small-2 columns"></div>
+		  <div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel2">Continuar</a></dd></dl></div>
+
 		</div>
 	</div>
 
@@ -33,8 +35,8 @@
 			<%= text_box 'Valor Condominio', (info.text_field :condominium_value) %>
 			<%= text_box 'Valor IPTU', (info.text_field :iptu_value) %>
 		<div class="row">
-			<dl data-tab><dd><a class="button left" href="#panel1">Voltar</a></dd></dl>
-			<dl data-tab><dd><a class="button right" href="#panel3">Continuar</a></dd></dl>
+			<div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel1">Voltar</a></dd></dl></div>
+			<div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel3">Continuar</a></dd></dl></div>
 		</div>	
 	</div>		
 
@@ -44,8 +46,8 @@
 			<%= text_box 'Escritura Alienada', (info.text_field :escritura_alienada) %>
 			<%= text_box 'Escritura Inventário', (info.text_field :escritura_inventario) %>
 			<div class="row">
-				<dl data-tab><dd><a class="button left" href="#panel2">Voltar</a></dd></dl>
-				<dl data-tab><dd><a class="button right" href="#panel4">Continuar</a></dd></dl>			
+				<div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel2">Voltar</a></dd></dl></div>
+				<div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel4">Continuar</a></dd></dl></div>
 			</div>
 	</div>			
 
@@ -67,8 +69,8 @@
 			<%= text_box 'Garagem', (info.text_field :qtd_garage) %>
 		<%end%>
 		<div class="row">
-			<dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl>
-			<%= res.submit('Cadastrar', :class => "button right")%>
+			<div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl></div>
+			<div class="small-10 columns"><%= res.submit('Cadastrar', :class => "button right")%></div>
 		</div>
 	</div>
 </div>
