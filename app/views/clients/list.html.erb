@@ -2,17 +2,23 @@
 
   <%= form_tag("/clients/list", method: "get",  :class => "formNewUser") do %>
   <div class="row text-center">
-    <label>Buscar Por:</label>
-    <select id="search_by" class="small-5 columns" name="search_by">
+    
+    <div class="small-2 columns"><label class="right inline size-14">Buscar Por:</label></div>
+    <div class="small-7 columns left"><select id="search_by" name="search_by">
      <option value="">Selecione</option>
      <option value="cpf">CPF</option>
      <option value="nome">Nome</option>
     </select>
   </div>
+  </div>
 
-  <div class="row">  
-    <input type="text" id="search" name="search" class="small-5 columns"/><br>
-    <%= submit_tag "Buscar",  :class=>"button right"%>
+  <div class="row">
+    <div class="small-2 columns"><label class="right inline size-14"></label></div>
+    <div class="small-7 columns left"><input type="text" id="search" name="search"/></div>
+  </div>
+  <div class="row">
+    <div class="small-2 columns"><label class="right inline size-14"></label></div>
+    <div class="small-7 columns left"><%= submit_tag "Buscar",  :class=>"button right"%></div>
   </div>
 
   <%end%>
@@ -31,10 +37,5 @@
       $('#search').unmask();
     }
       
-  });
-  
+  }); 
 </script>
-
-<style>
-  #search_by, #search{margin: 20px auto !important; float: none;  width: 50%; }
-</style>
