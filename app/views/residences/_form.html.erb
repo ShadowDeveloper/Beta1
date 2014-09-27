@@ -54,14 +54,13 @@
 	        Preencha todos os campos!
 	        <a href="#" class="close">&times;</a>
 	    </div>
-			<div style="margin:20px;"> 
-				Casa Germinada
-				<%= check_box("Casa Germinada", :casa_germinada, {}, "1", "0") %>
-			</div>
-			<div style="margin:20px;">
-				Casa Alto Padrao
-				<%= check_box("Casa Alto Padrao", :casa_alto_padrao, {}, "1", "0") %>
-			</div>
+	    <div class="row">
+		<div class="small-2 columns text-right"></div>
+		<div class="small-10 columns">
+		<label style="float: left; margin: 0 10px 0 0">Casa Alto Padrao</label><%= check_box("Casa Alto Padrao", :casa_alto_padrao, {}, "1", "0") %>
+		<label  style="float: left; margin: 0 5px 0 0">Casa Germinada</label><%= check_box("Casa Germinada", :casa_germinada, {}, "1", "0") %>
+		</div>
+		</div>
 			<%= text_box 'Dormitórios', (info.text_field :qdt_domitorio) %>
 			<%= text_box 'Suites', (info.text_field :qtd_suite) %>
 			<%= text_box 'Banheiros', (info.text_field :qtd_banheiro) %>

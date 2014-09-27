@@ -17,9 +17,11 @@
 	</ul>
 </div>
 
-<div style='width: 800px;'>
-  <div id="basic_map" style='width: 800px; height: 400px;'></div>
+<div class="large-12 columns">
+  <div id="basic_map"></div>
 </div>
+
+
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({
@@ -37,9 +39,9 @@ handler.buildMap({
         "lat": "<%= @residence.geo[:lat] %>",
         "lng": "<%= @residence.geo[:lng] %>",
         "picture": {
-          "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-          "width":  36,
-          "height": 36
+          "url": "/assets/housemaps.png",
+          "width":  46,
+          "height": 46
         },
         "infowindow": "<%= @residence.status%>"
       }
