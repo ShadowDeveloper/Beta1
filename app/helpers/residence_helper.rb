@@ -19,9 +19,9 @@ module ResidenceHelper
 	
 	def self.status_name
         {
-          "1" => "Venda",
-          "2" => "Compra",
-          "3" => "Locação"
+          "3" => "Venda",
+          "1" => "Compra",
+          "2" => "Locação"
         }
     end
     
