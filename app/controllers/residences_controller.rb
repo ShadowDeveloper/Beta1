@@ -11,12 +11,18 @@ class ResidencesController < ApplicationController
 		    pos = residence.position
 			residence.address = "#{pos[:lat]}|#{pos[:lng]}"
 			residence.save
-			status = "window.location = '/residences/#{residence.id}'"
+
+			status = "Imovel cadastrado com sucesso!"
+			url = "/residences/#{residence.id}"
+			code = "200"
+
 		else
-			status = %Q{ $(".alert-box").slideDown();}
+			url = ""
+	   	code = "500"
+			status = "Preencha todos os campos!"
 		end
 
-		render js: status
+		render js: %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
 	end
 
 	def index
