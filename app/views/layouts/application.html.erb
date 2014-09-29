@@ -21,16 +21,11 @@
   </head>
   <body>
     <div id="wrapper">
-
-    <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item%>
-
-    
-        <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item%>
-    
-          <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
-          <%# render 'layouts/messages' %>
+            <%= render 'layouts/topBar' %>
+            <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item%>
+            <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item%>
+            <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
             <%= yield %>
-
     </div>
   </body>
 </html>
