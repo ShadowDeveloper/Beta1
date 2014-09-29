@@ -54,9 +54,6 @@ end
 # Use debugger
  gem 'debugger', group: [:development, :test]
 
-# CSS/SASS Framework
- gem 'foundation-rails'
-
 # Geolocalizaco
  gem 'geocoder'
 
