@@ -6,6 +6,13 @@
     <title><%= content_for?(:title) ? yield(:title) : "Proto" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Proto" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'sb-admin-2', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'metisMenu.min', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'timeline', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'morris', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
+   
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'jquery.mask.min', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -13,17 +20,17 @@
     <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
   </head>
   <body>
-    <header>
-       <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item%>
-    </header>
+    <div id="wrapper">
 
-    <main role="main" class="scroll-container">
+    <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item%>
+
+    
         <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item%>
-        <div class="large-9 medium-8 columns mainContainer">
+    
           <%= render 'layouts/submenu', submenu_for: request.fullpath  %>
           <%# render 'layouts/messages' %>
             <%= yield %>
-        </div>
-    </main>
+
+    </div>
   </body>
 </html>
