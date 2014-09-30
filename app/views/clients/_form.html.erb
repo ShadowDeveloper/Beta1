@@ -6,85 +6,82 @@
 </div>
 
 <%= form_for @client, name: "client", remote: true do |cli| %>
-<div class="row">
-<div class="col-lg-12">
+  <div class="row">
+    <div class="col-lg-12">
 
-        <div id="personal_information" class="col-lg-6">
-        <div class="panel panel-default">
-          <div class="panel-heading"><strong>Informações Pessoais</strong></div>
-            <div class="panel-body">
-                      <div class="form-group">
-                        <div class="radio">
-                          <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                            Pessoa Fisica 
-                          </label>
-                          <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                            Pessoa Juridica
-                          </label>
-                        </div>
-                      </div>
-                      <%# radio_box("Pessoa",(radio_button_tag :client_type, "pj", "sim"), ["Pesssa Fisica","Pessoa Juridica"]) %>
-                      <%= text_box("Nome",(cli.text_field :name, placeholder: "Ex: Rodrigo", class: "form-control"))%>     
-                      <%= text_box("RG",(cli.text_field :rg, placeholder: "Ex: 1234545", maxlength: 15, class: "form-control")) %>
-                      <%= text_box("Data de Nascimento",(cli.text_field :dob, placeholder: "Ex: 11/11/1111", class: "form-control")) %>
-                      <%= text_box("CPF",(cli.text_field :cpf, placeholder: "CPF", class: "form-control")) %>
-                      <%= select_combo "Estado Civil",(cli.select :relationship,[['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'}, class: "form-control") %>
-                      <%= text_box("E-mail",(cli.email_field :email_address, placeholder: "Ex: seuemail@email.com", class: "form-control")) %>
-            </div>
-          </div>
-        </div>
-
-        <div id="residence_information" class="col-lg-6">
+          <div id="personal_information" class="col-lg-6">
           <div class="panel panel-default">
-          <div class="panel-heading"><strong>Informações Residenciais</strong></div>
-            <div class="panel-body">  
-                  <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEPClients(this.value)", class: "form-control")) %>
-                  <div class="row"><img src="/assets/load.GIF" id="loadingImg" style="display: none;"></div>
-                  <%= text_box("Cidade",(text_field_tag :city, nil, placeholder: "Ex: São Paulo", id:"city", disabled: true, class: "form-control")) %>
-                  <%= text_box("Bairro",(text_field_tag :neigborhood, nil, placeholder: "Ex: Indianapolis", id:"neigborhood", disabled: true, class: "form-control")) %>
-                  <%= text_box("Rua",(text_field_tag :street, nil, placeholder: "Ex: Av.Morumbi", id:"street", disabled: true, class: "form-control")) %>
-                  <%= text_box("Nº",(text_field_tag :street, nil, placeholder: "Ex: 85", id:"street", class: "form-control")) %>
-                  <%= text_box("Telefone",(cli.text_field :phone_number, placeholder: "Ex: 11 9999-9999", class: "form-control")) %>
-                  <%= text_box("Celular",(cli.text_field :mobile_number, placeholder: "Ex: 11 99999-9999", class: "form-control")) %>    
+            <div class="panel-heading"><strong>Informações Pessoais</strong></div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                      Pessoa Fisica 
+                    </label>
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                      Pessoa Juridica
+                    </label>
+                  </div>
+                </div>
+                <%# radio_box("Pessoa",(radio_button_tag :client_type, "pj", "sim"), ["Pesssa Fisica","Pessoa Juridica"]) %>
+                <%= text_box("Nome",(cli.text_field :name, placeholder: "Ex: Rodrigo", class: "form-control"))%>     
+                <%= text_box("RG",(cli.text_field :rg, placeholder: "Ex: 1234545", maxlength: 15, class: "form-control")) %>
+                <%= text_box("Data de Nascimento",(cli.text_field :dob, placeholder: "Ex: 11/11/1111", class: "form-control")) %>
+                <%= text_box("CPF",(cli.text_field :cpf, placeholder: "CPF", class: "form-control")) %>
+                <%= select_combo "Estado Civil",(cli.select :relationship,[['Solteiro', '1'],['Casado', '2'],['Divorciado','3'],['Viuvo','4']], {include_blank: 'Estado Civil'}, class: "form-control") %>
+                <%= text_box("E-mail",(cli.email_field :email_address, placeholder: "Ex: seuemail@email.com", class: "form-control")) %>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div id="company_information" class="col-lg-6">
-          <div class="panel panel-default">
-          <div class="panel-heading"><strong>Informações Profissionais</strong></div>
-            <div class="panel-body">
-              <%= fields_for(@company) do |comp| %>
-                  <%= text_box("Salário",(comp.text_field :income, placeholder: "Ex: R$1.500", class: "form-control")) %>
-                  <%= text_box("Profissão",(comp.text_field :ocupation, placeholder: "Ex: Advogado", class: "form-control")) %>
-                  <%= text_box("Empresa",(comp.text_field :company_name, placeholder: "Ex: Nome Empresa", class: "form-control")) %>
-              <%end%>
+          <div id="residence_information" class="col-lg-6">
+            <div class="panel panel-default">
+            <div class="panel-heading"><strong>Informações Residenciais</strong></div>
+              <div class="panel-body">  
+                    <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEPClients(this.value)", class: "form-control")) %>
+                    <div class="row"><img src="/assets/load.GIF" id="loadingImg" style="display: none;"></div>
+                    <%= text_box("Cidade",(text_field_tag :city, nil, placeholder: "Ex: São Paulo", id:"city", disabled: true, class: "form-control")) %>
+                    <%= text_box("Bairro",(text_field_tag :neigborhood, nil, placeholder: "Ex: Indianapolis", id:"neigborhood", disabled: true, class: "form-control")) %>
+                    <%= text_box("Rua",(text_field_tag :street, nil, placeholder: "Ex: Av.Morumbi", id:"street", disabled: true, class: "form-control")) %>
+                    <%= text_box("Nº",(text_field_tag :street, nil, placeholder: "Ex: 85", id:"street", class: "form-control")) %>
+                    <%= text_box("Telefone",(cli.text_field :phone_number, placeholder: "Ex: 11 9999-9999", class: "form-control")) %>
+                    <%= text_box("Celular",(cli.text_field :mobile_number, placeholder: "Ex: 11 99999-9999", class: "form-control")) %>    
+              </div>
             </div>
           </div>
-        </div>
-        <div id="bank_account_information" class="col-lg-6">
-          <div class="panel panel-default">
-          <div class="panel-heading"><strong>Informações Bancarias</strong></div>
-            <div class="panel-body">
-              <%= fields_for(@bank_account) do |bank|%>
-                  <%= select_combo "Banco",(bank.select :bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}, class: "form-control") %>
-                  <%= text_box("Agência",(bank.text_field :agency, placeholder: "Agência", class: "form-control")) %>
-                  <%= text_box("Conta Corrente",(bank.text_field :account_number , placeholder: "Conta Corrente", class: "form-control")) %>            
-                  <%= cli.submit('Cadastrar cliente', :class => "btn btn-success col-lg-6 pull-right") %>
-              <% end %>
+
+          <div id="company_information" class="col-lg-6">
+            <div class="panel panel-default">
+            <div class="panel-heading"><strong>Informações Profissionais</strong></div>
+              <div class="panel-body">
+                <%= fields_for(@company) do |comp| %>
+                    <%= text_box("Salário",(comp.text_field :income, placeholder: "Ex: R$1.500", class: "form-control")) %>
+                    <%= text_box("Profissão",(comp.text_field :ocupation, placeholder: "Ex: Advogado", class: "form-control")) %>
+                    <%= text_box("Empresa",(comp.text_field :company_name, placeholder: "Ex: Nome Empresa", class: "form-control")) %>
+                <%end%>
+              </div>
             </div>
           </div>
-        </div>                     
-      
-        
+          
+          <div id="bank_account_information" class="col-lg-6">
+            <div class="panel panel-default">
+            <div class="panel-heading"><strong>Informações Bancarias</strong></div>
+              <div class="panel-body">
+                <%= fields_for(@bank_account) do |bank|%>
+                    <%= select_combo "Banco",(bank.select :bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}, class: "form-control") %>
+                    <%= text_box("Agência",(bank.text_field :agency, placeholder: "Agência", class: "form-control")) %>
+                    <%= text_box("Conta Corrente",(bank.text_field :account_number , placeholder: "Conta Corrente", class: "form-control")) %>            
+                    <%= cli.submit('Cadastrar cliente', :class => "btn btn-success col-lg-6 pull-right") %>
+                <% end %>
+              </div>
+            </div>
+          </div>                     
 
-    </div>    
-</div>
- <%end%>
-
-
+      </div>    
+  </div>
+<%end%>
 
 <script>
     ProjectInputMasks();
