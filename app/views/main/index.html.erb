@@ -24,15 +24,19 @@
 
 			<%end%>
 
-			<div data-alert class="alert-box alert" style="display: none;">
-			  Os dados digitados estão incorretos. Tente novamente!
-			  <a href="#" class="close">&times;</a>
-			</div>		
-				
+			<div class="alert alert-danger fade in" role="alert" style="display: none;">
+      	<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+      	<strong>Usuario ou senha incorretos. Tente novamente!</strong>.
+    	</div>
+		  <!---->
+
 		</section>
 		
 		<% if flash[:error]%>
-			<script>$('.alert-box').slideDown();</script>
+			<script>
+					$('.alert').slideDown(400);
+					setTimeout(function(){$('.alert').alert('close');}, 6000);
+			</script>
 		<% end %>
 
 <!--<script>
