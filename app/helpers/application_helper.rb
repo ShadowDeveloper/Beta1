@@ -11,21 +11,21 @@ module ApplicationHelper
         nav_itemx
     end
 
-    def text_box(label,input )
+    def text_box(label,input)
     	raw(%Q{
-    		<div class="row">
-            	<div class="small-2 columns"><label style="white-space: nowrap; text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-14">#{label}:</label></div>
-           		<div class="small-10 columns"> #{input}</div>
-        	</div>
+        <div class="form-group">
+            	<label>#{label}:</label>
+           		#{input}
+        </div>      
     	})
     end
 
     def select_combo(label,select)
       raw(%Q{
-            <div class="row">
-                  <div class="small-2 columns"><label style="white-space: nowrap; text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-14">#{label}:</label></div>
-                  <div class="small-10 columns"> #{select}</div>
-            </div>
+          <div class="form-group">
+                  <label>#{label}:</label>
+                   #{select}
+          </div>         
          })
     end
 
@@ -33,11 +33,9 @@ module ApplicationHelper
       radio2 = radio.gsub "#{type[0]}", "#{type[1]}"
       radio2 = radio2.gsub "pf", "pj"
       raw(%Q{
-            <div class="row">
-                  <div class="small-2 columns"><label style="white-space: nowrap; text-transform:capitalize; font-weight:bold; color:#333" class="right inline size-14">#{label}:</label></div>
-                  <div class="small-5 columns"> #{radio}<label>#{type[0]}</label></div>
-                  <div class="small-5 columns"> #{radio2}<label>#{type[1]}</label></div>
-            </div>
+                  <label>#{label}:</label>
+                  #{radio}<label>#{type[0]}</label>
+                  #{radio2}<label>#{type[1]}</label>
          })
     end    
     

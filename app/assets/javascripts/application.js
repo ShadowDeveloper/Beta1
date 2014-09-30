@@ -20,7 +20,6 @@
 //mascaras dos forms de input
 function ProjectInputMasks(){
     // Clients masks
-    $("#personal_information").fadeIn();
     $('#client_cpf').mask('000.000.000-00');
     $('#client_dob').mask('00/00/0000');
     $('#client_phone_number').mask('(00) 0000-0000');
