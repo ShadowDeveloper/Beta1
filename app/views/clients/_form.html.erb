@@ -73,7 +73,7 @@
                     <%= select_combo "Banco",(bank.select :bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}, class: "form-control") %>
                     <%= text_box("Agência",(bank.text_field :agency, placeholder: "Agência", class: "form-control")) %>
                     <%= text_box("Conta Corrente",(bank.text_field :account_number , placeholder: "Conta Corrente", class: "form-control")) %>            
-                    <%= cli.submit('Cadastrar cliente', :class => "btn btn-success col-lg-6 pull-right") %>
+                    <%= cli.submit('Cadastrar', :class => "btn btn-success col-lg-6 pull-right") %>
                 <% end %>
               </div>
             </div>
