@@ -11,7 +11,7 @@
 
           <div id="personal_information" class="col-lg-6">
           <div class="panel panel-default">
-            <div class="panel-heading"><strong>Informações Pessoais</strong></div>
+            <div class="panel-heading"><strong><span class="steps">1</span>Informações Pessoais</strong></div>
               <div class="panel-body">
                 <div class="form-group">
                   <div class="radio">
@@ -38,7 +38,7 @@
 
           <div id="residence_information" class="col-lg-6">
             <div class="panel panel-default">
-            <div class="panel-heading"><strong>Informações Residenciais</strong></div>
+            <div class="panel-heading"><strong><span class="steps">2</span>Informações Residenciais</strong></div>
               <div class="panel-body">  
                     <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEPClients(this.value)", class: "form-control")) %>
                     <div class="row"><img src="/assets/load.GIF" id="loadingImg" style="display: none;"></div>
@@ -54,7 +54,7 @@
 
           <div id="company_information" class="col-lg-6">
             <div class="panel panel-default">
-            <div class="panel-heading"><strong>Informações Profissionais</strong></div>
+            <div class="panel-heading"><strong><span class="steps">3</span>Informações Profissionais</strong></div>
               <div class="panel-body">
                 <%= fields_for(@company) do |comp| %>
                     <%= text_box("Salário",(comp.text_field :income, placeholder: "Ex: R$1.500", class: "form-control")) %>
@@ -67,7 +67,7 @@
           
           <div id="bank_account_information" class="col-lg-6">
             <div class="panel panel-default">
-            <div class="panel-heading"><strong>Informações Bancarias</strong></div>
+            <div class="panel-heading"><strong><span class="steps">4</span>Informações Bancarias</strong></div>
               <div class="panel-body">
                 <%= fields_for(@bank_account) do |bank|%>
                     <%= select_combo "Banco",(bank.select :bank_id, [['Itaú', '1'],['Bradesco', '2'],['Santander','3'],['Caixa','4']], {include_blank: 'Banco'}, class: "form-control") %>
