@@ -6,79 +6,69 @@
 </div>
 
 <%= form_for @residence, name: "residence", remote: true do |res| %>
-<dl class="tabs" data-tab>
-	<dd class="active"><a href="#panel1"><i class="fi-target-two size-21"></i></a></dd>
-	<dd><a href="#panel2"><i class="fi-clipboard size-21"></i></a></dd>
-	<dd><a href="#panel3"><i class="fi-align-left size-21"></i></a></dd>
-	<dd><a href="#panel4"><i class="fi-info size-21"></i></a></dd>
-</dl>
+  <div class="row">
+    <div class="col-lg-12">
 
-<div class="tabs-content">
-	  <div class="content active" id="panel1">
-	  <%= text_box 'CPF', (text_field_tag :cpf, placeholder: "CPF") %>
-		<%= select_combo 'Status',( res.select :status, residence_status)  %>
-		<%= select_combo 'Tipo',( res.select :residence_type, residence_type)  %>
-		<%= text_box 'CEP', (res.text_field :cep, onblur: "getCEPResidence(this.value)") %>
-		<div class="row"><img src="/assets/load.GIF" id="loadingImg" style="display: none;"></div>
-		<%= text_box 'Rua', (res.text_field :street, readonly: true) %>
-		<%= text_box 'Bairro', (res.text_field :neighbourhood, readonly: true) %>
-		<%= text_box 'Cidade', (res.text_field :city, readonly: true) %>
-		<%= text_box 'Estado', (res.text_field :state, readonly: true) %>
-		<%= text_box 'Número', (res.text_field :number) %>
-		<div class="row">
-		  <div class="small-2 columns"></div>
-		  <div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel2">Continuar</a></dd></dl></div>
+					<div class="col-lg-6">
+				    <div class="panel panel-default">
+				    	<div class="panel-heading"><strong>Informações Imóvel</strong></div>
+				      <div class="panel-body">
+											  <%= text_box 'CPF', (text_field_tag :cpf,nil, class: "form-control", placeholder: "CPF") %>
+												<%= select_combo 'Status',(res.select :status, residence_status, class: "form-control")  %>
+												<%= select_combo 'Tipo',( res.select :residence_type, residence_type, class: "form-control")  %>
+												<%= text_box 'CEP', (res.text_field :cep, onblur: "getCEPResidence(this.value)", class: "form-control") %>
+												<div class="row"><img src="/assets/load.GIF" id="loadingImg" style="display: none;"></div>
+												<%= text_box 'Rua', (res.text_field :street, readonly: true, class: "form-control") %>
+												<%= text_box 'Bairro', (res.text_field :neighbourhood, readonly: true, class: "form-control") %>
+												<%= text_box 'Cidade', (res.text_field :city, readonly: true, class: "form-control") %>
+												<%= text_box 'Estado', (res.text_field :state, readonly: true, class: "form-control") %>
+												<%= text_box 'Número', (res.text_field :number, class: "form-control") %>
+				      </div>
+				    </div>
+				  </div>
 
-		</div>
-	</div>
+					<div class="col-lg-6">
+				    <div class="panel panel-default">
+				    	<div class="panel-heading"><strong>Informações Imóvel</strong></div>
+				      <div class="panel-body">
+										<%= fields_for @residence_info do |info|%>
+										<%= text_box 'Matricula', (info.text_field :residence_code, class: "form-control") %>
+										<%= text_box 'Valor Venda', (info.text_field :sell_value, class: "form-control") %>
+										<%= text_box 'Valor Aluguel', (info.text_field :rent_value, class: "form-control") %>
+										<%= text_box 'Valor Condominio', (info.text_field :condominium_value, class: "form-control") %>
+										<%= text_box 'Valor IPTU', (info.text_field :iptu_value, class: "form-control") %>																				
+										
+										<%= text_box 'Escritura Definitiva', (info.text_field :escritura_definitiva, class: "form-control") %>
+										<%= text_box 'Escritura Alienada', (info.text_field :escritura_alienada, class: "form-control") %>
+										<%= text_box 'Escritura Inventário', (info.text_field :escritura_inventario, class: "form-control") %>
+				      </div>
+				    </div>
+				  </div>
+						
+					<div class="col-lg-6">
+				    <div class="panel panel-default">
+				    	<div class="panel-heading"><strong>Informações Imóvel</strong></div>
+				      <div class="panel-body">
+								<label>Casa Alto Padrao</label><%= check_box("Casa Alto Padrao", :casa_alto_padrao, {}, "1", "0") %>
+								<label>Casa Germinada</label><%= check_box("Casa Germinada", :casa_germinada, {}, "1", "0") %>
+								<%= text_box 'Dormitórios', (info.text_field :qdt_domitorio, class: "form-control") %>
+								<%= text_box 'Suites', (info.text_field :qtd_suite, class: "form-control") %>
+								<%= text_box 'Banheiros', (info.text_field :qtd_banheiro, class: "form-control") %>
+								<%= text_box 'Garagem', (info.text_field :qtd_garage, class: "form-control") %>
+								<%= text_box 'Área Total do Terreno', (info.text_field :area_total, class: "form-control") %>
+								<%= res.submit('Cadastrar', :class => "btn btn-success col-lg-6 pull-right")%>
+					    </div>
+				    </div>
+				  </div>			
 
-	<div class="content" id="panel2">
-		<%= fields_for @residence_info do |info|%>
-			<%= text_box 'Matricula', (info.text_field :residence_code) %>
-			<%= text_box 'Valor Venda', (info.text_field :sell_value) %>
-			<%= text_box 'Valor Aluguel', (info.text_field :rent_value) %>
-			<%= text_box 'Valor Condominio', (info.text_field :condominium_value) %>
-			<%= text_box 'Valor IPTU', (info.text_field :iptu_value) %>
-		<div class="row">
-			<div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel1">Voltar</a></dd></dl></div>
-			<div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel3">Continuar</a></dd></dl></div>
-		</div>	
-	</div>		
+						 <div data-alert class="alert-box alert" style="display: none;">
+					        Preencha todos os campos!
+					    		<a href="#" class="close">&times;</a>
+					  </div>			
 
-	<div class="content" id="panel3">
-			<%= text_box 'Área Total do Terreno', (info.text_field :area_total) %>
-			<%= text_box 'Escritura Definitiva', (info.text_field :escritura_definitiva) %>
-			<%= text_box 'Escritura Alienada', (info.text_field :escritura_alienada) %>
-			<%= text_box 'Escritura Inventário', (info.text_field :escritura_inventario) %>
-			<div class="row">
-				<div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel2">Voltar</a></dd></dl></div>
-				<div class="small-10 columns"><dl data-tab><dd><a class="button right" href="#panel4">Continuar</a></dd></dl></div>
-			</div>
-	</div>			
-
-	<div class="content" id="panel4">
-		 <div data-alert class="alert-box alert" style="display: none;">
-	        Preencha todos os campos!
-	        <a href="#" class="close">&times;</a>
-	    </div>
-	    <div class="row">
-		<div class="small-2 columns text-right"></div>
-		<div class="small-10 columns">
-		<label style="float: left; margin: 0 10px 0 0">Casa Alto Padrao</label><%= check_box("Casa Alto Padrao", :casa_alto_padrao, {}, "1", "0") %>
-		<label  style="float: left; margin: 0 5px 0 0">Casa Germinada</label><%= check_box("Casa Germinada", :casa_germinada, {}, "1", "0") %>
-		</div>
-		</div>
-			<%= text_box 'Dormitórios', (info.text_field :qdt_domitorio) %>
-			<%= text_box 'Suites', (info.text_field :qtd_suite) %>
-			<%= text_box 'Banheiros', (info.text_field :qtd_banheiro) %>
-			<%= text_box 'Garagem', (info.text_field :qtd_garage) %>
-		<%end%>
-		<div class="row">
-			<div class="small-2 columns"><dl data-tab><dd><a class="button left" href="#panel3">Voltar</a></dd></dl></div>
-			<div class="small-10 columns"><%= res.submit('Cadastrar', :class => "button right")%></div>
-		</div>
-	</div>
 </div>
+</div>	
+	<%end%>
 <% end %>
 
 <script>
@@ -89,7 +79,7 @@
 	
 	function verifyCPF(){
 		if ($("#cpf").val() != ""){
-			var value = { cpf: $("#cpf").val() }
+			var value = { cpf: $("#cpf").val()}
 			$.ajax({
 				type: "GET",
 			  	url: "/clients/verify_by_cpf/",
