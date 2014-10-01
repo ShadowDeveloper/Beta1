@@ -11,7 +11,7 @@
 
 					<div class="col-lg-6">
 				    <div class="panel panel-default">
-				    	<div class="panel-heading"><strong><span class="steps">1</span>Informações Imóvel</strong></div>
+				    	<div class="panel-heading"><strong><span class="steps"></span>Informações Imóvel</strong></div>
 				      <div class="panel-body">
 											  <%= text_box 'CPF', (text_field_tag :cpf,nil, class: "form-control", placeholder: "CPF") %>
 												<%= select_combo 'Status',(res.select :status, residence_status, class: "form-control")  %>
@@ -29,7 +29,7 @@
 
 					<div class="col-lg-6">
 				    <div class="panel panel-default">
-				    	<div class="panel-heading"><strong><span class="steps">2</span>Informações Imóvel</strong></div>
+				    	<div class="panel-heading"><strong><span class="steps"></span>Informações Imóvel</strong></div>
 				      <div class="panel-body">
 										<%= fields_for @residence_info do |info|%>
 										<%= text_box 'Matricula', (info.text_field :residence_code, class: "form-control") %>
@@ -47,7 +47,7 @@
 						
 					<div class="col-lg-6">
 				    <div class="panel panel-default">
-				    	<div class="panel-heading"><strong><span class="steps">3</span>Informações Imóvel</strong></div>
+				    	<div class="panel-heading"><strong><span class="steps"></span>Informações Imóvel</strong></div>
 				      <div class="panel-body">
 								<label>Casa Alto Padrao</label><%= check_box("Casa Alto Padrao", :casa_alto_padrao, {}, "1", "0") %>
 								<label>Casa Germinada</label><%= check_box("Casa Germinada", :casa_germinada, {}, "1", "0") %>
@@ -73,9 +73,7 @@
 
 <script>
 	ProjectInputMasks();
-	$( document ).ready(function() {
-    //$("#cpf").blur(function(){verifyCPF()});
-	});
+	stepsCount();
 	
 	function verifyCPF(){
 		if ($("#cpf").val() != ""){

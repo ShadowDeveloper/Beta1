@@ -106,3 +106,11 @@ function getCEPResidence(cep){
 //   }
 //   return;
 // }
+
+//inserer os numeros dos passos de cadastro
+function stepsCount(){
+  var count = 1;
+  $('.steps').each(function(){$(this).html(count);count++}); 
+}
+
+
