@@ -85,26 +85,26 @@ function getCEPResidence(cep){
 }
 
 //function para cadastro com sucesso
-// function fnAlertUsers(msg){
-//   $('body').append("<div id='myModal' class='reveal-modal small' data-reveal><p class='lead'>"+msg+"</p><a class='close-reveal-modal'>&#215;</a></div>");
-//   $('#myModal').foundation('reveal', 'open');
-//   setTimeout(function(){
-//     window.location.href='/users/list';
-//   }, 1300);
-//   return;
-// }
+ function fnAlertUsers(msg){
+   $('body').append("<div id='myModal' class='reveal-modal small' data-reveal><p class='lead'>"+msg+"</p><a class='close-reveal-modal'>&#215;</a></div>");
+   $('#myModal').foundation('reveal', 'open');
+   setTimeout(function(){
+     window.location.href='/users/list';
+   }, 1300);
+   return;
+ }
 
 // //function para cadastro com sucesso
-// function fnAlertClients(msg, code, url){
-//   $('body').append("<div id='myModal' class='reveal-modal small' data-reveal><p class='lead'>"+msg+"</p><a class='close-reveal-modal'>&#215;</a></div>");
-//   $('#myModal').foundation('reveal', 'open');
-//   if (code == "200"){
-//     setTimeout(function(){
-//        window.location.href=""+url
-//     }, 1300);    
-//   }
-//   return;
-// }
+function fnAlertClients(msg, code, url){
+   $('body').append("<div id='myModal' class='reveal-modal small' data-reveal><p class='lead'>"+msg+"</p><a class='close-reveal-modal'>&#215;</a></div>");
+   $('#myModal').foundation('reveal', 'open');
+   if (code == "200"){
+     setTimeout(function(){
+        window.location.href=""+url
+    }, 1300);    
+  }
+   return;
+ }
 
 //inserer os numeros dos passos de cadastro
 function stepsCount(){
