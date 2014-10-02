@@ -85,12 +85,23 @@ function getCEPResidence(cep){
 }
 
 //function para cadastro com sucesso
- function fnAlertUsers(msg){
-   $('body').append("<div id='myModal' class='reveal-modal small' data-reveal><p class='lead'>"+msg+"</p><a class='close-reveal-modal'>&#215;</a></div>");
-   $('#myModal').foundation('reveal', 'open');
+ function fnAlertUsers(msg){ 
+  var modal = "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
+  modal+= "<div class='modal-dialog'>";
+  modal+="<div class='modal-content'>";
+  modal+="<div class='modal-header'>";
+  modal+="<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>"
+  modal+="<h4 class='modal-title' id='myModalLabel'> </h4>";
+  modal+="</div>";
+  modal+="<div class='modal-body'>"+msg+"</div>";
+  modal+="<div class='modal-footer'>";
+  modal+="<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>";
+  modal+="</div></div></div></div>";  
+   $('body').append(modal);
+   $('#myModal').modal('show');
    setTimeout(function(){
      window.location.href='/users/list';
-   }, 1300);
+   }, 1000);
    return;
  }
 
@@ -113,7 +124,7 @@ function fnAlertClients(msg, code, url){
    if (code == "200"){
      setTimeout(function(){
         window.location.href=""+url
-    }, 1100);
+    }, 1000);
   }
    return;
  }

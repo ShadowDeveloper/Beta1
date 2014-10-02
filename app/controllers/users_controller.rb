@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsersController < ApplicationController
 
 	#post /users
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
 
 		if new_user.valid?
 			new_user.save
-			status = "Registro criado com sucesso!"
+			status = "Usuario cadastrado com sucesso!"
 		else
 			status =  new_user.errors.full_messages.first
 		end
