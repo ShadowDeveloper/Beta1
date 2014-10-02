@@ -7,10 +7,10 @@ class ClientsController < ApplicationController
 		new_client.bank_account.new(client_params[:bank_account])
 
 		if new_client.save
-			status = "Cliente Criado com sucesso!"
+			status = "Cadastro efetuado com sucesso!"
 		 	url = "/clients/#{new_client.id}" 
 		 	code = "200"
-		else	
+		else
 	   	status = new_client.errors.full_messages[0].split("-")[0].strip
 	   	url = ""
 	   	code = "500"
