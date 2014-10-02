@@ -34,7 +34,6 @@ function ProjectInputMasks(){
     $('#residence_cep').mask('00000-000');
     $('#cpf').mask('000.000.000-00');
     $('#residence_info_sell_value, #residence_info_rent_value, #residence_info_condominium_value, #residence_info_iptu_value').mask('R$ 000000000000');
-
 }
 
 //Calculo de CEPs dos correios
@@ -112,5 +111,3 @@ function stepsCount(){
   var count = 1;
   $('.steps').each(function(){$(this).html(count);count++}); 
 }
-
-
