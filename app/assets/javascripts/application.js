@@ -16,7 +16,7 @@
 //= require_tree .
 //= require underscore
 //= require gmaps/google
-//# require 'icheck'
+//= require 'icheck'
 
 //mascaras dos forms de input
 function ProjectInputMasks(){
@@ -56,7 +56,7 @@ function getCEPClients(cep){
               $("#street")[0].value = data["tipoDeLogradouro"] + " " + data["logradouro"];
         } // Ok
         ,400: function(msg) { console.log(msg);} // Bad Request
-        ,404: function(msg) { console.log("CEP n?o encontrado!!");} // Not Found
+        ,404: function(msg) { console.log("CEP nao encontrado!!");} // Not Found
       }
     });
 }
@@ -80,7 +80,7 @@ function getCEPResidence(cep){
               $("#residence_state")[0].value = data["estado"];
         } // Ok
         ,400: function(msg) { console.log(msg); document.querySelector('#loadingImg').style.display="none";} // Bad Request
-        ,404: function(msg) { console.log("CEP n?o encontrado!!"); document.querySelector('#loadingImg').style.display="none";} // Not Found
+        ,404: function(msg) { console.log("CEP nao encontrado!!"); document.querySelector('#loadingImg').style.display="none";} // Not Found
       }
     });
 }
@@ -151,4 +151,20 @@ function fnAlertClients(msg, code, url){
 function stepsCount(){
   var count = 1;
   $('.steps').each(function(){$(this).html(count);count++}); 
+}
+
+//funcao para iCheck
+function icheck(){
+  if($(".icheck-me").length > 0){
+    $(".icheck-me").each(function(){
+      var $el = $(this);
+      var skin = ($el.attr('data-skin') !== undefined) ? "_" + $el.attr('data-skin') : "",
+      color = ($el.attr('data-color') !== undefined) ? "-" + $el.attr('data-color') : "";
+      var opt = {
+        checkboxClass: 'icheckbox' + skin + color,
+        radioClass: 'iradio' + skin + color,
+      }
+      $el.iCheck(opt);
+    });
+  }
 }
