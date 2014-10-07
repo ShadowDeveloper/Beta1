@@ -59,3 +59,6 @@ end
 
 # Relatório
  gem 'axlsx'
+
+ #Personalziar checkbox
+ gem 'icheck-rails'

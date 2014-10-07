@@ -52,6 +52,10 @@ GEM
     hike (1.2.3)
     htmlentities (4.3.2)
     i18n (0.6.11)
+    icheck-rails (1.0.2.1)
+      jquery-rails
+      rails (>= 3.1.0)
+      sass-rails
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -136,6 +140,7 @@ DEPENDENCIES
   debugger
   geocoder
   gmaps4rails
+  icheck-rails
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.2)
