@@ -49,8 +49,14 @@
 				    <div class="panel panel-default">
 				    	<div class="panel-heading"><strong><span class="steps"></span>Informações Imóvel</strong></div>
 				      <div class="panel-body">
-								<label>Casa Alto Padrao</label><%= check_box("Casa Alto Padrao", :casa_alto_padrao, {}, "1", "0") %>
-								<label>Casa Germinada</label><%= check_box("Casa Germinada", :casa_germinada, {}, "1", "0") %>
+							<label>
+							      <input type="checkbox" class='icheck-me' data-skin="square" data-color="blue"> Casa Alto Padrao
+							</label>
+							<label>
+							      <input type="checkbox" class='icheck-me' data-skin="square" data-color="blue"> Casa Germinada
+							</label>											      	
+							<!-- <label>Casa Alto Padrao</label><%# check_box("Casa Alto Padrao", :casa_alto_padrao, {}, "1", "0") %>
+								<label>Casa Germinada</label><%# check_box("Casa Germinada", :casa_germinada, {}, "1", "0") %>-->
 								<%= text_box 'Dormitórios', (info.text_field :qdt_domitorio, class: "form-control") %>
 								<%= text_box 'Suites', (info.text_field :qtd_suite, class: "form-control") %>
 								<%= text_box 'Banheiros', (info.text_field :qtd_banheiro, class: "form-control") %>
@@ -59,7 +65,7 @@
 								<%= res.submit('Cadastrar', :class => "btn btn-success col-lg-6 pull-right")%>
 					    </div>
 				    </div>
-				  </div>			
+				  </div>
 
 						 <div data-alert class="alert-box alert" style="display: none;">
 					        Preencha todos os campos!
