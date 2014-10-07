@@ -14,8 +14,8 @@
 				    	<div class="panel-heading"><strong><span class="steps"></span>Informações Imóvel</strong></div>
 				      <div class="panel-body">
 											  <%= text_box 'CPF', (text_field_tag :cpf, nil, class: "form-control", placeholder: "CPF") %>
-												<%= select_combo 'Status',(res.select :status, residence_status, class: "form-control")  %>
-												<%= select_combo 'Tipo',( res.select :residence_type, residence_type, class: "form-control")  %>
+												<%= select_combo 'Status',(res.select :status, residence_status, {}, class: "form-control")  %>
+												<%= select_combo 'Tipo',( res.select :residence_type, residence_type, {}, class: "form-control")  %>
 												<%= text_box 'CEP', (res.text_field :cep, onblur: "getCEPResidence(this.value)", class: "form-control") %>
 												<div class="row"><img src="/assets/load.GIF" id="loadingImg" style="display: none;"></div>
 												<%= text_box 'Rua', (res.text_field :street, readonly: true, class: "form-control") %>
