@@ -8,7 +8,7 @@
 <%= form_for @client, name: "client", remote: true do |cli| %>
   <div class="row">
     <div class="col-lg-12">
-
+      <%= cli.submit('Cadastrar', :class => "btn btn-success col-lg-2 pull-right btn-fixed") %>
           <div id="personal_information" class="col-lg-6">
           <div class="panel panel-default">
             <div class="panel-heading"><strong><span class="steps"></span>Informações Pessoais</strong></div>
