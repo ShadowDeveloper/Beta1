@@ -32,7 +32,8 @@ class Residence < ActiveRecord::Base
 		    status: self.status_name,
 		    id:     self.id,
 		    cep:    self.cep,
-		    bairro: self.neighbourhood
+		    bairro: self.neighbourhood,
+		    rua:    self.street
 		}
 	end
 	

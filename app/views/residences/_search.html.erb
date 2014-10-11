@@ -74,6 +74,7 @@ var arr_geo = [];
                 lng: <%= res[:lng] %>,
                 id: '<%= res[:id] %>',
                 bairro: '<%= res[:bairro] %>',
+                rua:    '<%= res[:rua] %>',
                 infowindow: '<div id="content">'+
       '<div class="siteNotice">'+
          
@@ -94,7 +95,7 @@ function createSidebarLi(json){
   $("tbody").prepend("<tr>"+ 
                         "<td>"+json.id+"</td>"+
                         "<td>"+json.bairro+"</td>"+
-                        "<td>"+json.id+"</td>"+
+                        "<td>"+json.rua+"</td>"+
                         "<td>"+json.id+"</td>"+
                       "</tr>"
                     );
