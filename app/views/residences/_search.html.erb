@@ -77,7 +77,7 @@ var arr_geo = [];
                 bairro: '<%= res[:bairro] %>',
                 infowindow: '<div id="content">'+
       '<div class="siteNotice">'+
-          '</div>'+
+         
           '<h4 id="firstHeading" class="firstHeading">Dados do Imóvel</h4>'+
           '<div id="bodyContent">'+
           '<p><b>Código do Imóvel:</b> <%= res[:id]%><br>' +
@@ -85,7 +85,7 @@ var arr_geo = [];
           '<b>Status:</b> <%= res[:status]%><br>' +
           '<b>CEP:</b> <%= res[:cep]%><br>' +
           '<a href="/residences/<%= res[:id]%>" target="blank">Página do Imóveil</a></p>'+
-          '</div>'+
+         
       '</div>'})  
 <%end%>
 
