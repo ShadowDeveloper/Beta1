@@ -108,6 +108,11 @@ function getCEPResidence(cep){
 
  //Function para msgs padrao
  function fnDefaultMessage(msg){ 
+  if ( $("#myModal")[0] != undefined ){
+    $("#myModal")[0].remove();  
+  }
+  
+  
   var modal = "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
   modal+= "<div class='modal-dialog'>";
   modal+="<div class='modal-content'>";
@@ -115,7 +120,7 @@ function getCEPResidence(cep){
   modal+="<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>"
   modal+="<h4 class='modal-title' id='myModalLabel'> </h4>";
   modal+="</div>";
-  modal+="<div class='modal-body'><center><b>"+msg+"</b></center></div>";
+  modal+="<div class='modal-body'><center><b>"+ msg +"</b></center></div>";
   modal+="<div class='modal-footer'>";
   modal+="<button type='button' class='btn btn-default' data-dismiss='modal'>Fechar</button>";
   modal+="</div></div></div></div>";  

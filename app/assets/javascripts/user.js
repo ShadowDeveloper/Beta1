@@ -1,9 +1,7 @@
 function createUser(status, msg, id){
-	if (status == 200){
-		fnDefaultMessage("Cadastro efetuado com sucesso!");
+	fnDefaultMessage(msg);
+	if (status == '200'){
 		window.location.href = "/users/" + id
-	} else {
-		fnDefaultMessage(msg);
 	}
 		
 }

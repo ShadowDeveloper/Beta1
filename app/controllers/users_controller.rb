@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 			new_user.save
 			status = 200
 			msg = "Usuario cadastrado com sucesso!"
-			
 		else
 			status = 500
 			msg =  new_user.errors.full_messages.first
