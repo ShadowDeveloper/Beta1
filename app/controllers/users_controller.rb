@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 		@user.address = params[:region]
 		@user.save
 
-		redirect_to :back
+		render js: "fnDefaultMessage('Dados alterados com sucesso.'), window.location.reload();"
 	end
 
 	def list
