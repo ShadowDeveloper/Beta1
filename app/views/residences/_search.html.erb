@@ -45,6 +45,9 @@
                                   <th>Bairro</th>
                                   <th>Rua</th>
                                   <th>Valor</th>
+                                  <th>Quarto</th>
+                                  <th>Banheiro</th>
+                                  <th>Garagem</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -75,10 +78,14 @@ var arr_geo = [];
                 id: '<%= res[:id] %>',
                 bairro: '<%= res[:bairro] %>',
                 rua:    '<%= res[:rua] %>',
+                valor:  '<%= res[:valor]%>',
+                quarto:   '<%= res[:quarto]%>',
+                garagem:  '<%= res[:garagem]%>',
+                banheiro: '<%= res[:banheiro]%>',
                 "picture": {
-                "url": "/assets/housemaps.png",
-                "width":  46,
-                "height": 46
+                  "url": "/assets/housemaps.png",
+                  "width":  46,
+                  "height": 46
                 },
                 infowindow: '<div id="content">'+
       '<div class="siteNotice">'+
@@ -89,6 +96,7 @@ var arr_geo = [];
           '<b>Tipo:</b> <%= res[:type]%><br>' +
           '<b>Status:</b> <%= res[:status]%><br>' +
           '<b>CEP:</b> <%= res[:cep]%><br>' +
+          '<b>Valor:</b> <%= res[:valor]%><br>' +
           '<a href="/residences/<%= res[:id]%>" target="blank">Página do Imóveil</a></p>'+
          
       '</div>'})  
@@ -101,7 +109,10 @@ function createSidebarLi(json){
                         "<td>"+json.id+"</td>"+
                         "<td>"+json.bairro+"</td>"+
                         "<td>"+json.rua+"</td>"+
-                        "<td>"+json.id+"</td>"+
+                        "<td>"+json.valor+"</td>"+
+                        "<td>"+json.quarto+"</td>"+
+                        "<td>"+json.banheiro+"</td>"+
+                        "<td>"+json.garagem+"</td>"+
                       "</tr>"
                     );
 };
