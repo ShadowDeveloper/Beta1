@@ -112,7 +112,6 @@ function getCEPResidence(cep){
     $("#myModal")[0].remove();  
   }
   
-  
   var modal = "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
   modal+= "<div class='modal-dialog'>";
   modal+="<div class='modal-content'>";
