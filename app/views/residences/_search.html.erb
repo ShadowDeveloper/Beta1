@@ -1,35 +1,120 @@
-
 <div class="row">
-  <div class="large-12 columns">
+  <div class="col-lg-12">
+    <div class="col-lg-12">
     <div id="sidebar_builder"></div>
-    <div class='sidebar_container large-12 columns panel'>
+    <div class="sidebar_container">
       <ul class="side-nav">
       </ul>
+    </div>
     </div>    
   </div>
-
+</div>
+<div class="col-lg-12">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+          <i class="fa fa-bar-chart-o fa-fw"></i> Imóveis
+          <div class="pull-right">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                      Opições
+                      <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu pull-right" role="menu">
+                      <li><a href="#">Busca</a>
+                      </li>
+                      <li><a href="#">Another action</a>
+                      </li>
+                      <li><a href="#">Something else here</a>
+                      </li>
+                      <li class="divider"></li>
+                      <li><a href="#">Separated link</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="table-responsive">
+                      <table class="table table-bordered table-hover table-striped">
+                          <thead>
+                              <tr>
+                                  <th>Código do Imóvel</th>
+                                  <th>Bairro</th>
+                                  <th>Rua</th>
+                                  <th>Valor</th>
+                                  <th>Dorms</th>
+                                  <th>Banheiro</th>
+                                  <th>Vagas</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                      </table>
+                  </div>
+                  <!-- /.table-responsive -->
+              </div>
+              <!-- /.col-lg-4 (nested) -->
+              <div class="col-lg-8">
+                  <div id="morris-bar-chart"></div>
+              </div>
+              <!-- /.col-lg-8 (nested) -->
+          </div>
+          <!-- /.row -->
+      </div>
+      <!-- /.panel-body -->
+  </div>
+  
 </div>
 <script>
 
 var arr_geo = [];
 <% residence_geo.each do |res| %>
-    arr_geo.push({ lat: <%= res[:lat] %>, lng: <%= res[:lng] %>, name: 'Código: <%= res[:id] %>  Bairro: <%= res[:bairro] %>', infowindow: '<div id="content">'+
-      '<div id="siteNotice">'+
-          '</div>'+
+    arr_geo.push({ 
+                lat: <%= res[:lat] %>,
+                lng: <%= res[:lng] %>,
+                id: '<%= res[:id] %>',
+                bairro: '<%= res[:bairro] %>',
+                rua:    '<%= res[:rua] %>',
+                valor:  '<%= res[:valor]%>',
+                quarto:   '<%= res[:quarto]%>',
+                garagem:  '<%= res[:garagem]%>',
+                banheiro: '<%= res[:banheiro]%>',
+                "picture": {
+                  "url": "/assets/housemaps.png",
+                  "width":  46,
+                  "height": 46
+                },
+                infowindow: '<div id="content">'+
+      '<div class="siteNotice">'+
+         
           '<h4 id="firstHeading" class="firstHeading">Dados do Imóvel</h4>'+
           '<div id="bodyContent">'+
           '<p><b>Código do Imóvel:</b> <%= res[:id]%><br>' +
           '<b>Tipo:</b> <%= res[:type]%><br>' +
           '<b>Status:</b> <%= res[:status]%><br>' +
           '<b>CEP:</b> <%= res[:cep]%><br>' +
+          '<b>Valor:</b> <%= res[:valor]%><br>' +
           '<a href="/residences/<%= res[:id]%>" target="blank">Página do Imóveil</a></p>'+
-          '</div>'+
+         
       '</div>'})  
 <%end%>
 
 
 function createSidebarLi(json){
-  return ("<li><a>" + json.name + "</a></li>");
+  //return ("<li><a>" + json.name + "</a></li>");
+  $("tbody").prepend("<tr>"+ 
+                        "<td>"+json.id+"</td>"+
+                        "<td>"+json.bairro+"</td>"+
+                        "<td>"+json.rua+"</td>"+
+                        "<td>"+json.valor+"</td>"+
+                        "<td>"+json.quarto+"</td>"+
+                        "<td>"+json.banheiro+"</td>"+
+                        "<td>"+json.garagem+"</td>"+
+                      "</tr>"
+                    );
 };
 
 function bindLiToMarker($li, marker){

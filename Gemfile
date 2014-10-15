@@ -54,11 +54,11 @@ end
 # Use debugger
  gem 'debugger', group: [:development, :test]
 
-# CSS/SASS Framework
- gem 'foundation-rails'
-
 # Geolocalizaco
  gem 'geocoder'
 
 # Relatório
  gem 'axlsx'
+
+ #Personalziar checkbox
+ gem 'icheck-rails'

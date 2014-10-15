@@ -18,6 +18,7 @@ Proto::Application.routes.draw do
   end
 
   resources :home do
+    get 'old', on: :collection
   end
 
   resources :reports do

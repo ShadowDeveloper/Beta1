@@ -23,11 +23,11 @@ module Proto
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     
     # For Foundation 5
-    config.assets.precompile += %w( vendor/modernizr )
+    #config.assets.precompile += %w( vendor/modernizr )
 
 
     # For Foundation 5
-    config.assets.precompile += %w( vendor/modernizr )
+    #config.assets.precompile += %w( vendor/modernizr )
 
   end
 end

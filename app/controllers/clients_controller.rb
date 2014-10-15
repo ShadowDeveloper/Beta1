@@ -7,10 +7,10 @@ class ClientsController < ApplicationController
 		new_client.bank_account.new(client_params[:bank_account])
 
 		if new_client.save
-			status = "Cliente Criado com sucesso!"
+			status = "Cadastro efetuado com sucesso!"
 		 	url = "/clients/#{new_client.id}" 
 		 	code = "200"
-		else	
+		else
 	   	status = new_client.errors.full_messages[0].split("-")[0].strip
 	   	url = ""
 	   	code = "500"
@@ -34,7 +34,7 @@ class ClientsController < ApplicationController
 			search_by = "cpf = #{params[:search]}"
 			@clients  = Client.where("cpf = ?", params[:search])
 		elsif params[:search_by] == "nome"
-			@clients  = Client.where("name like ?", "%#{params[:search]}%")
+			@clients  = Client.where("name like ?", "%#{params[:search]}%").first
 		else
 			@clients = nil
 		end
@@ -42,9 +42,9 @@ class ClientsController < ApplicationController
 
 	def verify_by_cpf
 		if Client.where(cpf: params[:cpf]).first.nil?
-			response = {:message => "success", code: 200}
-		else
 			response = {:message => "error", code: 500}
+		else
+			response = {:message => "success", code: 200}
 		end
 
 		render :json => response.to_json

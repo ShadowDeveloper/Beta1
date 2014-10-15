@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsersController < ApplicationController
 
 	#post /users
@@ -12,13 +13,14 @@ class UsersController < ApplicationController
 
 		if new_user.valid?
 			new_user.save
-			status = "Registro criado com sucesso!"
+			status = 200
+			msg = "Usuario cadastrado com sucesso!"
 		else
-			status =  new_user.errors.full_messages.first
+			status = 500
+			msg =  new_user.errors.full_messages.first
 		end
-
-		# render js: "$('#status')[0].innerHTML='<center>"+status+"<center>'"
-		render js: "fnAlertUsers('"+status+"')"
+		id = new_user.id
+		render js: %Q{createUser('#{status}','#{msg}','#{id}')}
 	end
 
 	#get /users/
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
 		@user.address = params[:region]
 		@user.save
 
-		redirect_to :back
+		render js: "fnDefaultMessage('Dados alterados com sucesso.'), window.location.reload();"
 	end
 
 	def list
