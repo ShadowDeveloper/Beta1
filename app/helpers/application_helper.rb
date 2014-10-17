@@ -40,7 +40,7 @@ module ApplicationHelper
     end    
     
     def residence_option_buttom(id)
-      raw("<div class='btn-group' style='float: right;'>" +
+      raw("<div id='btn_group-residence-#{id}'class='btn-group' style='float: right; display: none;'>" +
             "<button type='button' class='btn btn-default btn-xs dropdown-toggle' data-toggle='dropdown'>" +
                 "Opições" +
                 "<span class='caret'></span>"+
