@@ -87,6 +87,7 @@ var arr_geo = [];
                   "width":  46,
                   "height": 46
                 },
+                button: "<%= residence_option_buttom(res[:id])%>",
                 infowindow: '<div id="content">'+
       '<div class="siteNotice">'+
          
@@ -105,8 +106,8 @@ var arr_geo = [];
 
 function createSidebarLi(json){
   //return ("<li><a>" + json.name + "</a></li>");
-  $("tbody").prepend("<tr>"+ 
-                        "<td>"+json.id+"</td>"+
+  $("tbody").prepend("<tr onMouseOver='showOptionButton("+json.id+")' onMouseOut='hideOptionButton("+json.id+")' >"+ 
+                        "<td>"+json.id + json.button +"</td>"+
                         "<td>"+json.bairro+"</td>"+
                         "<td>"+json.rua+"</td>"+
                         "<td>"+json.valor+"</td>"+

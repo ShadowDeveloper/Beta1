@@ -39,5 +39,22 @@ module ApplicationHelper
          })
     end    
     
+    def residence_option_buttom(id)
+      raw("<div id='btn_group-residence-#{id}'class='btn-group' style='float: right; display: none;'>" +
+            "<button type='button' class='btn btn-default btn-xs dropdown-toggle' data-toggle='dropdown'>" +
+                "Opições" +
+                "<span class='caret'></span>"+
+            "</button>"+
+            "<ul class='dropdown-menu pull-right' role='menu'>"+
+                "<li><a onclick='scrollToMap()'>Ver no Mapa</a>"+
+                "</li>"+
+                "<li><a href='/residences/#{id}'>Página do imovel</a>"+
+                "<li class='divider'></li>"+
+                "<li><a href='#'>Editar</a>"+
+                "</li>"+
+            "</ul>"+
+          "</div>"
+      )
+    end
 
 end
