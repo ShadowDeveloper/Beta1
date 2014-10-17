@@ -42,6 +42,6 @@
 <%end%>
 
   
-<%  if not @residence_geo.empty? %>
+<%  if @residence_geo != []%>
   <%= render "search", residence_geo: @residence_geo %>
 <%end%>
