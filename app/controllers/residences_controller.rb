@@ -5,17 +5,20 @@ class ResidencesController < ApplicationController
 		if residence.valid?
 			begin 
 		    	pos = residence.position
+		    	residence.create_residence_info(residence_params[:residence_info])
+				residence.address = "#{pos[:lat]}|#{pos[:lng]}"
+				residence.save
+
+				status = "Imovel cadastrado com sucesso!"
+				url = "/residences/#{residence.id}"
+				code = "200"
+
 			rescue
-				pos = residence.position
+				code = "500"
+				render js: %Q{ fnDefaultMessage('Ocorreu uma falha em sua conexao') }
+				return
 			end
-			residence.create_residence_info(residence_params[:residence_info])
-			residence.address = "#{pos[:lat]}|#{pos[:lng]}"
-			residence.save
-
-			status = "Imovel cadastrado com sucesso!"
-			url = "/residences/#{residence.id}"
-			code = "200"
-
+			
 		else
 			url = ""
 	   	code = "500"
