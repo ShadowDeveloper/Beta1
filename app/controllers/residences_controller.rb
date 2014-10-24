@@ -2,13 +2,13 @@ class ResidencesController < ApplicationController
 
 	def create
 		residence = Residence.new(residence_params[:residence])
-
-		residence.create_residence_info(residence_params[:residence_info])
-		
-		
 		if residence.valid?
-		    #residence.client_id = Client.where(cpf: params[:cpf]).first.id
-		    pos = residence.position
+			begin 
+		    	pos = residence.position
+			rescue
+				pos = residence.position
+			end
+			residence.create_residence_info(residence_params[:residence_info])
 			residence.address = "#{pos[:lat]}|#{pos[:lng]}"
 			residence.save
 
