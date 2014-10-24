@@ -87,6 +87,10 @@ function getCEPResidence(cep){
 
 //function para cadastro com sucesso
  function fnAlertUsers(msg){ 
+  if ( $("#myModal")[0] != undefined ){
+    $("#myModal")[0].remove();  
+  }
+  
   var modal = "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
   modal+= "<div class='modal-dialog'>";
   modal+="<div class='modal-content'>";
@@ -129,6 +133,10 @@ function getCEPResidence(cep){
 
 // //function para cadastro com sucesso
 function fnAlertClients(msg, code, url){
+  if ( $("#myModal")[0] != undefined ){
+    $("#myModal")[0].remove();  
+  }
+  
   var modal = "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
   modal+= "<div class='modal-dialog'>";
   modal+="<div class='modal-content'>";
