@@ -15,7 +15,7 @@
             <div class="col-lg-6">
               <div class="form-group">         
                 <label>Selecione um Tipo:</label>
-                  <select id="residence_type" class="form-control" name="residence_type">
+                  <select id="residence_type" class="form-control req" name="residence_type">
                     <option value="">Selecione</option>
                     <option value="1">Residencial</option>
                     <option value="2">Comercial</option>
@@ -26,7 +26,7 @@
             <div class="form-group">
               <div id="residence_type_choose" class="row"></div>  
               <label>Status do Imóvel:</label>
-                <select id="residence_status" class="form-control" name="residence_status">
+                <select id="residence_status" class="form-control req" name="residence_status">
                    <option value="">Selecione</option>
                    <!--<option value="1">Compra</option>--> 
                    <option value="2">Locação</option>
@@ -45,3 +45,9 @@
 <%  if @residence_geo != []%>
   <%= render "search", residence_geo: @residence_geo %>
 <%end%>
+
+<script>
+$( document ).ready(function() {
+    validateForm();
+});
+</script>

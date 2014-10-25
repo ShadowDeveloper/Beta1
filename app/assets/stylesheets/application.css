@@ -21,3 +21,7 @@
 
 /*Maps*/
 #sidebar_builder, #basic_map{height: 400px;}
+
+.attention{
+	border-color: red;
+}

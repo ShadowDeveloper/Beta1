@@ -20,7 +20,7 @@ class Residence < ActiveRecord::Base
 	end
 	
 	def type_name
-	    ResidenceHelper::status_name[self.residence_type.to_s]
+	    ResidenceHelper::type_name[self.residence_type.to_s]
 	end
 
 	def geo
