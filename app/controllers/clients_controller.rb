@@ -34,7 +34,7 @@ class ClientsController < ApplicationController
 			search_by = "cpf = #{params[:search]}"
 			@clients  = Client.where("cpf = ?", params[:search])
 		elsif params[:search_by] == "nome"
-			@clients  = Client.where("name like ?", "%#{params[:search]}%").first
+			@clients  = Client.where("name like ?", "%#{params[:search]}%")
 		else
 			@clients = nil
 		end

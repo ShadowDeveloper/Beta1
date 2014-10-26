@@ -4,7 +4,7 @@ module ResidenceHelper
 		[
 			['Selecione',''],
 			['Venda','3'],
-			['Compra','1'],
+			#['Compra','1'],
 			['Locação','2']
 		]
 	end
@@ -20,7 +20,7 @@ module ResidenceHelper
 	def self.status_name
         {
           "3" => "Venda",
-          "1" => "Compra",
+       #   "1" => "Compra",
           "2" => "Locação"
         }
     end

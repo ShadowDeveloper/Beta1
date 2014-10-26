@@ -87,6 +87,10 @@ function getCEPResidence(cep){
 
 //function para cadastro com sucesso
  function fnAlertUsers(msg){ 
+  if ( $("#myModal")[0] != undefined ){
+    $("#myModal")[0].remove();  
+  }
+  
   var modal = "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
   modal+= "<div class='modal-dialog'>";
   modal+="<div class='modal-content'>";
@@ -129,6 +133,10 @@ function getCEPResidence(cep){
 
 // //function para cadastro com sucesso
 function fnAlertClients(msg, code, url){
+  if ( $("#myModal")[0] != undefined ){
+    $("#myModal")[0].remove();  
+  }
+  
   var modal = "<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
   modal+= "<div class='modal-dialog'>";
   modal+="<div class='modal-content'>";
@@ -170,5 +178,41 @@ function icheck(){
       }
       $el.iCheck(opt);
     });
+  }
+}
+
+// funcao de validacao de campos
+function validateForm(){
+  console.log('listening')
+ 
+  $('form').submit(
+    function(){
+      var form_ok = true
+
+      if ( !validate($("#residence_type")) ){
+        form_ok = false;
+      }
+
+      if ( !validate($("#residence_status")) ){
+        form_ok = false;
+      }
+      if (form_ok){
+        true;
+      } else {
+        event.preventDefault();
+        alert('preecha todos os campos')
+      }
+    }
+  );  
+}
+
+function validate(input){
+  console.log(input.val())
+  if (input.val() == ""){
+    input.addClass('attention')
+    return false;
+  } else {
+    input.removeClass('attention')
+    return true;
   }
 }
