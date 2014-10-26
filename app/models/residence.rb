@@ -35,9 +35,9 @@ class Residence < ActiveRecord::Base
 		    bairro: self.neighbourhood,
 		    rua:    self.street,
 		    valor:  self.residence_info.sell_value,
-		    quarto:  self.residence_info.qdt_domitorio.to_i,
-		    banheiro:  self.residence_info.qtd_banheiro.to_i,
-		    garagem:  self.residence_info.qtd_garage.to_i
+		    quarto:  self.residence_info.qtd_suite,
+		    banheiro:  self.residence_info.qtd_banheiro,
+		    garagem:  self.residence_info.qtd_garage
 		}
 	end
 	

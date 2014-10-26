@@ -76,11 +76,10 @@ class ResidencesController < ApplicationController
 				:scritura_definitiva,
 				:escritura_alienada,
 				:estritura_inventario,
-				:qdt_dormitorio,
 				:qtd_dormitorio,
 				:qtd_suite,
-				:iqtd_banheiro,
-				:iqtd_garage
+				:qtd_banheiro,
+				:qtd_garage
 			]
 		)
 	end
