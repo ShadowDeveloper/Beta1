@@ -1,25 +1,52 @@
-<span>Dados do Imóvel</span>
-<div class="panel">
-	<ul class="infosClient">
-		<li><b>Status: </b><%= @residence.status_name %></li>
-		<li><b>Tipo: </b><%= @residence.type_name %></li>
-	</ul>
+<div class="row"><h2 class="sub-header">Dados do imóvel</h2></div>
+
+<div  class="table-responsive">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td><b>Status:</b></td>
+        <td><%= @residence.status_name %></td>
+      </tr>
+      <tr>
+        <td><b>Tipo:</b></td>
+        <td><%= @residence.type_name %></td>
+      </tr>      
+    </tbody>    
+  </table>
 </div>
 
-<span>Dados de Localização</span>
-<div class="panel">
-	<ul class="infosClient">
-		<li><b>CEP: </b><%= @residence.cep %></li>
-		<li><b>Endereço: </b><%= "#{@residence.street}, #{@residence.number}" %></li>
-		<li><b>Bairro: </b><%= "#{@residence.neighbourhood}" %></li>
-		<li><b>Estado: </b><%= "#{@residence.state}" %></li>
-		<li><b>Cidade: </b><%= "#{@residence.city}" %></li>
-	</ul>
+<div class="row"><h2 class="sub-header">Dados de Localização</h2></div>
+
+<div  class="table-responsive">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td><b>CEP:</b></td>
+        <td><%= @residence.cep %></td>
+      </tr>
+      <tr>
+        <td><b>Endereço:</b></td>
+        <td><%= "#{@residence.street}, #{@residence.number}" %></td>
+      </tr>
+      <tr>
+        <td><b>Bairro:</b></td>
+        <td><%= "#{@residence.neighbourhood}" %></td>
+      </tr>
+      <tr>
+        <td><b>Estado:</b></td>
+        <td><%= "#{@residence.state}" %></td>
+      </tr>
+      <tr>
+        <td><b>Cidade:</b></td>
+        <td><%= "#{@residence.city}" %></td>
+      </tr>                        
+    </tbody>    
+  </table>
 </div>
 
-<div class="row">
+<div class="row"  style="margin: 0 0 30px 0">
   <div class="col-lg-12">
-    <div class="col-lg-7 center-block" style="float:none;">
+    <div class="col-lg-12 center-block" style="float:none;">
       <div id="basic_map"></div>   
     </div>    
   </div>
