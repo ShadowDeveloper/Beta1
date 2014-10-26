@@ -105,16 +105,16 @@ var arr_geo = [];
 
 function createSidebarLi(json){
   //return ("<li><a>" + json.name + "</a></li>");
-  $("tbody").prepend("<tr onMouseOver='showOptionButton("+json.id+")' onMouseOut='hideOptionButton("+json.id+")' >"+ 
-                        "<td>"+json.id + json.button +"</td>"+
-                        "<td>"+json.bairro+"</td>"+
-                        "<td>"+json.rua+"</td>"+
-                        "<td>"+json.valor+"</td>"+
-                        "<td>"+json.quarto+"</td>"+
-                        "<td>"+json.banheiro+"</td>"+
-                        "<td>"+json.garagem+"</td>"+
-                      "</tr>"
-                    );
+  return ("<tr onMouseOver='showOptionButton("+json.id+")' onMouseOut='hideOptionButton("+json.id+")' >"+ 
+      "<td>"+json.id + json.button +"</td>"+
+      "<td>"+json.bairro+"</td>"+
+      "<td>"+json.rua+"</td>"+
+      "<td>"+json.valor+"</td>"+
+      "<td>"+json.quarto+"</td>"+
+      "<td>"+json.banheiro+"</td>"+
+      "<td>"+json.garagem+"</td>"+
+    "</tr>"
+  );
 };
 
 function bindLiToMarker($li, marker){
@@ -129,7 +129,8 @@ function bindLiToMarker($li, marker){
 function createSidebar(json_array){
   _.each(json_array, function(json){
     var $li = $( createSidebarLi(json) );
-    $li.appendTo('.sidebar_container > ul');
+    $li.prependTo('tbody');
+    //$li.appendTo('.sidebar_container > ul');
     bindLiToMarker($li, json.marker);
   });
 };
