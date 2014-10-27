@@ -10,12 +10,13 @@ class ClientsController < ApplicationController
 			status = "Cadastro efetuado com sucesso!"
 		 	url = "/clients/#{new_client.id}" 
 		 	code = "200"
+		 	status = %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
 		else
-	   	status = new_client.errors.full_messages[0].split("-")[0].strip
+	   	status = "console.log('error')"
 	   	url = ""
 	   	code = "500"
 		end
-		render js: %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
+		render js: status
 	end
 
 	def new
