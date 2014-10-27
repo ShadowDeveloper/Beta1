@@ -181,31 +181,6 @@ function icheck(){
   }
 }
 
-// funcao de validacao de campos
-function validateForm(){
-  console.log('listening')
- 
-  $('form').submit(
-    function(){
-      var form_ok = true
-
-      if ( !validate($("#residence_type")) ){
-        form_ok = false;
-      }
-
-      if ( !validate($("#residence_status")) ){
-        form_ok = false;
-      }
-      if (form_ok){
-        true;
-      } else {
-        event.preventDefault();
-        alert('preecha todos os campos')
-      }
-    }
-  );  
-}
-
 function validate(input){
   console.log(input.val())
   if (input.val() == ""){
