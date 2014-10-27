@@ -23,7 +23,7 @@
           </div>
         
           <div class="form-group">
-            <label class="labelTermo">Digite o termo da busca:</label>
+            <label class="labelTermo">Digite o termo da busca *</label>
             <input type="text" class="form-control" id="search" name="search"/>
             <label class="right inline size-14"></label>
           </div>
@@ -46,7 +46,10 @@
       $('.labelTermo').text('Digite o Nome:');
       $('#search').val("");
       $('#search').unmask();
-    }
-      
+    } 
   }); 
+
+  $( document ).ready(function() {
+    validateFormSearchClient();
+  });
 </script>

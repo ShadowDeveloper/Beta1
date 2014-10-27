@@ -10,9 +10,9 @@ function scrollToMap(){
 	$('html, body').animate({scrollTop:$('#sidebar_builder').offset().top}, 'slow');
 }
 
-//funcao de validacao de campos do 
-function validateFormSearch(){
-  console.log('listening')
+//funcao de validacao de campos da busca de imovel
+function validateFormSearchResidence(){
+  console.log('validateFormSearchResidence')
  
   $('form').submit(
     function(){

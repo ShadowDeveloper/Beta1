@@ -16,7 +16,7 @@
           <div class="panel-heading"><strong>Buscar Por:</strong></div>
             <div class="panel-body">        
               <div class="form-group">
-                <label>Login:</label>
+                <label>Login *</label>
                 <input type="text" id="search" class="form-control" name="search"/>
               </div>
               <%= submit_tag "Buscar",  :class=>"btn btn-success col-lg-3 pull-right"%>
@@ -40,5 +40,9 @@
       $('#search').unmask();
     }
       
+  });
+
+  $( document ).ready(function() {
+    validateFormSearchUser();
   });
 </script>
