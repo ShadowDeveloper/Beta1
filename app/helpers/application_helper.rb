@@ -14,7 +14,7 @@ module ApplicationHelper
     def text_box(label,input)
     	raw(%Q{
         <div class="form-group">
-            	<label>#{label}:</label>
+            	<label>#{label} *</label>
            		#{input}
         </div>
     	})
