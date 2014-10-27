@@ -1,50 +1,95 @@
-<span>Informações Pessoais</span>
+<div class="row"><h2 class="sub-header">Informações Pessoais</h2></div>
 
-<div class="panel">
-	<ul class="infosClient">
-		<li><b>CPF:</b> <%= @client.cpf %></li>
-		<li><b>Nome:</b> <%= @client.name.capitalize %></li>
-		<li><b>Data de Nascimento:</b> <%= @client.dob %></li>
-		<li><b>RG:</b> <%= @client.rg %></li>
-		<li><b>Telefone:</b> <%= @client.phone_number %></li>
-		<li><b>Estado Civil:</b> <%= @client.relationship %></li>
-		<li><b>E-mail:</b> <%= @client.email_address %></li>
-		<li><b>Telefone:</b> <%= @client.phone_number %></li>
-		<li><b>Celular:</b> <%= @client.mobile_number %></li>
-	</ul>
+<div  class="table-responsive">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td><b>CPF:</b></td>
+        <td><%= @client.cpf %></td>
+      </tr>
+      <tr>
+        <td><b>Nome:</b></td>
+        <td><%= @client.name.capitalize %></td>
+      </tr>  
+      <tr>
+        <td><b>Data de Nascimento:</b></td>
+        <td><%= @client.dob %></td>
+      </tr>
+      <tr>
+        <td><b>RG:</b></td>
+        <td><%= @client.rg %></td>
+      </tr>
+      <tr>
+        <td><b>Telefone:</b></td>
+        <td><%= @client.phone_number %></td>
+      </tr>
+      <tr>
+        <td><b>Estado Civil:</b></td>
+        <td><%= @client.relationship %></td>
+      </tr>                        
+      <tr>
+        <td><b>E-mail:</b></td>
+        <td><%= @client.email_address %></td>
+      </tr>                        
+      <tr>
+        <td><b>Celular:</b></td>
+        <td><%= @client.mobile_number %></td>
+      </tr>                        
+    </tbody>    
+  </table>
 </div>
 
-<span>Informações Residenciais</span>
-<div class="panel">
-	<ul class="infosClient">
-		<li><b>CEP:</b> <%= @client.address %></li>
-	</ul>
+<div class="row"><h2 class="sub-header">Informações Residenciais</h2></div>
+<div  class="table-responsive">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td><b>CEP:</b></td>
+        <td><%= @client.address %></td>
+      </tr>              
+    </tbody>    
+  </table>
 </div>
 
-<span>Informações Profissionais</span>
-<div class="panel">
-	<ul class="infosClient">
-		<li><b>Salário:</b> <%= @client.company.income %></li>
-		<li><b>Profissão:</b> <%= @client.company.ocupation.capitalize %></li>
-		<li><b>Empresa:</b> <%= @client.company.company_name.capitalize %></li>
-	</ul>
+<div class="row"><h2 class="sub-header">Informações Profissionais</h2></div>
+<div  class="table-responsive">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td><b>Salário:</b></td>
+        <td><%= @client.company.income %></td>
+      </tr>    
+      <tr>
+        <td><b>Profissão:</b></td>
+        <td><%= @client.company.ocupation.capitalize %></td>
+      </tr>    
+      <tr>
+        <td><b>Empresa:</b></td>
+        <td><%= @client.company.company_name.capitalize %></td>
+      </tr>              
+    </tbody>    
+  </table>
 </div>
 
 
-<span>Dados Bancários</span>
-<div class="panel">
-	<%  @client.bank_account.each do |bank|%>
-		<ul class="infosClient">
-			<li><b>Banco:</b> <%= bank.bank_id %></li>
-			<li><b>Agencia:</b> <%= bank.agency %></li>
-			<li><b>Conta Corrente:</b> <%= bank.account_number %></li>
-		</ul>
-	<% end %>
+<div class="row"><h2 class="sub-header">Dados Bancários</h2></div>
+<div  class="table-responsive">
+  <table class="table table-striped">
+    <tbody>
+    	<%  @client.bank_account.each do |bank|%>
+      <tr>
+        <td><b>Banco:</b></td>
+        <td><%= bank.bank_id %></td>
+      </tr>    
+      <tr>
+        <td><b>Agencia:</b></td>
+        <td><%= bank.agency %></td>
+      </tr>    
+      <tr>
+        <td><b>Conta Corrente:</b></td>
+        <td><%= bank.account_number %></td>
+      </tr>
+     <% end %>            
+    </tbody>    
+  </table>
 </div>
-<!--<center>
-	<b>Novo Imóvel</b>
-	<%# form_for Residence.new, url: "/residences", name: "residence" do |res| %>
-		<%#  res.text_field :address, placeholder: "Endereço"%><br />
-		<%# submit_tag "Gravar"%>
-	<%#end%>
-</center>-->
