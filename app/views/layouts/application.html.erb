@@ -13,14 +13,17 @@
   </head>
   <body>
     <div id="wrapper">
-      <%= render 'layouts/topBar' %>
-      <%= render 'layouts/navigation', arr_url_nav: ApplicationHelper::nav_item%>
-      <%= render 'layouts/sidenav', arr_url_nav: ApplicationHelper::nav_item%>
       
+      <%= render 'layouts/topBar' %>
+
       <div id="page-wrapper">
         <%= yield %>
-      </div> 
+      </div>
+      
+      <%= render 'layouts/footer' %>
+
     </div>
+    
     <script>
       $(function() {$('#side-menu').metisMenu();});
       $(function(){icheck();});
