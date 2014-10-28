@@ -5,15 +5,20 @@ class ReportsController < ApplicationController
 
 	def client_x_day
 		Axlsx::Package.new do |p|
-			p.workbook.add_worksheet(:name => "Basic Worksheet") do |sheet|
-	 		sheet.add_row ['Relatório de Clientes Ativos']
-      	sheet.add_row ["CPF", "Nome", "E-mail", "Celular","Telefone"]
-	   	Client.all.each do |cli|
-	   		sheet.add_row [cli.cpf, cli.name, cli.email_address, cli.mobile_number, cli.phone_number]
-	   	end
- 	 	end
- 		p.serialize('reports/cliente_x_dia.xlsx')
- 		send_file "reports/cliente_x_dia.xlsx", :type => "application/vnd.ms-excel", :filename => "clientes_ativos.xls", :stream => false
+				wb = p.workbook
+			 	wb.styles do |s|
+	    			blue_border =  s.add_style :border => { :style => :thick, :color =>"FF0000FF", :edges => [:left, :right, :bottom, :top] }
+
+					p.workbook.add_worksheet(:name => "Basic Worksheet") do |sheet|
+			 		sheet.add_row ['Relatório de Clientes Ativos','',''], b: true, :color =>"FF0000FF"
+			   	sheet.add_row ["CPF", "Nome", "E-mail", "Celular","Telefone"], b: true, :style => blue_border, :color =>"FF0000FF"
+			   	Client.all.each do |cli|
+			   		sheet.add_row [cli.cpf, cli.name, cli.email_address, cli.mobile_number, cli.phone_number], :style => blue_border
+			   	end
+ 	 			end
+ 	 		end
+	 		p.serialize('reports/cliente_x_dia.xlsx')
+	 		send_file "reports/cliente_x_dia.xlsx", :type => "application/vnd.ms-excel", :filename => "clientes_ativos.xls", :stream => false
 		end
 	end
 
