@@ -15,8 +15,10 @@
 
 /*Cadastro*/
 .btn-fixed{position: fixed; right: 50px; top: 171px; z-index: 9999;}
+#loadingImg{margin: 0px auto;}
 @media only screen and (max-width: 768px) {
 	.btn-fixed{display: none;}
+
 }
 
 /*Maps*/
