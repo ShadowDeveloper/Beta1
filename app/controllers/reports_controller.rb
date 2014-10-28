@@ -24,12 +24,17 @@ class ReportsController < ApplicationController
 
 	def informacoes_imovel
 		Axlsx::Package.new do |p|
-			p.workbook.add_worksheet(:name => "Basic Worksheet") do |sheet|
-	 		sheet.add_row ['Relatório de Imóveis Ativos']
-      	sheet.add_row ["Tipo","Status","CEP", "Bairro", "Rua", "Número"]
-	   	Residence.all.each do |res|
-	   		sheet.add_row [res.type_name, res.status_name, res.cep, res.neighbourhood, res.street, res.number]
-	   	end
+			wb = p.workbook
+			wb.styles do |s|
+				blue_border =  s.add_style :border => { :style => :thick, :color =>"FF0000FF", :edges => [:left, :right, :bottom, :top] }
+				
+				p.workbook.add_worksheet(:name => "Basic Worksheet") do |sheet|
+		 		sheet.add_row ['Relatório de Imóveis Ativos'], b: true, :color =>"FF0000FF"
+	      	sheet.add_row ["Tipo","Status","CEP", "Bairro", "Rua", "Número"], b: true, :style => blue_border, :color =>"FF0000FF"
+		   	Residence.all.each do |res|
+		   		sheet.add_row [res.type_name, res.status_name, res.cep, res.neighbourhood, res.street, res.number], :style => blue_border
+		   	end
+		   end
  	 	end
  		p.serialize('reports/imoveis_ativos.xlsx')
  		send_file "reports/imoveis_ativos.xlsx", :type => "application/vnd.ms-excel", :filename => "imoveis_ativos.xls", :stream => false
