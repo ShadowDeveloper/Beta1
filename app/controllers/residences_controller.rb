@@ -9,7 +9,7 @@ class ResidencesController < ApplicationController
 				residence.address = "#{pos[:lat]}|#{pos[:lng]}"
 				residence.save
 
-				status = "Imovel cadastrado com sucesso!"
+				status = %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
 				url = "/residences/#{residence.id}"
 				code = "200"
 
@@ -22,10 +22,10 @@ class ResidencesController < ApplicationController
 		else
 			url = ""
 	   	code = "500"
-			status = "Preencha todos os campos!"
+			status = "console.log('erro')"
 		end
 
-		render js: %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
+		render js: status
 	end
 
 	def index
