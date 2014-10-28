@@ -25,3 +25,4 @@
 .attention{
 	border-color: red;
 }
+.table-bordered tbody tr td{height: 40px;}
