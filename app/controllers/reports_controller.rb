@@ -44,4 +44,8 @@ class ReportsController < ApplicationController
 	def informacoes_imovel_display
 		@residence = Residence.all
 	end
+
+	def client_x_day_display
+		@client = Client.all
+	end
 end
