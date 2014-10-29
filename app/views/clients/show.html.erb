@@ -1,7 +1,8 @@
-<div class="row"><h2 class="sub-header">Informações Pessoais</h2></div>
+<div class="col-lg-6 center-block" style="float:none;">
+<h1><small>Informações Pessoais</small></h1>
 
 <div  class="table-responsive">
-  <table class="table table-striped">
+  <table class="table table-bordered">
     <tbody>
       <tr>
         <td><b>CPF:</b></td>
@@ -38,10 +39,12 @@
     </tbody>    
   </table>
 </div>
+</div>
 
-<div class="row"><h2 class="sub-header">Informações Residenciais</h2></div>
+<div class="col-lg-6 center-block" style="float:none;">
+<h1><small>Informações Residenciais</small></h1>
 <div  class="table-responsive">
-  <table class="table table-striped">
+  <table class="table table-bordered">
     <tbody>
       <tr>
         <td><b>CEP:</b></td>
@@ -50,10 +53,13 @@
     </tbody>    
   </table>
 </div>
+</div>
 
-<div class="row"><h2 class="sub-header">Informações Profissionais</h2></div>
+
+<div class="col-lg-6 center-block" style="float:none;">
+<h1><small>Informações Profissionais</small></h1>
 <div  class="table-responsive">
-  <table class="table table-striped">
+  <table class="table table-bordered">
     <tbody>
       <tr>
         <td><b>Salário:</b></td>
@@ -70,11 +76,12 @@
     </tbody>    
   </table>
 </div>
+</div>
 
-
-<div class="row"><h2 class="sub-header">Dados Bancários</h2></div>
+<div class="col-lg-6 center-block" style="float:none;">
+<h1><small>Dados Bancários</small></h1>
 <div  class="table-responsive">
-  <table class="table table-striped">
+  <table class="table table-bordered">
     <tbody>
     	<%  @client.bank_account.each do |bank|%>
       <tr>
@@ -92,4 +99,5 @@
      <% end %>            
     </tbody>    
   </table>
+</div>
 </div>
