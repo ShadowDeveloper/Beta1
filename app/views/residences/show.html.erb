@@ -1,76 +1,81 @@
+<div class="row">
+  <h1></h1>
+</div>
+
 <div class="col-lg-12">
 
 <div class="col-lg-6">
+<div class="panel panel-default">
+      <div class="panel-heading">Dados do proprietário do Imóvel</div>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td><b>Nome:</b></td>
+              <td><a href="/clients/<%= @residence.client.id %>" target="blank"><%= @residence.client.name %></a></td>
+            </tr>
+            <tr>
+              <td><b>Telefone:</b></td>
+              <td><%= @residence.client.phone_number %></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="col-lg-6">
+<div class="panel panel-default">
+      <div class="panel-heading">Dados do Imóvel</div>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td><b>Status:</b></td>
+              <td><%= @residence.status_name %></td>
+            </tr>
+            <tr>
+              <td><b>Tipo:</b></td>
+              <td><%= @residence.type_name %></td>
+            </tr>      
+          </tbody>    
+        </table>
+    </div>
+</div>
+
+</div>
 
 <div class="col-lg-12">
-<h1><small>Dados do Dono do Imóvel</small></h1>
-<div class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <td><b>Nome:</b></td>
-        <td><a href="/clients/<%= @residence.client.id %>" target="blank"><%= @residence.client.name %></a></td>
-      </tr>
-      <tr>
-        <td><b>Telefone:</b></td>
-        <td><%= @residence.client.phone_number %></td>
-      </tr>      
-    </tbody>    
-  </table>
-</div>
-</div>
 
-<div class="col-lg-12">
-<h1><small>Dados do Imóvel</small></h1>
-<div class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <td><b>Status:</b></td>
-        <td><%= @residence.status_name %></td>
-      </tr>
-      <tr>
-        <td><b>Tipo:</b></td>
-        <td><%= @residence.type_name %></td>
-      </tr>      
-    </tbody>    
-  </table>
-</div>
+
+<div class="col-lg-6">
+<div class="panel panel-default">
+      <div class="panel-heading">Dados de Localização</div>
+        <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td><b>CEP:</b></td>
+                <td><%= @residence.cep %></td>
+              </tr>
+              <tr>
+                <td><b>Endereço:</b></td>
+                <td><%= "#{@residence.street}, #{@residence.number}" %></td>
+              </tr>
+              <tr>
+                <td><b>Bairro:</b></td>
+                <td><%= "#{@residence.neighbourhood}" %></td>
+              </tr>
+              <tr>
+                <td><b>Estado:</b></td>
+                <td><%= "#{@residence.state}" %></td>
+              </tr>
+              <tr>
+                <td><b>Cidade:</b></td>
+                <td><%= "#{@residence.city}" %></td>
+              </tr>                        
+            </tbody>    
+        </table>
+    </div>
 </div>
 
 
-
-<div class="col-lg-12">
-  <h1><small>Dados de Localização</small></h1>
-<div  class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <td><b>CEP:</b></td>
-        <td><%= @residence.cep %></td>
-      </tr>
-      <tr>
-        <td><b>Endereço:</b></td>
-        <td><%= "#{@residence.street}, #{@residence.number}" %></td>
-      </tr>
-      <tr>
-        <td><b>Bairro:</b></td>
-        <td><%= "#{@residence.neighbourhood}" %></td>
-      </tr>
-      <tr>
-        <td><b>Estado:</b></td>
-        <td><%= "#{@residence.state}" %></td>
-      </tr>
-      <tr>
-        <td><b>Cidade:</b></td>
-        <td><%= "#{@residence.city}" %></td>
-      </tr>                        
-    </tbody>    
-  </table>
-</div>
-</div>
-
-</div>
 
   <div class="col-lg-6">
       <div id="basic_map"></div>   
@@ -78,9 +83,6 @@
 
 </div>
 
-<div class="large-12 columns">
-  
-</div>
 
 
 <script>

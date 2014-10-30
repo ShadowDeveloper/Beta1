@@ -1,37 +1,45 @@
-<div class="row"><h2 class="sub-header">Dados do Usuário</h2></div>
-<div  class="table-responsive">
-  <table class="table table-striped">
-    <tbody>
-      <tr>
-        <td><b>Login:</b></td>
-        <td><%= @user.login %></td>
-      </tr>
-      <tr>
-        <td><b>Nome:</b></td>
-        <td><%= @user.name %></td>
-      </tr>  
-      <!--<tr>
-        <td><b>Região de Atuacão:</b></td>
-        <td><%= UserHelper::region[@user.address] ||= "---" %></td>
-      </tr>            
-      <tr>
-        <td><%= form_tag("/users/update", method: "put",  :class => "formNewUser", remote: true) do %>
-					<input type="hidden" name="user_id" value="<%= params[:id]%>">
-					<select name="region">
-						<option value="">Selecione</option>
-						<option value="1">Norte</option>
-						<option value="2">Sul</option>
-						<option value="3">Leste</option>
-						<option value="4">Oeste</option>
-					</select>
-				</td>
-        <td>	
-        	<%= submit_tag "Gravar",  :class=>"btn btn-success col-lg-3 pull-right"%>
-					<%end%>
-				</td>
-      </tr>
-      -->                  
-    </tbody>    
-  </table>
+<div class="row">
+  <h1></h1>
+</div>
+
+<div class="col-lg-6 center-block" style="float:none;">
+<div class="panel panel-default">
+     
+      <div class="panel-heading">Dados do Usuário</div>
+     
+      <table class="table table-bordered">
+        <tbody>
+            <tr>
+              <td><b>Login:</b></td>
+              <td><%= @user.login %></td>
+            </tr>
+            <tr>
+              <td><b>Nome:</b></td>
+              <td><%= @user.name %></td>
+            </tr>  
+            <!--<tr>
+              <td><b>Região de Atuacão:</b></td>
+              <td><%= UserHelper::region[@user.address] ||= "---" %></td>
+            </tr>            
+            <tr>
+              <td><%= form_tag("/users/update", method: "put",  :class => "formNewUser", remote: true) do %>
+                <input type="hidden" name="user_id" value="<%= params[:id]%>">
+                <select name="region">
+                  <option value="">Selecione</option>
+                  <option value="1">Norte</option>
+                  <option value="2">Sul</option>
+                  <option value="3">Leste</option>
+                  <option value="4">Oeste</option>
+                </select>
+              </td>
+              <td>  
+                <%= submit_tag "Gravar",  :class=>"btn btn-success col-lg-3 pull-right"%>
+                <%end%>
+              </td>
+            </tr>
+            -->                  
+          </tbody>   
+      </table>
+    </div>
 </div>
 

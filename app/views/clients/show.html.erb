@@ -1,99 +1,109 @@
-<div class="col-lg-6 center-block" style="float:none;">
-<h1><small>Informações Pessoais</small></h1>
-
-<div  class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <td><b>CPF:</b></td>
-        <td><%= @client.cpf %></td>
-      </tr>
-      <tr>
-        <td><b>Nome:</b></td>
-        <td><%= @client.name.capitalize %></td>
-      </tr>  
-      <tr>
-        <td><b>Data de Nascimento:</b></td>
-        <td><%= @client.dob %></td>
-      </tr>
-      <tr>
-        <td><b>RG:</b></td>
-        <td><%= @client.rg %></td>
-      </tr>
-      <tr>
-        <td><b>Telefone:</b></td>
-        <td><%= @client.phone_number %></td>
-      </tr>                      
-      <tr>
-        <td><b>E-mail:</b></td>
-        <td><%= @client.email_address %></td>
-      </tr>                        
-      <tr>
-        <td><b>Celular:</b></td>
-        <td><%= @client.mobile_number %></td>
-      </tr>                        
-    </tbody>    
-  </table>
-</div>
+<div class="row">
+  <h1></h1>
 </div>
 
-<div class="col-lg-6 center-block" style="float:none;">
-<h1><small>Informações Residenciais</small></h1>
-<div  class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <td><b>CEP:</b></td>
-        <td><%= @client.address %></td>
-      </tr>              
-    </tbody>    
-  </table>
-</div>
+<div class="col-lg-12">
+
+<div class="col-lg-6">
+<div class="panel panel-default">
+     
+      <div class="panel-heading">Informações Pessoais</div>
+     
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td><b>CPF:</b></td>
+            <td><%= @client.cpf %></td>
+          </tr>
+          <tr>
+            <td><b>Nome:</b></td>
+            <td><%= @client.name.capitalize %></td>
+          </tr>  
+          <tr>
+            <td><b>Data de Nascimento:</b></td>
+            <td><%= @client.dob %></td>
+          </tr>
+          <tr>
+            <td><b>RG:</b></td>
+            <td><%= @client.rg %></td>
+          </tr>
+          <tr>
+            <td><b>Telefone:</b></td>
+            <td><%= @client.phone_number %></td>
+          </tr>                      
+          <tr>
+            <td><b>E-mail:</b></td>
+            <td><%= @client.email_address %></td>
+          </tr>                        
+          <tr>
+            <td><b>Celular:</b></td>
+            <td><%= @client.mobile_number %></td>
+          </tr>            
+        </tbody>
+      </table>
+    </div>
 </div>
 
 
-<div class="col-lg-6 center-block" style="float:none;">
-<h1><small>Informações Profissionais</small></h1>
-<div  class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-        <td><b>Salário:</b></td>
-        <td><%= @client.company.income %></td>
-      </tr>    
-      <tr>
-        <td><b>Profissão:</b></td>
-        <td><%= @client.company.ocupation.capitalize %></td>
-      </tr>    
-      <tr>
-        <td><b>Empresa:</b></td>
-        <td><%= @client.company.company_name.capitalize %></td>
-      </tr>              
-    </tbody>    
-  </table>
-</div>
+<div class="col-lg-6">
+<div class="panel panel-default">
+
+      <div class="panel-heading">Informações Residenciais</div>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td><b>CEP:</b></td>
+            <td><%= @client.address %></td>
+          </tr>            
+        </tbody>
+      </table>
+    </div>
 </div>
 
-<div class="col-lg-6 center-block" style="float:none;">
-<h1><small>Dados Bancários</small></h1>
-<div  class="table-responsive">
-  <table class="table table-bordered">
-    <tbody>
-    	<%  @client.bank_account.each do |bank|%>
-      <tr>
-        <td><b>Banco:</b></td>
-        <td><%= bank.bank_id %></td>
-      </tr>    
-      <tr>
-        <td><b>Agencia:</b></td>
-        <td><%= bank.agency %></td>
-      </tr>    
-      <tr>
-        <td><b>Conta Corrente:</b></td>
-        <td><%= bank.account_number %></td>
-      </tr>
-     <% end %>            
-    </tbody>    
-  </table>
+<div class="col-lg-6">
+<div class="panel panel-default">
+      <div class="panel-heading">Informações Profissionais</div>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td><b>Salário:</b></td>
+            <td><%= @client.company.income %></td>
+          </tr>    
+          <tr>
+            <td><b>Profissão:</b></td>
+            <td><%= @client.company.ocupation.capitalize %></td>
+          </tr>    
+          <tr>
+            <td><b>Empresa:</b></td>
+            <td><%= @client.company.company_name.capitalize %></td>
+          </tr>            
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+<div class="col-lg-6">
+<div class="panel panel-default">
+      <div class="panel-heading">Dados Bancários</div>
+      <table class="table table-bordered">
+        <tbody>
+          <%  @client.bank_account.each do |bank|%>
+          <tr>
+            <td><b>Banco:</b></td>
+            <td><%= bank.bank_id %></td>
+          </tr>    
+          <tr>
+            <td><b>Agencia:</b></td>
+            <td><%= bank.agency %></td>
+          </tr>    
+          <tr>
+            <td><b>Conta Corrente:</b></td>
+            <td><%= bank.account_number %></td>
+          </tr>
+         <% end %>            
+        </tbody>  
+      </table>
+    </div>
 </div>
 </div>
