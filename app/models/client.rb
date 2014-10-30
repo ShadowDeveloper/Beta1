@@ -11,5 +11,7 @@ class Client < ActiveRecord::Base
 
 	has_one :company
 
+	has_many :residence
+
 	has_many :bank_account
 end

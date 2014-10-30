@@ -3,6 +3,24 @@
 <div class="col-lg-6">
 
 <div class="col-lg-12">
+<h1><small>Dados do Dono do Imóvel</small></h1>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td><b>Nome:</b></td>
+        <td><a href="/clients/<%= @residence.client.id %>" target="blank"><%= @residence.client.name %></a></td>
+      </tr>
+      <tr>
+        <td><b>Telefone:</b></td>
+        <td><%= @residence.client.phone_number %></td>
+      </tr>      
+    </tbody>    
+  </table>
+</div>
+</div>
+
+<div class="col-lg-12">
 <h1><small>Dados do Imóvel</small></h1>
 <div class="table-responsive">
   <table class="table table-bordered">
