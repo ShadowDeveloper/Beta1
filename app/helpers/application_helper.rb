@@ -46,12 +46,7 @@ module ApplicationHelper
                 "<span class='caret'></span>"+
             "</button>"+
             "<ul class='dropdown-menu pull-right' role='menu'>"+
-                "<li><a onclick='scrollToMap()'>Ver no Mapa</a>"+
-                "</li>"+
                 "<li><a href='/residences/#{id}'>Página do imóvel</a>"+
-                "<li class='divider'></li>"+
-                "<li><a href='#'>Editar</a>"+
-                "</li>"+
             "</ul>"+
           "</div>"
       )
