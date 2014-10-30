@@ -3,21 +3,22 @@ class ResidencesController < ApplicationController
 	def create
 		residence = Residence.new(residence_params[:residence])
 		if residence.valid?
-			begin 
+		
 		    	pos = residence.position
 		    	residence.create_residence_info(residence_params[:residence_info])
 				residence.address = "#{pos[:lat]}|#{pos[:lng]}"
+				residence.client_id = Client.where(cpf: params[:cpf]).first.id
 				residence.save
 
-				status = %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
 				url = "/residences/#{residence.id}"
 				code = "200"
-
-			rescue
+				status = "imovel cadastrado com sucesso!"
+				status = %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
+=begin
 				code = "500"
 				render js: %Q{ fnDefaultMessage('Ocorreu uma falha em sua conexao, tente novamente.') }
 				return
-			end
+=end
 			
 		else
 			url = ""
