@@ -15,7 +15,7 @@ class ResidencesController < ApplicationController
 
 			rescue
 				code = "500"
-				render js: %Q{ fnDefaultMessage('Ocorreu uma falha em sua conexao') }
+				render js: %Q{ fnDefaultMessage('Ocorreu uma falha em sua conexao, tente novamente.') }
 				return
 			end
 			
