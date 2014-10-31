@@ -2,8 +2,9 @@ class Residence < ActiveRecord::Base
 	self.table_name = "residences"
 	validates :cep, presence: true
 
-	has_one :residence_info
+	has_one :residence_info, dependent: :destroy
 	belongs_to :client
+	
 	def position
 		position = Geocoder.search(self.street_code)[0].data["geometry"]["location"]
 		{

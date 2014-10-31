@@ -1,29 +1,34 @@
 class ResidencesController < ApplicationController
 
 	def create
-		residence = Residence.new(residence_params[:residence])
-		if residence.valid?
 		
-		    	pos = residence.position
-		    	residence.create_residence_info(residence_params[:residence_info])
-				residence.address = "#{pos[:lat]}|#{pos[:lng]}"
-				residence.client_id = Client.where(cpf: params[:cpf]).first.id
-				residence.save
+		
+		residence_params[:residence_info][:sell_value] = residence_params[:residence_info][:sell_value].delete("R$ ")
+		residence_params[:residence_info][:iptu_value] = residence_params[:residence_info][:iptu_value].delete("R$ ")
+		residence_params[:residence_info][:rent_value] = residence_params[:residence_info][:rent_value].delete("R$ ")
+		residence_params[:residence_info][:condominium_value] = residence_params[:residence_info][:condominium_value].delete("R$ ")
 
-				url = "/residences/#{residence.id}"
-				code = "200"
-				status = "imovel cadastrado com sucesso!"
-				status = %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
-=begin
-				code = "500"
-				render js: %Q{ fnDefaultMessage('Ocorreu uma falha em sua conexao, tente novamente.') }
-				return
-=end
-			
+		residence = Residence.new(residence_params[:residence])
+
+		if residence.valid?
+				begin
+		    		pos = residence.position
+		    		residence.create_residence_info(residence_params[:residence_info])
+					residence.address = "#{pos[:lat]}|#{pos[:lng]}"
+					residence.client_id = Client.where(cpf: params[:cpf]).first.id
+					residence.save
+				
+					url = "/residences/#{residence.id}"
+					code = "200"
+					status = "imovel cadastrado com sucesso!"
+					status = %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
+				rescue
+					code = "500"
+					render js: %Q{ fnDefaultMessage('Ocorreu uma falha em sua conexao, tente novamente.') }
+				return	
+				end
 		else
-			url = ""
-	   	code = "500"
-			status = "console.log('erro')"
+			status = %Q{ fnDefaultMessage('Dados invalidos') }
 		end
 
 		render js: status
@@ -56,6 +61,11 @@ class ResidencesController < ApplicationController
 
 	protected
 	def residence_params
+		params[:residence_info][:sell_value].delete!("R$ ")
+		params[:residence_info][:iptu_value].delete!("R$ ") 
+		params[:residence_info][:rent_value].delete!("R$ ") 
+		params[:residence_info][:condominium_value].delete!("R$ ") 
+		
 		params.permit(
 			residence:[
 				:status,
