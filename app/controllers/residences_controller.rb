@@ -20,7 +20,7 @@ class ResidencesController < ApplicationController
 				
 					url = "/residences/#{residence.id}"
 					code = "200"
-					status = "imovel cadastrado com sucesso!"
+					status = "<center><b>Imovel cadastrado com sucesso!</b></center>"
 					status = %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
 				rescue
 					code = "500"
@@ -28,7 +28,7 @@ class ResidencesController < ApplicationController
 				return	
 				end
 		else
-			status = %Q{ fnDefaultMessage('Dados invalidos') }
+			status = %Q{ console.log('Dados invalidos') }
 		end
 
 		render js: status
