@@ -67,7 +67,7 @@
         <tbody>
           <tr>
             <td><b>Salário:</b></td>
-            <td><%= @client.company.income %></td>
+            <td>R$ <%= @client.company.income.to_i %></td>
           </tr>    
           <tr>
             <td><b>Profissão:</b></td>
@@ -91,7 +91,7 @@
           <%  @client.bank_account.each do |bank|%>
           <tr>
             <td><b>Banco:</b></td>
-            <td><%= bank.bank_id %></td>
+            <td><%= bank.bank_name %></td>
           </tr>    
           <tr>
             <td><b>Agencia:</b></td>
