@@ -34,7 +34,15 @@
             <tr>
               <td><b>Tipo:</b></td>
               <td><%= @residence.type_name %></td>
-            </tr>      
+            </tr>
+            <tr>
+              <td><b>Área total:</b></td>
+              <td><%= @residence.residence_info.area_total.to_i %> m²</td>
+            </tr>
+            <tr>
+              <td><b>Valor:</b></td>
+              <td>R$ <%= @residence.residence_info.sell_value.to_i %></td>
+            </tr>        
           </tbody>    
         </table>
     </div>
@@ -88,7 +96,6 @@ handler = Gmaps.build('Google');
 handler.buildMap({
     provider: {
       disableDefaultUI: true
-      // pass in other Google Maps API options here
     },
     internal: {
       id: 'basic_map'
@@ -110,20 +117,4 @@ handler.buildMap({
     handler.fitMapToBounds();
   }
 );
-/*
-function displayOnMap(position){
-  var marker = handler.addMarker({
-    lat: "<%= @residence.geo[:lat] %>",
-    lng: "<%= @residence.geo[:lng] %>",
-    picture: {
-        url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-        width:  36,
-        height: 36
-      },
-      infowindow: "hello!"
-  });
-  handler.map.centerOn(marker);
-  handler.getMap().setZoom(15);
-};
-*/
 </script>
