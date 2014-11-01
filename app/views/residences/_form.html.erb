@@ -23,12 +23,14 @@
 												<%= text_box 'Cidade', (res.text_field :city, readonly: true, class: "form-control") %>
 												<%= text_box 'Estado', (res.text_field :state, readonly: true, class: "form-control") %>
 												<%= text_box 'Número', (res.text_field :number, class: "form-control") %>
+
+												<%= text_box 'Complemento', (text_field_tag :comp, nil, class: "form-control") %>
 				      </div>
 				    </div>
 				  </div>
 
 					<div class="col-lg-6">
-				    <div class="panel panel-default" style="height: 748px;">
+				    <div class="panel panel-default" style="height: 823px;">
 				    	<div class="panel-heading"><strong><span class="steps"></span>Informações Imóvel</strong></div>
 				      <div class="panel-body">
 										<%= fields_for @residence_info do |info|%>
