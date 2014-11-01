@@ -1,13 +1,6 @@
 class ResidencesController < ApplicationController
 
 	def create
-		
-		
-		residence_params[:residence_info][:sell_value] = residence_params[:residence_info][:sell_value].delete("R$ ")
-		residence_params[:residence_info][:iptu_value] = residence_params[:residence_info][:iptu_value].delete("R$ ")
-		residence_params[:residence_info][:rent_value] = residence_params[:residence_info][:rent_value].delete("R$ ")
-		residence_params[:residence_info][:condominium_value] = residence_params[:residence_info][:condominium_value].delete("R$ ")
-
 		residence = Residence.new(residence_params[:residence])
 
 		if residence.valid?

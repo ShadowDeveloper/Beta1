@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
 		new_client.bank_account.new(client_params[:bank_account])
 
 		if new_client.save
-			status = "Cadastro efetuado com sucesso!"
+			status = "<center><b>Cadastro efetuado com sucesso!</b></center>"
 		 	url = "/clients/#{new_client.id}" 
 		 	code = "200"
 		 	status = %Q{ fnAlertClients("#{status}",'#{code}','#{url}') }
@@ -53,6 +53,8 @@ class ClientsController < ApplicationController
 
 	private
 	def client_params
+		params[:company][:income].delete!("R$ ")
+		
 		params.permit(
 			client:[
 				:name,
