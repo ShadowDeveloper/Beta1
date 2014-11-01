@@ -17,8 +17,12 @@ class ReportsController < ApplicationController
 			   	end
  	 			end
  	 		end
-	 		p.serialize('reports/cliente_x_dia.xlsx')
-	 		send_file "reports/cliente_x_dia.xlsx", :type => "application/vnd.ms-excel", :filename => "clientes_ativos.xls", :stream => false
+ 	 		begin
+	 			p.serialize('reports/cliente_x_dia.xlsx')
+	 			send_file "reports/cliente_x_dia.xlsx", :type => "application/vnd.ms-excel", :filename => "clientes_ativos.xls", :stream => false
+	 		rescue
+	 			send_file "reports/cliente_x_dia.xlsx", :type => "application/vnd.ms-excel", :filename => "clientes_ativos.xls", :stream => false
+			end
 		end
 	end
 
@@ -36,8 +40,12 @@ class ReportsController < ApplicationController
 		   	end
 		   end
  	 	end
- 		p.serialize('reports/imoveis_ativos.xlsx')
- 		send_file "reports/imoveis_ativos.xlsx", :type => "application/vnd.ms-excel", :filename => "imoveis_ativos.xls", :stream => false
+ 	 	begin
+ 			p.serialize('reports/imoveis_ativos.xlsx')
+ 			send_file "reports/imoveis_ativos.xlsx", :type => "application/vnd.ms-excel", :filename => "imoveis_ativos.xls", :stream => false
+		rescue
+			send_file "reports/imoveis_ativos.xlsx", :type => "application/vnd.ms-excel", :filename => "imoveis_ativos.xls", :stream => false
+		end
 		end
 	end
 
