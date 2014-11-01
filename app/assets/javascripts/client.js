@@ -85,7 +85,7 @@ function validateFormNewClient(){
         form_ok = false;
       }
     
-      if ( !validate($("#street")) ){
+      if ( !validate($("#street_n")) ){
         form_ok = false;
       }
 

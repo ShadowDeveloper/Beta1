@@ -46,9 +46,9 @@
                     <%= text_box("Cidade",(text_field_tag :city, nil, placeholder: "Ex: São Paulo", id:"city", disabled: true, class: "form-control")) %>
                     <%= text_box("Bairro",(text_field_tag :neigborhood, nil, placeholder: "Ex: Indianapolis", id:"neigborhood", disabled: true, class: "form-control")) %>
                     <%= text_box("Rua",(text_field_tag :street, nil, placeholder: "Ex: Av.Morumbi", id:"street", disabled: true, class: "form-control")) %>
-                    <%= text_box("Nº",(text_field_tag :street, nil, placeholder: "Ex: 85", id:"street", class: "form-control")) %>
+                    <%= text_box("Nº",(text_field_tag :street, nil, placeholder: "Ex: 85", id:"street_n", class: "form-control")) %>
                     <%= text_box("Telefone",(cli.text_field :phone_number, placeholder: "Ex: 11 9999-9999", class: "form-control")) %>
-                    <%= text_box("Celular",(cli.text_field :mobile_number, placeholder: "Ex: 11 99999-9999", class: "form-control")) %>    
+                    <%= text_box("Celular",(cli.text_field :mobile_number, placeholder: "Ex: 11 99999-9999", class: "form-control"), false) %>    
               </div>
             </div>
           </div>
