@@ -146,7 +146,7 @@ function fnAlertClients(msg, code, url){
   modal+="</div>";
   modal+="<div class='modal-body'>"+msg+"</div>";
   modal+="<div class='modal-footer'>";
-  modal+="<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>";
+  modal+="<button type='button' class='btn btn-default' data-dismiss='modal'>Fechar</button>";
   modal+="</div></div></div></div>";
 
   $('body').append(modal);
