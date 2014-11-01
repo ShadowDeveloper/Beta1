@@ -24,7 +24,7 @@
 												<%= text_box 'Estado', (res.text_field :state, readonly: true, class: "form-control") %>
 												<%= text_box 'Número', (res.text_field :number, class: "form-control") %>
 
-												<%= text_box 'Complemento', (text_field_tag :comp, nil, class: "form-control") %>
+												<%= text_box 'Complemento', (text_field_tag :comp, nil, class: "form-control"), false %>
 				      </div>
 				    </div>
 				  </div>
@@ -40,9 +40,9 @@
 										<%= text_box 'Valor Condominio', (info.text_field :condominium_value, class: "form-control") %>
 										<%= text_box 'Valor IPTU', (info.text_field :iptu_value, class: "form-control") %>																				
 										
-										<%= text_box 'Escritura Definitiva', (info.text_field :escritura_definitiva, class: "form-control") %>
-										<%= text_box 'Escritura Alienada', (info.text_field :escritura_alienada, class: "form-control") %>
-										<%= text_box 'Escritura Inventário', (info.text_field :escritura_inventario, class: "form-control") %>
+										<%= text_box 'Escritura Definitiva', (info.text_field :escritura_definitiva, class: "form-control"), false %>
+										<%= text_box 'Escritura Alienada', (info.text_field :escritura_alienada, class: "form-control"), false %>
+										<%= text_box 'Escritura Inventário', (info.text_field :escritura_inventario, class: "form-control"), false %>
 				      </div>
 				    </div>
 				  </div>
@@ -63,7 +63,7 @@
 								<%= text_box 'Suites', (info.text_field :qtd_suite, class: "form-control") %>
 								<%= text_box 'Banheiros', (info.text_field :qtd_banheiro, class: "form-control") %>
 								<%= text_box 'Garagem', (info.text_field :qtd_garage, class: "form-control") %>
-								<%= text_box 'Área Total do Terreno', (info.text_field :area_total, class: "form-control") %>
+								<%= text_box 'Área Total do Terreno (m²)', (info.text_field :area_total, class: "form-control") %>
 								<%= res.submit('Cadastrar', :class => "btn btn-success col-lg-6 pull-right")%>
 					    </div>
 				    </div>
