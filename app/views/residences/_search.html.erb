@@ -73,7 +73,7 @@ var arr_geo = [];
                 id: '<%= res[:id] %>',
                 bairro: '<%= res[:bairro] %>',
                 rua:    '<%= res[:rua] %>',
-                valor:  '<%= res[:valor].to_i%>',
+                valor:  'R$ <%= res[:valor].to_i%>',
                 quarto:   '<%= res[:quarto]%>',
                 garagem:  '<%= res[:garagem]%>',
                 banheiro: '<%= res[:banheiro]%>',
@@ -92,7 +92,7 @@ var arr_geo = [];
           '<b>Tipo:</b> <%= res[:type]%><br>' +
           '<b>Status:</b> <%= res[:status]%><br>' +
           '<b>CEP:</b> <%= res[:cep]%><br>' +
-          '<b>Valor:</b> <%= res[:valor].to_i%><br>' +
+          '<b>Valor:</b> R$ <%= res[:valor].to_i%><br>' +
           '<a href="/residences/<%= res[:id]%>" target="blank">Página do Imóveil</a></p>'+
          
       '</div>'})  
