@@ -41,6 +41,7 @@
             <div class="panel-heading"><strong><span class="steps"></span>Informações Residenciais</strong></div>
               <div class="panel-body">  
                     <%= text_box("CEP",(cli.text_field :address, placeholder: "Ex: 99999-999", onblur: "getCEPClients(this.value)", class: "form-control")) %>
+                    <p><a style="text-decoration: underline; display: block;margin-top: -11px; font-size: 12px;" href="http://www.buscacep.correios.com.br/servicos/dnec/menuAction.do?Metodo=menuLogradouro" target="_blank">Não sei meu CEP</a></p>
                     <div class="row"><img src="/assets/load.GIF" id="loadingImg" style="display: none;"></div>
                     <%= text_box("Cidade",(text_field_tag :city, nil, placeholder: "Ex: São Paulo", id:"city", disabled: true, class: "form-control")) %>
                     <%= text_box("Bairro",(text_field_tag :neigborhood, nil, placeholder: "Ex: Indianapolis", id:"neigborhood", disabled: true, class: "form-control")) %>

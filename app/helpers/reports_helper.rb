@@ -61,7 +61,7 @@ module ReportsHelper
        
              <a href="#{link}">
                  <div class="panel-footer">
-                     <span class="pull-left">Download XLS</span>
+                     <span class="pull-left">Download Excel</span>
                      <div class="clearfix"></div>
                  </div>
              </a>
