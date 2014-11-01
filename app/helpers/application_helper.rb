@@ -11,10 +11,15 @@ module ApplicationHelper
         nav_itemx
     end
 
-    def text_box(label,input)
-    	raw(%Q{
+    def text_box(label,input, required=true)
+    	if required
+        req = " *"
+      else
+        req = ''
+      end
+      raw(%Q{
         <div class="form-group">
-            	<label>#{label} *</label>
+            	<label>#{label}#{req}</label>
            		#{input}
         </div>
     	})
@@ -23,8 +28,8 @@ module ApplicationHelper
     def select_combo(label,select)
       raw(%Q{
           <div class="form-group">
-                  <label>#{label}:</label>
-                   #{select}
+                  <label>#{label} *</label>
+                   #{select} 
           </div>
          })
     end
