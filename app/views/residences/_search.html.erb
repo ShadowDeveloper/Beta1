@@ -114,7 +114,7 @@ function createSidebarLi(json){
 };
 
 function bindLiToMarker($li, marker){
-  $li.hover(function(){
+  $li.mouseenter(function(){
     //handler.getMap().setZoom(14);
     marker.setMap(handler.getMap()); //because clusterer removes map property from marker
     marker.panTo();
