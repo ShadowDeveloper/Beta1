@@ -12,6 +12,8 @@
 :invalid{border: 2px solid #ff0000;}
 .brandLogo img{width: 40%; display: block;}
 .steps{display: inline-block; color: #2364b0; background: #fff; box-shadow: 0 0 5px 0 #ccc; width: 30px; height: 30px; border-radius: 30px; padding: 5px 0 5px 0; text-align: center; margin: 0 5px 0 0; font-size: 14px;}
+.userNameTxt{float: right;}
+.userName{text-transform: capitalize;}
 
 /*Cadastro*/
 .btn-fixed{position: fixed; right: 50px; top: 171px; z-index: 9999;}
