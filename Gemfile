@@ -60,5 +60,8 @@ end
 # Relatório
  gem 'axlsx'
 
+# Upload de img
+ gem "paperclip", "~> 3.1"
+
  #Personalziar checkbox
  gem 'icheck-rails'

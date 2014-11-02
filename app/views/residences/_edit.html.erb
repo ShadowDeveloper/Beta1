@@ -1,0 +1,4 @@
+<%= form_for @residence, :html => {method: "PUT", :multipart => true } do |form| %>
+  <%= form.file_field :pics %>
+  <%= form.submit %>
+<% end %>

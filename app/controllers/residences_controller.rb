@@ -52,7 +52,28 @@ class ResidencesController < ApplicationController
 		@residence_info = ResidenceInfo.new
 	end
 
+	def edit
+		@residence = Residence.find(params[:id])
+	end
+
+	def update
+		@residence = Residence.find(params[:id])
+		@pic = Picture.create(residence_update_params)
+	
+		@pic.residence_id = params[:id]
+		@pic.pic_file_name = residence_update_params[:pics].original_filename
+		@pic.pic_content_type = residence_update_params[:pics].content_type
+		@pic.updated_at = Time.new
+		@pic.save
+		redirect_to :back
+	end
+
 	protected
+
+	def residence_update_params
+  		params.require(:residence).permit(:pics)
+	end
+
 	def residence_params
 		params[:residence_info][:sell_value].delete!("R$ ")
 		params[:residence_info][:iptu_value].delete!("R$ ") 

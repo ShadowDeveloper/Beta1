@@ -4,6 +4,9 @@ class Residence < ActiveRecord::Base
 
 	has_one :residence_info, dependent: :destroy
 	belongs_to :client
+
+	has_attached_file :pics, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  	validates_attachment_content_type :pics, :content_type => /\Aimage\/.*\Z/
 	
 	def position
 		position = Geocoder.search(self.street_code)[0].data["geometry"]["location"]
