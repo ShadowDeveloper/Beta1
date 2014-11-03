@@ -18,10 +18,6 @@ function validateFormSearchResidence(){
     function(){
       var form_ok = true
 
-      if ( !validate($("#residence_type")) ){
-        form_ok = false;
-      }
-
       if ( !validate($("#residence_status")) ){
         form_ok = false;
       }
