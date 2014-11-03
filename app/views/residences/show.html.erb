@@ -78,6 +78,11 @@
         </table>
     </div>
     <div>
+      <%= form_tag('/residences/35/binding', method: :put) do%>
+        <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador"%>
+        <%= submit_tag "iniciar venda"%>
+      <%end%>
+
       <%@residence.picture.each do |pic|%>
         <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
       <%end%>
