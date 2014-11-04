@@ -14,13 +14,16 @@ class UsersController < ApplicationController
 		if new_user.valid?
 			new_user.save
 			status = 200
+			id = new_user.id
 			msg = "Usuário cadastrado com sucesso!"
+			msg = %Q{createUser('#{status}','#{msg}','#{id}')}
+			
 		else
 			status = 500
 			msg =  new_user.errors.full_messages.first
+			msg = %Q{console.log("#{msg}")}
 		end
-		id = new_user.id
-		render js: %Q{createUser('#{status}','#{msg}','#{id}')}
+		render js: msg
 	end
 
 	#get /users/
