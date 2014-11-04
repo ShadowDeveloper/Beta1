@@ -83,6 +83,10 @@
         <%= submit_tag "iniciar venda"%>
       <%end%>
 
+      <% if flash[:notice]%>
+      <%= flash[:notice]%>
+      <% end %>
+
       <%@residence.picture.each do |pic|%>
         <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
       <%end%>
