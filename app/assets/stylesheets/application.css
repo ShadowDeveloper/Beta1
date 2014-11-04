@@ -20,6 +20,8 @@
 #loadingImg{margin: 0px auto;}
 @media only screen and (max-width: 768px) {
 	.btn-fixed{display: none;}
+	.navbar-brand{width: 70%;}
+	.brandLogo img{width: 70%;}
 
 }
 
