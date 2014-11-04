@@ -68,6 +68,10 @@ class ResidencesController < ApplicationController
 		redirect_to :back
 	end
 
+	def binding
+		redirect_to :back
+	end
+
 	protected
 
 	def residence_update_params

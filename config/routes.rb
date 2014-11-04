@@ -1,7 +1,9 @@
 Proto::Application.routes.draw do
   resources :main
   
-  resources :residences
+  resources :residences do
+    put 'binding', on: :member
+  end
 
   resources :users do
     get 'list', on: :collection
