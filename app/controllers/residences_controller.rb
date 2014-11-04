@@ -68,6 +68,17 @@ class ResidencesController < ApplicationController
 	end
 
 	def binding
+		client = Client.where(cpf: params[:cpf]).first
+
+		response = ""
+		if client
+			@residence = Residence.find(params[:id])
+			@residence.status = "1"
+			@residence.save
+			response = "Venda iniciada com sucesso!"
+		else
+			response = "Cliente não encontrado."
+		end
 		redirect_to :back
 	end
 
