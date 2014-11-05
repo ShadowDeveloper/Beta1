@@ -1,10 +1,15 @@
 <!-- Imóvel está a venda-->
 <% if res_s == '3'%>
+<div class="col-lg-6">
 	<%= form_tag("/residences/#{params[:id]}/binding", method: :put) do%>
-        <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador"%>
-        <%= submit_tag "Iniciar venda"%>
+	 <div class="form-group">
+        <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador", :class => "form-control"%>
+        <%= submit_tag "Iniciar venda", :class => "btn btn-success col-lg-6 pull-right"%>
+     </div>
     <%end%>
+</div>
 <%end%>
+
 
 <!-- Imóvel está em negociacao-->
 <%if res_s == '1'%>
@@ -17,3 +22,5 @@
 <%if res_s == '2'%>
 	<%= button_to 'Disponibilizar imóvel para venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '1'} , {:method=>:put}  %>
 <%end%>
+
+

@@ -1,4 +1,4 @@
 <%= form_for @residence, :html => {method: "PUT", :multipart => true } do |form| %>
-  <%= form.file_field :pics %>
-  <%= form.submit %>
+  <%= form.file_field :pics, :class => "col-lg-6 pull-right" %>
+  <%= form.submit "Cadastrar imagem", :class => "btn btn-success col-lg-6 pull-right" %>
 <% end %>
