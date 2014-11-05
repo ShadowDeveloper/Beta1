@@ -8,10 +8,9 @@
 <%= form_tag("/residences", method: "get") do %>
   <div class="row">
     <div class="col-lg-12">
-      <div class="col-lg-12">
+      <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-body">        
-            <div class="col-lg-4">
               <div class="form-group">         
                <label>Status do Imóvel *</label>
                   <select id="residence_status" class="form-control req" name="residence_status">
@@ -22,7 +21,6 @@
                 </select>
               </div>
               <%= submit_tag "Buscar",  :class=>"btn btn-success col-lg-3 pull-right"%>
-            </div>
           </div>
         </div>
       </div>
