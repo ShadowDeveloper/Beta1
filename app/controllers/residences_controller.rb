@@ -77,7 +77,7 @@ class ResidencesController < ApplicationController
 			@residence.status = "1"
 			@residence.save
 			Sale.create(
-				cpf_owner: 	  @residence.client.cpf
+				cpf_owner: 	  @residence.client.cpf,
 				cpf_client:   client.cpf,
 				status: 	  '1',
 				residence_id: @residence.id

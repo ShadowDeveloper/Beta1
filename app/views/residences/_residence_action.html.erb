@@ -1,0 +1,10 @@
+<% if res_s == '3' or res_s == '2'%>
+	<%= form_tag("/residences/#{params[:id]}/binding", method: :put) do%>
+        <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador"%>
+        <%= submit_tag "Iniciar venda"%>
+    <%end%>
+<%end%>
+
+<%if res_s == '1'%>
+	Clique aqui para Finalizar venda ou Clique em Cancelar Negociacao
+<%end%>

@@ -78,11 +78,7 @@
         </table>
     </div>
     <div>
-      <%= form_tag('/residences/35/binding', method: :put) do%>
-        <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador"%>
-        <%= submit_tag "iniciar venda"%>
-      <%end%>
-
+      <%= render 'residence_action', res_s: @residence.status %>
       <% if flash[:notice]%>
         <%= flash[:notice]%>
       <% end %>
@@ -103,7 +99,7 @@
 
 </div>
 
-<%= render partial: "edit"%>
+<%= render partial: "edit" %>
 
 <script>
 handler = Gmaps.build('Google');
