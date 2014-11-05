@@ -78,6 +78,17 @@
         </table>
     </div>
 
+    <div>
+      <%= render 'residence_action', res_s: @residence.status %>
+      <% if flash[:notice]%>
+        <%= flash[:notice]%>
+      <% end %>
+
+      <%@residence.picture.each do |pic|%>
+        <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
+      <%end%>
+    </div>
+
 </div>
 
 </div>
@@ -90,19 +101,8 @@
 
 </div>
 
-
-<div class="col-lg-12">
-<%= render 'residence_action', res_s: @residence.status %>    
-</div>
-
-<div class="col-lg-12">  
-      <%@residence.picture.each do |pic|%>
-        <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
-      <%end%>
-</div>
-
-
 <%= render partial: "edit" %>
+
 
 
 <script>
