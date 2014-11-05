@@ -1,11 +1,19 @@
-<% if res_s == '3' or res_s == '2'%>
+<!-- Imóvel está a venda-->
+<% if res_s == '3'%>
 	<%= form_tag("/residences/#{params[:id]}/binding", method: :put) do%>
         <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador"%>
         <%= submit_tag "Iniciar venda"%>
     <%end%>
 <%end%>
 
+<!-- Imóvel está em negociacao-->
 <%if res_s == '1'%>
 	Clique aqui para Finalizar venda ou Clique em Cancelar Negociacao
-	<%= button_to 'Finalizar Venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '2'} , {:method=>:put}  %></td>
+	<%= button_to 'Finalizar Venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '2'} , {:method=>:put}  %>
+	<%= button_to 'Cancelar Venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '3'} , {:method=>:put}  %>
+<%end%>
+
+<!-- Imóvel está vendido -->
+<%if res_s == '2'%>
+	<%= button_to 'Disponibilizar imóvel para venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '1'} , {:method=>:put}  %>
 <%end%>
