@@ -89,6 +89,24 @@ class ResidencesController < ApplicationController
 		redirect_to :back, :flash => { :notice => response}
 	end
 
+	def sale_action
+		residence = Residence.find(params[:id])
+		sale = Sale.where(residence_id: residence.id, status: 1).first
+		
+		if params[:sale_status] == '2'
+			sale.status = 2
+			residence.status = 2
+		else
+			sale.status = 3
+			residence.status = 3
+		end
+
+		sale.save
+		residence.save
+
+		redirect_to :back
+	end
+
 	protected
 
 	def residence_update_params

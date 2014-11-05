@@ -7,4 +7,5 @@
 
 <%if res_s == '1'%>
 	Clique aqui para Finalizar venda ou Clique em Cancelar Negociacao
+	<%= button_to 'Finalizar Venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '2'} , {:method=>:put}  %></td>
 <%end%>
