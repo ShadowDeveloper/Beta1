@@ -76,6 +76,12 @@ class ResidencesController < ApplicationController
 			@residence = Residence.find(params[:id])
 			@residence.status = "1"
 			#@residence.save
+			Sale.create(
+				cpf_owner:  @residence.client.cpf
+				cpf_client: client.cpf,
+				status: '1',
+				residence_id: @residence.id
+			)
 			response = "Venda iniciada com sucesso!"
 		else
 			response = "Cliente não encontrado."
