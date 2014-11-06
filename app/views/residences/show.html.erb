@@ -77,53 +77,63 @@
             </tbody>    
         </table>
     </div>
-<<<<<<< HEAD
-=======
-    <div>
-      <%= render 'residence_action', res_s: @residence.status %>
-      <% if flash[:notice]%>
-        <%= flash[:notice]%>
-      <% end %>
-
-      <%@residence.picture.each do |pic|%>
-        <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
-      <%end%>
-    </div>
->>>>>>> c8e6cc5d1355f46c13ae39cb4e133c806a83361f
+  </div>
 </div>
 
-</div>
 
 <div class="col-lg-6">
-
   <div class="col-lg-12">
       <div id="basic_map"></div>   
   </div>
-
 </div>
 
-<<<<<<< HEAD
-    <div class="col-lg-12">
-      <%= form_tag('/residences/35/binding', method: :put) do%>
-        <div class="form-group">
-              <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador", class: "form-control"%>
-              <%= submit_tag "iniciar venda", :class => "btn btn-success col-lg-6 pull-right"%>
-        </div>
-        <%end%> 
-</div>
 <div class="col-lg-12">
-<%= render partial: "edit"%>      
+<div class="row">
+  <h1 class="page-header"></h1>
+</div>
 </div>
 
-<div class="col-lg-12">  
-      <%@residence.picture.each do |pic|%>
-        <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
-      <%end%>
-</div>
+<div class="row">
+  <div class="col-lg-12">
+        <div id="residence_information " class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading"><strong>Cadastro de imagem do imóvel</strong></div>
+              <div class="panel-body">
+                  <%= render partial: "edit"%>
+              </div>
+          </div>
+        </div>                
 
-=======
-<%= render partial: "edit" %>
->>>>>>> 64ee88a303c0c409b0f9a0ab359ccf0fa5fc3330
+        <div id="residence_information " class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading"><strong>Cadastro de imagem do imóvel</strong></div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <%= form_tag('/residences/35/binding', method: :put) do%>
+                    <div class="form-group">
+                      <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador", class: "form-control"%>
+                    </div>
+                    <div class="form-group"> 
+                      <%=submit_tag "iniciar venda", :class => "btn btn-success col-lg-6 pull-right"%>
+                    </div>
+                <%end%>
+                </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>    
+
+
+<div class="col-lg-12">
+<div class="owl-carousel">
+  <%@residence.picture.each do |pic|%>
+    <div>
+      <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
+    </div>
+  <%end%> 
+</div>
+</div>
 
 <script>
 handler = Gmaps.build('Google');
@@ -151,4 +161,14 @@ handler.buildMap({
     handler.fitMapToBounds();
   }
 );
+
+
+
+var owl = $(".owl-carousel");
+  owl.owlCarousel({  
+   autoPlay: 3000, //Set AutoPlay to 3 seconds
+   items : 4
+  });
+ 
+
 </script>
