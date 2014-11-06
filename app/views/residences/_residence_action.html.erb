@@ -10,7 +10,7 @@
               <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador", class: "form-control"%>
             </div>
             <div class="form-group"> 
-              <%=submit_tag "iniciar venda", :class => "btn btn-success col-lg-6 pull-right"%>
+              <%=submit_tag "iniciar venda", :class => "btn btn-success col-lg-3 pull-right"%>
             </div>
         <%end%>
         </div>
@@ -21,14 +21,40 @@
 		
 <!-- Imóvel está em negociacao-->
 <%if res_s == '1'%>
-	Clique aqui para Finalizar venda ou Clique em Cancelar Negociacao
-	<%= button_to 'Finalizar Venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '2'} , {:method=>:put}  %>
-	<%= button_to 'Cancelar Venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '3'} , {:method=>:put}  %>
+
+<div class="col-lg-6">
+  <div class="panel panel-success" style="height: 156px;">
+      <div class="panel-heading">
+        Clique para Finalizar a venda ou Clique em Cancelar
+      </div>
+      <div class="panel-body">
+        <div class="col-lg-6 text-center">
+          <%= button_to 'Finalizar Venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '2'} , {:method=>:put, :class => "btn btn-success"}  %>
+        </div>
+        <div class="col-lg-6 text-center">
+          <%= button_to 'Cancelar Venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '3'} , {:method=>:put, :class => "btn btn-danger"}  %>
+        </div>
+      </div>
+  </div>
+  <!-- /.col-lg-4 -->
+</div>
 <%end%>
 
 <!-- Imóvel está vendido -->
 <%if res_s == '2'%>
-	<%= button_to 'Disponibilizar imóvel para venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '1'} , {:method=>:put}  %>
+
+<div class="col-lg-6">
+    <div class="panel panel-warning" style="height: 156px;">
+        <div class="panel-heading">
+            Clique para disponibilizar para venda novamente
+        </div>
+        <div class="panel-body">
+          <div class="col-lg-12 text-center">
+            <%= button_to 'Disponibilizar imóvel para venda', {:controller => "residences", :action => "sale_action", :residence_id => params[:id], :sale_status => '1'} , {:method=>:put, :class => "btn btn-warning"}  %>                     
+          </div>  
+        </div>
+    </div>
+</div>	
 <%end%>
 
 
