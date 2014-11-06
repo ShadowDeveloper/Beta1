@@ -49,6 +49,29 @@ class ReportsController < ApplicationController
 		end
 	end
 
+	def sales
+		Axlsx::Package.new do |p|
+			wb = p.workbook
+			wb.styles do |s|
+				blue_border =  s.add_style :border => { :style => :thick, :color =>"FF0000FF", :edges => [:left, :right, :bottom, :top] }
+				
+				p.workbook.add_worksheet(:name => "Basic Worksheet") do |sheet|
+		 		sheet.add_row ['Relatório de Vendas'], b: true, :color =>"FF0000FF"
+	      	sheet.add_row ["Situação","Dono do Imóvel","Comprador", "Endereço do imóvel", "Início da venda"], b: true, :style => blue_border, :color =>"FF0000FF"
+		   	Sale.all.order('id desc').each do |sale|
+		   		sheet.add_row [sale.status_name, Client.where(cpf: sale.cpf_owner).first.name, Client.where(cpf: sale.cpf_client).first.name, Residence.find(sale.residence_id).street_code, sale.created_at.strftime("%m/%d/%Y às %I:%M%p")], :style => blue_border
+		   	end
+		   end
+ 	 	end
+ 	 	begin
+ 			p.serialize('reports/vendas.xlsx')
+ 			send_file "reports/vendas.xlsx", :type => "application/vnd.ms-excel", :filename => "imoveis_ativos.xls", :stream => false
+		rescue
+			send_file "reports/vendas.xlsx", :type => "application/vnd.ms-excel", :filename => "imoveis_ativos.xls", :stream => false
+		end
+		end
+	end
+
 	def informacoes_imovel_display
 
 		if params[:search] == "1"
@@ -67,5 +90,18 @@ class ReportsController < ApplicationController
 
 	def client_x_day_display
 		@client = Client.all
+	end
+
+	def sales_display
+		if params[:search] == "1"
+			@sales = Sale.where(status: 1)
+		elsif params[:search] == "2"
+			@sales = Sale.where(status: 2)
+		elsif params[:search] == "3"
+			@sales = Sale.where(status: 3)
+		else
+			@sales = Sale.all
+		end
+		@sales.order('id desc')
 	end
 end

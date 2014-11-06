@@ -5,4 +5,14 @@ class Sale < ActiveRecord::Base
 		2: venda concluida
 		3: venda cancelada
 =end
+
+	def status_name
+		if self.status == 1
+			"Em Negociacao"
+		elsif self.status == 2
+			"Venda Concluida"
+		else
+			"Venda cancelada"
+		end
+	end
 end
