@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102160612) do
+ActiveRecord::Schema.define(version: 20141105022607) do
+
+  create_table "acess_logs", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bank_account", force: true do |t|
     t.integer "client_id"
@@ -107,6 +113,15 @@ ActiveRecord::Schema.define(version: 20141102160612) do
     t.string    "state",          limit: 20
     t.timestamp "added_at"
     t.string    "complement",     limit: 10
+  end
+
+  create_table "sales", force: true do |t|
+    t.string   "cpf_owner"
+    t.string   "cpf_client"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "residence_id"
   end
 
 # Could not dump table "user" because of following NoMethodError

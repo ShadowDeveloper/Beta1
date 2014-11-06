@@ -75,12 +75,12 @@ class ResidencesController < ApplicationController
 		if client
 			@residence = Residence.find(params[:id])
 			@residence.status = "1"
-			@residence.save
+			#@residence.save
 			response = "Venda iniciada com sucesso!"
 		else
 			response = "Cliente não encontrado."
 		end
-		redirect_to :back
+		redirect_to :back, :flash => { :notice => response}
 	end
 
 	protected

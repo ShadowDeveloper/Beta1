@@ -77,6 +77,23 @@
             </tbody>    
         </table>
     </div>
+<<<<<<< HEAD
+=======
+    <div>
+      <%= form_tag('/residences/35/binding', method: :put) do%>
+        <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador"%>
+        <%= submit_tag "iniciar venda"%>
+      <%end%>
+
+      <% if flash[:notice]%>
+        <%= flash[:notice]%>
+      <% end %>
+
+      <%@residence.picture.each do |pic|%>
+        <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
+      <%end%>
+    </div>
+>>>>>>> c8e6cc5d1355f46c13ae39cb4e133c806a83361f
 </div>
 
 </div>
