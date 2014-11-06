@@ -8,7 +8,7 @@
 <%= form_tag("/residences", method: "get") do %>
   <div class="row">
     <div class="col-lg-12">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <div class="panel panel-default">
           <div class="panel-body">        
               <div class="form-group">         
@@ -17,8 +17,12 @@
                    <option value="">Selecione</option>
                    <option value="3">A Venda</option>
                    <option value="2">Vendido</option>
-                   <option value="1">Em negociação</option> 
+                   <option value="1">Em negociação</option>
+                   <option value="4">Código do imóvel</option>
                 </select>
+              </div>
+              <div class='search_id'>
+
               </div>
               <%= submit_tag "Buscar",  :class=>"btn btn-success col-lg-3 pull-right"%>
           </div>
@@ -35,4 +39,12 @@
 $( document ).ready(function() {
     validateFormSearchResidence();
 });
+
+$("#residence_status").change(function(){
+  if ( $("#residence_status").val() == '4' ){
+    $(".search_id").html("<input type='text' name='residence_search' class='form-control req' placeholder='Código do Imóvel' style='margin-bottom: 15px;'/>");
+  } else {
+    $(".search_id").html("");
+  }
+})
 </script>
