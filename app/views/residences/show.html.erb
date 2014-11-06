@@ -77,6 +77,9 @@
             </tbody>    
         </table>
     </div>
+<<<<<<< HEAD
+  </div>
+=======
 
     <div>
       <%= render 'residence_action', res_s: @residence.status %>
@@ -89,19 +92,63 @@
       <%end%>
     </div>
 
+>>>>>>> ff09d4c474b8c9e1bc88042863d12540ba693bf9
 </div>
 
-</div>
 
 <div class="col-lg-6">
-
   <div class="col-lg-12">
       <div id="basic_map"></div>   
   </div>
-
 </div>
 
-<%= render partial: "edit" %>
+<div class="col-lg-12">
+<div class="row">
+  <h1 class="page-header"></h1>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+        <div id="residence_information " class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading"><strong>Cadastro de imagem do imóvel</strong></div>
+              <div class="panel-body">
+                  <%= render partial: "edit"%>
+              </div>
+          </div>
+        </div>                
+
+        <div id="residence_information " class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading"><strong>Cadastro de imagem do imóvel</strong></div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <%= form_tag('/residences/35/binding', method: :put) do%>
+                    <div class="form-group">
+                      <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador", class: "form-control"%>
+                    </div>
+                    <div class="form-group"> 
+                      <%=submit_tag "iniciar venda", :class => "btn btn-success col-lg-6 pull-right"%>
+                    </div>
+                <%end%>
+                </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>    
+
+
+<div class="col-lg-12">
+<div class="owl-carousel">
+  <%@residence.picture.each do |pic|%>
+    <div>
+      <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
+    </div>
+  <%end%> 
+</div>
+</div>
 
 
 
@@ -131,4 +178,14 @@ handler.buildMap({
     handler.fitMapToBounds();
   }
 );
+
+
+
+var owl = $(".owl-carousel");
+  owl.owlCarousel({  
+   autoPlay: 3000, //Set AutoPlay to 3 seconds
+   items : 4
+  });
+ 
+
 </script>

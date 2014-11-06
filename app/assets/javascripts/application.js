@@ -17,6 +17,8 @@
 //= require underscore
 //= require gmaps/google
 //= require 'icheck'
+//= require owl.carousel
+
 
 //mascaras dos forms de input
 function ProjectInputMasks(){

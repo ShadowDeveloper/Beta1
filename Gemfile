@@ -65,3 +65,6 @@ end
 
  #Personalziar checkbox
  gem 'icheck-rails'
+
+ #Carrossel de imagens
+ gem 'owlcarousel-rails'
