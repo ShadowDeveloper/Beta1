@@ -124,3 +124,20 @@
       </table>
     </div>
 </div>
+
+<div class="col-lg-6">
+<div class="panel panel-default">
+
+      <div class="panel-heading">Imóveis comprados</div>
+      <table class="table table-bordered">
+        <tbody>
+        <% @client.residence_negotiation_completed.each do |nego| %>
+          <tr>
+            <td><b>Endereço</b></td>
+            <td><a href="/residences/<%= nego.residence_id%>" target="_blank"><%= Residence.find(nego.residence_id).street_code%></a></td>
+          </tr>
+        <%end%>   
+        </tbody>
+      </table>
+    </div>
+</div>
