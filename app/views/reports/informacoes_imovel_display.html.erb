@@ -238,6 +238,16 @@ tfoot tr td {
     </div>
     <!-- /.col-lg-12 -->
 </div>
+  <%= form_tag "/reports/informacoes_imovel_display", :method => "GET"  do %>
+    <select name="search">
+      <option value=''>Selecione</option>
+      <option value='todos'>Todos</option>
+      <option value='3'>A Venda</option>
+      <option value='1'>Em negociação</option>
+      <option value='2'>Vendido</option>
+    </select>
+  <%= submit_tag%>
+  <%end%>
 
 <%= report_simple_container("Relatório de Informações de Imóveis","/reports/informacoes_imovel") %>
 <table>

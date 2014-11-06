@@ -50,7 +50,19 @@ class ReportsController < ApplicationController
 	end
 
 	def informacoes_imovel_display
-		@residence = Residence.all
+
+		if params[:search] == "1"
+			#Em negociação
+			@residence = Residence.where(status: 1)
+		elsif params[:search] == '2'
+			#Vendido
+			@residence= Residence.where(status: 2)
+		elsif params[:search] == "3"
+			#A Venda
+			@residence = Residence.where(status: 3)
+		else
+			@residence = Residence.all
+		end
 	end
 
 	def client_x_day_display

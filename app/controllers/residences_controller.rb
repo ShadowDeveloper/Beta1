@@ -93,15 +93,23 @@ class ResidencesController < ApplicationController
 		residence = Residence.find(params[:id])
 		sale = Sale.where(residence_id: residence.id, status: 1).first
 		
+		# Quando status for 2, é uma confirmacao de venda,
+		# Quando status for 1, o imovél está disponivel para venda
+		# Quando status for 3, é um cancelamento de venda.
+	
 		if params[:sale_status] == '2'
 			sale.status = 2
 			residence.status = 2
+			sale.save
+		elsif  params[:sale_status] == '1'
+			residence.status = 3
 		else
 			sale.status = 3
 			residence.status = 3
+			sale.save
 		end
 
-		sale.save
+		
 		residence.save
 
 		redirect_to :back

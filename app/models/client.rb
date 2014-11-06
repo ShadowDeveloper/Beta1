@@ -14,4 +14,12 @@ class Client < ActiveRecord::Base
 	has_many :residence
 
 	has_many :bank_account
+
+	def residence_negotiation
+		Sale.where(cpf_client: self.cpf, status: 1)
+	end
+
+	def residence_negotiation_completed
+		Sale.where(cpf_client: self.cpf, status: 2)
+	end
 end
