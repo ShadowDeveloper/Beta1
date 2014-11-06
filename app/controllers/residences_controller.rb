@@ -75,12 +75,36 @@ class ResidencesController < ApplicationController
 		if client
 			@residence = Residence.find(params[:id])
 			@residence.status = "1"
-			#@residence.save
+			@residence.save
+			Sale.create(
+				cpf_owner: 	  @residence.client.cpf,
+				cpf_client:   client.cpf,
+				status: 	  '1',
+				residence_id: @residence.id
+			)
 			response = "Venda iniciada com sucesso!"
 		else
 			response = "Cliente não encontrado."
 		end
 		redirect_to :back, :flash => { :notice => response}
+	end
+
+	def sale_action
+		residence = Residence.find(params[:id])
+		sale = Sale.where(residence_id: residence.id, status: 1).first
+		
+		if params[:sale_status] == '2'
+			sale.status = 2
+			residence.status = 2
+		else
+			sale.status = 3
+			residence.status = 3
+		end
+
+		sale.save
+		residence.save
+
+		redirect_to :back
 	end
 
 	protected

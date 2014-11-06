@@ -3,9 +3,9 @@ module ResidenceHelper
 	def residence_status
 		[
 			['Selecione',''],
-			['Venda','3'],
+			['A Venda','3'],
 			#['Compra','1'],
-			['Locação','2']
+			['Vendido','2']
 		]
 	end
 
@@ -19,9 +19,9 @@ module ResidenceHelper
 	
 	def self.status_name
         {
-          "3" => "Venda",
+          "3" => "A Venda",
           "1" => "Em negociação",
-          "2" => "Locação"
+          "2" => "Vendido"
         }
     end
     
