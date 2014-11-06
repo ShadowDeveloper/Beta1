@@ -1,16 +1,24 @@
 <!-- Imóvel está a venda-->
 <% if res_s == '3'%>
-<div class="col-lg-6">
-	<%= form_tag("/residences/#{params[:id]}/binding", method: :put) do%>
-	 <div class="form-group">
-        <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador", :class => "form-control"%>
-        <%= submit_tag "Iniciar venda", :class => "btn btn-success col-lg-6 pull-right"%>
-     </div>
-    <%end%>
+<div id="residence_information " class="col-lg-6">
+  <div class="panel panel-default">
+    <div class="panel-heading"><strong>Digite o CPF do comprador para iniciar a venda o imóvel</strong></div>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= form_tag("/residences/#{params[:id]}/binding", method: :put) do%>
+            <div class="form-group">
+              <%= text_field_tag :cpf, nil, placeholder: "CPF do comprador", class: "form-control"%>
+            </div>
+            <div class="form-group"> 
+              <%=submit_tag "iniciar venda", :class => "btn btn-success col-lg-6 pull-right"%>
+            </div>
+        <%end%>
+        </div>
+    </div>
+  </div>
 </div>
 <%end%>
-
-
+		
 <!-- Imóvel está em negociacao-->
 <%if res_s == '1'%>
 	Clique aqui para Finalizar venda ou Clique em Cancelar Negociacao
