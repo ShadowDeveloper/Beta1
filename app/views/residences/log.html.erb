@@ -1,0 +1,26 @@
+<div class="row">
+  <h1></h1>
+</div>
+
+<div class="col-lg-6 center-block" style="float:none;">
+	<div class="panel panel-default">
+		<div class="table-responsive">
+		  <table class="table table-striped">
+		  	<thead>
+		  		<th>Atividade</th>
+		    	<th>Usuário</th>
+		    	<th>Data</th>
+		  	</thead>
+		    <tbody>
+		    	<% @log.each  do |l| %>
+			      <tr>
+			        <td><%= l.description%></td>
+			        <td><%= User.find(l.user_id).login %></td>
+			        <td><%= l.created_at.strftime("%d/%m%Y") %></td>
+			      </tr>
+		      <% end %>
+		    </tbody>    
+		  </table>
+		</div>
+	</div>	
+</div>

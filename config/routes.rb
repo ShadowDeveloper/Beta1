@@ -4,6 +4,7 @@ Proto::Application.routes.draw do
   resources :residences do
     put 'binding', on: :member
     put 'sale_action', on: :member
+    get 'log', on: :member
   end
 
   resources :users do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107040122) do
+ActiveRecord::Schema.define(version: 20141107053439) do
 
   create_table "acess_logs", force: true do |t|
     t.integer  "user_id"
@@ -99,6 +99,14 @@ ActiveRecord::Schema.define(version: 20141107040122) do
     t.integer "qtd_suite"
     t.integer "qtd_banheiro"
     t.integer "qtd_garage"
+  end
+
+  create_table "residence_logs", force: true do |t|
+    t.integer  "residence_id"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "residences", force: true do |t|

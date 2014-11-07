@@ -59,7 +59,7 @@ class ReportsController < ApplicationController
 		 		sheet.add_row ['Relatório de Vendas'], b: true, :color =>"FF0000FF"
 	      	sheet.add_row ["Situação","Dono do Imóvel","Comprador", "Endereço do imóvel", "Início da venda"], b: true, :style => blue_border, :color =>"FF0000FF"
 		   	Sale.all.order('id desc').each do |sale|
-		   		sheet.add_row [sale.status_name, Client.where(cpf: sale.cpf_owner).first.name, Client.where(cpf: sale.cpf_client).first.name, Residence.find(sale.residence_id).street_code, sale.created_at.strftime("%m/%d/%Y às %I:%M%p")], :style => blue_border
+		   		sheet.add_row [sale.status_name, Client.where(cpf: sale.cpf_owner).first.name, Client.where(cpf: sale.cpf_client).first.name, Residence.find(sale.residence_id).street_code, sale.created_at.strftime("%d/%m/%Y às %I:%M%p")], :style => blue_border
 		   	end
 		   end
  	 	end
@@ -82,7 +82,7 @@ class ReportsController < ApplicationController
 		 		sheet.add_row ['Relatório de Acesso'], b: true, :color =>"FF0000FF"
 	      	sheet.add_row ["Usuário","Nome","Data de Acesso", "IP"], b: true, :style => blue_border, :color =>"FF0000FF"
 		   	 AcessLog.order('id desc').each do |log|
-		   		sheet.add_row [User.find(log.user_id).login, User.find(log.user_id).name, log.created_at.strftime("%m/%d/%Y às %I:%M%p"), log.ip], :style => blue_border
+		   		sheet.add_row [User.find(log.user_id).login, User.find(log.user_id).name, log.created_at.strftime("%d/%m/%Y às %I:%M%p"), log.ip], :style => blue_border
 		   	end
 		   end
  	 	end

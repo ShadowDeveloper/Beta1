@@ -91,6 +91,12 @@ class ResidencesController < ApplicationController
 				status: 	  '1',
 				residence_id: @residence.id
 			)
+
+			ResidenceLog.create(
+				user_id: session[:user_id],
+				residence_id: params[:id],
+				description: "Início de venda",
+			)
 			response = "Venda iniciada com sucesso!"
 		else
 			response = "Cliente não encontrado."
@@ -110,18 +116,40 @@ class ResidencesController < ApplicationController
 			sale.status = 2
 			residence.status = 2
 			sale.save
+
+			ResidenceLog.create(
+				user_id: session[:user_id],
+				residence_id: params[:id],
+				description: "Imóvel vendido",
+			)
 		elsif  params[:sale_status] == '1'
 			residence.status = 3
+
+			ResidenceLog.create(
+				user_id: session[:user_id],
+				residence_id: params[:id],
+				description: "Disponível para venda",
+			)
 		else
 			sale.status = 3
 			residence.status = 3
 			sale.save
+
+			ResidenceLog.create(
+				user_id: session[:user_id],
+				residence_id: params[:id],
+				description: "Venda vancelada",
+			)
 		end
 
 		
 		residence.save
 
 		redirect_to :back
+	end
+
+	def log
+		@log = ResidenceLog.where(residence_id: params[:id])
 	end
 
 	protected

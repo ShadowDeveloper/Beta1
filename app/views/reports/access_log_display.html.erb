@@ -259,7 +259,7 @@ tfoot tr td {
   <tr>
     <td><%= User.find(log.user_id).login %></td>
     <td><%= User.find(log.user_id).name %></td>
-    <td><%= log.created_at.strftime("%m/%d/%Y às %I:%M%p") %></td>
+    <td><%= log.created_at.strftime("%d/%m/%Y às %I:%M%p") %></td>
     <td><%= log.ip %></td>
   </tr>
 <%end%>

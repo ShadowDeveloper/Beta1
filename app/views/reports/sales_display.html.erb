@@ -291,7 +291,7 @@ tfoot tr td {
     <td><%= Client.where(cpf: sale.cpf_owner).first.name %></td>
     <td><%= Client.where(cpf: sale.cpf_client).first.name %></td>
     <td><%= Residence.find(sale.residence_id).street_code %></td>
-    <td><%= sale.created_at.strftime("%m/%d/%Y às %I:%M%p") %></td>
+    <td><%= sale.created_at.strftime("%d/%m/%Y às %I:%M%p") %></td>
   </tr>
 <%end%>
 </table>
