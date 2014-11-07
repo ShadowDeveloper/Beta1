@@ -104,4 +104,8 @@ class ReportsController < ApplicationController
 		end
 		@sales.order('id desc')
 	end
+
+	def access_log_display
+		@access_log = AcessLog.order('id desc')
+	end
 end
