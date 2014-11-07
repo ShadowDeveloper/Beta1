@@ -27,7 +27,7 @@ table {
 
   font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;  
 
-  color: #1c5d79;
+  color: #2364b0;
 
   
 
@@ -93,7 +93,7 @@ thead tr th {
 
   text-align: center;
 
-  color: #1c5d79;
+  color: #2364b0;
 
   background-image: url(col_bg.gif);
 
@@ -117,7 +117,7 @@ thead tr th {
 
 tbody tr {
 
-  background: #dfedf3;
+  background: #fff;
 
   font-size: 13px;
 
@@ -144,7 +144,7 @@ tbody tr th, tbody tr td {
 
 tbody tr th {
 
-  background: #1c5d79;
+  background: #2364b0;
 
   font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;  
 
@@ -232,22 +232,38 @@ tfoot tr td {
   text-align: right;
 }
 </style>
+
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Relatório de Imóveis</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
-  <%= form_tag "/reports/informacoes_imovel_display", :method => "GET"  do %>
-    <select name="search">
-      <option value=''>Selecione</option>
-      <option value='todos'>Todos</option>
-      <option value='3'>A Venda</option>
-      <option value='1'>Em negociação</option>
-      <option value='2'>Vendido</option>
-    </select>
-  <%= submit_tag%>
+
+<div class="row">
+  <div class="col-lg-6 center-block" style="float:none;">
+  <%= form_tag "/reports/informacoes_imovel_display", :method => "GET"  do %>   
+    <div class="form-group">         
+     <label>Status do Imóvel *</label>
+      <select class="form-control" name="search">
+        <option value=''>Selecione</option>
+        <option value='todos'>Todos</option>
+        <option value='3'>A Venda</option>
+        <option value='1'>Em negociação</option>
+        <option value='2'>Vendido</option>
+      </select>
+    </div>
+    <%= submit_tag "Filtrar", :class => "btn btn-success col-lg-4 pull-right"%>
   <%end%>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"></h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
 
 <%= report_simple_container("Relatório de Informações de Imóveis","/reports/informacoes_imovel") %>
 <table>

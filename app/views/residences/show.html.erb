@@ -118,7 +118,7 @@
           <div class="owl-carousel">
             <%@residence.picture.each do |pic|%>
               <div>
-                <img src="/system/pictures/pics/000/000/00<%=pic.id%>/original/<%= pic.pic_file_name%>"/>
+                <img src="/system/pictures/pics/000/000/<%=pic.original_id%>/original/<%= pic.pic_file_name%>"/>
               </div>
             <%end%> 
           </div>
