@@ -8,9 +8,9 @@ class Sale < ActiveRecord::Base
 
 	def status_name
 		if self.status == 1
-			"Em Negociacao"
+			"Em negociacao"
 		elsif self.status == 2
-			"Venda Concluida"
+			"Venda concluida"
 		else
 			"Venda cancelada"
 		end

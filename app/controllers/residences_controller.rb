@@ -97,7 +97,7 @@ class ResidencesController < ApplicationController
 				residence_id: params[:id],
 				description: "Início de venda",
 			)
-			response = "Venda iniciada com sucesso!"
+			response = ""
 		else
 			response = "Cliente não encontrado."
 		end
@@ -120,7 +120,7 @@ class ResidencesController < ApplicationController
 			ResidenceLog.create(
 				user_id: session[:user_id],
 				residence_id: params[:id],
-				description: "Imóvel vendido",
+				description: "Imóvel vendido para #{sale.cpf_client}",
 			)
 		elsif  params[:sale_status] == '1'
 			residence.status = 3
@@ -138,7 +138,7 @@ class ResidencesController < ApplicationController
 			ResidenceLog.create(
 				user_id: session[:user_id],
 				residence_id: params[:id],
-				description: "Venda vancelada",
+				description: "Venda cancelada",
 			)
 		end
 
