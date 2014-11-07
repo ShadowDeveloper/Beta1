@@ -65,9 +65,32 @@ class ReportsController < ApplicationController
  	 	end
  	 	begin
  			p.serialize('reports/vendas.xlsx')
- 			send_file "reports/vendas.xlsx", :type => "application/vnd.ms-excel", :filename => "imoveis_ativos.xls", :stream => false
+ 			send_file "reports/vendas.xlsx", :type => "application/vnd.ms-excel", :filename => "vendas.xls", :stream => false
 		rescue
-			send_file "reports/vendas.xlsx", :type => "application/vnd.ms-excel", :filename => "imoveis_ativos.xls", :stream => false
+			send_file "reports/vendas.xlsx", :type => "application/vnd.ms-excel", :filename => "vendas.xls", :stream => false
+		end
+		end
+	end
+
+	def access_log
+		Axlsx::Package.new do |p|
+			wb = p.workbook
+			wb.styles do |s|
+				blue_border =  s.add_style :border => { :style => :thick, :color =>"FF0000FF", :edges => [:left, :right, :bottom, :top] }
+				
+				p.workbook.add_worksheet(:name => "Basic Worksheet") do |sheet|
+		 		sheet.add_row ['Relatório de Acesso'], b: true, :color =>"FF0000FF"
+	      	sheet.add_row ["Usuário","Nome","Data de Acesso", "IP"], b: true, :style => blue_border, :color =>"FF0000FF"
+		   	 AcessLog.order('id desc').each do |log|
+		   		sheet.add_row [User.find(log.user_id).login, User.find(log.user_id).name, log.created_at.strftime("%m/%d/%Y às %I:%M%p"), '192.168.232.158'], :style => blue_border
+		   	end
+		   end
+ 	 	end
+ 	 	begin
+ 			p.serialize('reports/acesso.xlsx')
+ 			send_file "reports/acesso.xlsx", :type => "application/vnd.ms-excel", :filename => "acesso.xls", :stream => false
+		rescue
+			send_file "reports/acesso.xlsx", :type => "application/vnd.ms-excel", :filename => "acesso.xls", :stream => false
 		end
 		end
 	end

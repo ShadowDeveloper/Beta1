@@ -239,7 +239,7 @@ tfoot tr td {
     <!-- /.col-lg-12 -->
 </div>
 
-<%= report_simple_container("Relatório de Informações de Imóveis","/reports/client_x_day") %>
+<%= report_simple_container("Relatório de acesso","/reports/access_log") %>
 <table>
 <tr>
   <th scope="col">
@@ -251,12 +251,16 @@ tfoot tr td {
   <th scope="col">
     Data de Acesso
   </th>
+  <th scope="col">
+    IP
+  </th>
 </tr>
 <% @access_log.each do |log| %>
   <tr>
     <td><%= User.find(log.user_id).login %></td>
     <td><%= User.find(log.user_id).name %></td>
     <td><%= log.created_at.strftime("%m/%d/%Y às %I:%M%p") %></td>
+    <td>192.168.232.158</td>
   </tr>
 <%end%>
 </table>
