@@ -249,9 +249,6 @@ tfoot tr td {
     Nome
   </th>
   <th scope="col">
-    IP
-  </th>
-  <th scope="col">
     Data de Acesso
   </th>
 </tr>
@@ -259,7 +256,6 @@ tfoot tr td {
   <tr>
     <td><%= User.find(log.user_id).login %></td>
     <td><%= User.find(log.user_id).name %></td>
-    <td><%= "1.3" %></td>
     <td><%= log.created_at.strftime("%m/%d/%Y às %I:%M%p") %></td>
   </tr>
 <%end%>
