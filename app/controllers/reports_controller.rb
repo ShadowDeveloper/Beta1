@@ -82,7 +82,7 @@ class ReportsController < ApplicationController
 		 		sheet.add_row ['Relatório de Acesso'], b: true, :color =>"FF0000FF"
 	      	sheet.add_row ["Usuário","Nome","Data de Acesso", "IP"], b: true, :style => blue_border, :color =>"FF0000FF"
 		   	 AcessLog.order('id desc').each do |log|
-		   		sheet.add_row [User.find(log.user_id).login, User.find(log.user_id).name, log.created_at.strftime("%m/%d/%Y às %I:%M%p"), '192.168.232.158'], :style => blue_border
+		   		sheet.add_row [User.find(log.user_id).login, User.find(log.user_id).name, log.created_at.strftime("%m/%d/%Y às %I:%M%p"), log.ip], :style => blue_border
 		   	end
 		   end
  	 	end

@@ -11,7 +11,7 @@ class SessionController < ApplicationController
 		if  user
 			session[:user_id]     = user.id
 			session[:user_login]  = user.login
-			AcessLog.create(user_id: user.id)
+			AcessLog.create(user_id: user.id, ip: request.remote_ip)
 			redirect_to "/home"
 			return
 		else
